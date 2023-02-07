@@ -1,0 +1,190 @@
+                                                                          Classes
+What is a Class?
+•	In Simple Words we can define class as a blueprint or logical entity to a real time problem. Mainly, the word class comes in the Object-Oriented Programming Languages like C++, Java.
+•	Class contains class name, attributes, data, and methods in it.
+•	Class doesn’t contain any memory.
+•	It is a prototype by which objects are created.
+Why are we using a Class?
+•	I would like to tell this answer via simple example.
+•	Example:  We want to manufacture a Car or a four-wheeler vehicle. 
+•	A vehicle contains Gear Box, Clutch plates, Brake system, wheel alignment, and etc. All these are attributes of a vehicle. For, any vehicle we use these attributes only. So, we would like to fix these attributes permanently in one place or like a template so, that we shouldn’t use these attributes again which might increase our memory space. In that case, class helps us to resolve this situation. Class which doesn’t contain any memory and we can define all the above given attributes here and it will be fixed/stored which can used anytime, anywhere.
+We are using class because we would like to create a real-time entity and store in it. So, that it helps us in consuming less memory and reduces reuse. This is the reason why we are using a class.
+
+Where to use a Class?
+	A class can used in any Object-Oriented Programming Language like C++, Java.
+	A class can be defined in two ways:
+1.	A main class contains main method from where we can call normal class.
+2.	A normal class which contains data, attributes, and methods.
+
+Types of Class:
+	There are 2 types of class:
+1.	Pre-define class
+2.	User-define class
+
+	Pre-define class:
+•	What is a Pre-Define class?
+	A pre-define class which is been created by a java developer and can be used by everyone which reduces time, and memory.
+	These are defined already and are stored in Java library.
+Examples:
+	Scanner class, Array-list, Wrapper class, and etc.
+	Every class has its own features in it.
+
+	User-define class:
+•	What is a User-Define class?
+	A user-define class which will be created by us/programmers.
+	We can create our own class and we can declare our own attributes, methods in it.
+
+How to declare a Class?
+	A class can be declared using keyword “Class” followed by class name.
+	We can declare class using keyword Class and also, we can add access modifiers as a pre-fix.
+ 
+Class class-name{                                 Class class-name{
+  //Body of a class                                           //Fields  
+}                                                                      //Methods
+                                                                     }
+
+
+Example of a Class:
+Example1:
+      class Example {
+                public void show() {
+                     System.out.println("This program is running");
+                      }
+                }
+class Main {
+    public static void main (String[] args){
+        Example r = new Example ();
+        r.show();
+    }
+}
+Output: This program is running.
+
+Keywords used in the above example:
+ Class, public, static, void, main, String[] args, System.out.println, and objects.
+“We will be learning about these words and would be writing a report on them in further document.”
+Example 2:
+class Example{
+    int a=1;
+    String name="uttej";
+    public void show(){
+        System.out.println(a+" "+name);
+    }
+}
+class Main{
+    public static void main(String[] args){
+        Example x = new Example();
+        x.show();
+    }
+}
+Output:  1 uttej
+
+Example3:
+ class Example{
+    int a=1;
+    String name="uttej";
+    public void show(){
+        System.out.println(a+" "+name);
+    }
+    public static void main(String[] args){
+        Example r = new Example();
+        r.show();
+    }
+}
+Output: Error: Could not find or load main class Main
+Caused by: java.lang.ClassNotFoundException: Main
+ 
+
+In Example3 we can come across Run time Exception. So what is a Run time Exception these come across when we have any illogical code in our program or any syntax which isn’t written following the rules.
+So, I did this because we can know what is java and how does it work in different situations
+So, by this example we have come across and noticed that if we are using only a single class then we need to declare that one class as Main class.
+
+After correcting the error,
+
+class Main{
+    int a=1;
+    String name="uttej";
+    public void show(){
+        System.out.println(a+" "+name);
+    }
+    public static void main(String[] args){
+        Main r = new Main();
+        r.show();
+    }
+}
+Output:
+1 uttej
+
+ 
+While we are learning about class, we even need to know about objects because without objects we cannot use classes.
+
+                                                                          Objects
+What is a Object?
+	A simple definition of object is Object is an Instance of class and it the basic unit of Object-Oriented Programming Language. It represents real-time entities
+	We can create n- number of objects in a single program.
+	Object contains some state and behavior.
+	Object contains address and contains some memory.
+	An object consists of:
+1.	State: - It represent the attributes of an object.
+2.	Behavior: - It represent the methods of an object.
+3.	Identity: - A unique name given to an object.
+   Example of an object:
+         Maruti Suzuki Swift
+        Identity: Maruti Suzuki Swift
+       Behavior: Mileage, CC, Interior, Brake-system
+       State: Color, Sound
+
+Why to use Object?
+	In the definition itself it told us that it is an instance of a class. Means, it is a member of a class. So, being a member, it needs to created mandatory and it executes class. Object is being involved at every moment when we are using a class or it is used to call a non-static function/ class.
+
+Where to use Object?
+	Object is used to execute a class. It should be declared in Main method.
+I want to show a Example. If we won’t declare a Object in Main method, if we declare in any other method we will see what is the output.
+public class Main
+{
+    public void a(){
+        System.out.println("Running!");
+    }
+    public void show(){
+        Main r = new Main();
+        r.a();
+    }
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+	}
+}
+Output: Hello World
+There will no compile time or run-time error. But the object will not be called if we declare a object in any other method other than Main method.
+
+But if we want to call that object then we need to make it static block.
+Static Block: - static block is a set of instructions that is run only once when a class is loaded into memory.
+public class Main
+{
+    public void a(){
+        System.out.println("Running!");
+    }
+     static {
+        Main r = new Main();
+        r.a();
+    }
+	public static void main(String[] args) {
+	   // Main k = new Main();
+	   // k.show();
+	   // k.a();
+		System.out.println("Hello World");
+	}
+}
+Output: Running!
+Hello World
+
+How to declare Object?
+	An object can only be declared in Main Method only.
+
+Example               obj  =                  new      Example();
+          |                      |                           |              |
+         V                    V                         V             V 
+Calling a class    obj.reference     DMA     Constructor
+
+
+
+DMA: - Dynamic Memory Allocation. Memory will be allocated to a particular object while creating it.
+new(keyword): - It is used because it will be telling the compiler that we are creating a new object with allocating memory for it.
