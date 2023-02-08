@@ -1,0 +1,313 @@
+                                                                         Constructors
+What is a constructor?
+-It is a special method which is used to initialize the objects.
+-It is used to create an instance of the class.
+-They are similar to methods. The difference is constructor name should be same as class name and there will be no return type.
+-A constructor can have a access modifer.
+-Its optional to declare a constructor. Compiler automatically creates a default constructor .
+-Whenever we use "new" keyword to create an instance of a class, the constructor is invoked and object of the class is returned.
+-If we add any return type to a constructor then it acts as a method.
+-We use constructor to create the instance of the class.
+
+Rules of creating a constructor in Java: -
+1)Class name and Constructor name should be same.
+2)A Constructor shouldn't have any return type.
+3)A Constructor cannot be abstract,final,static, and synchronized.
+4)Constructor can be accessed only once when object is created.
+
+Syntax of constructor: -
+        class constructor{
+                              constructor{
+                                   //Body of constructor
+                                    }
+                                  }
+-If we defined any constructor and while we created any object and executed it. Initally, data of the constructor will be executed. After that, other methods in that class will be executed.
+-While creating an object, memory will be allocated for that constructor.
+
+Types of constructors: -
+1)Default Constructor
+2)No-Args Constructor
+3)Parameterized Constructor
+
+1)Default Constructor
+-When it comes to Default Constructor, we no need to declare it in class. While compiling the code, the java provides default constructor itself.
+
+Example:-
+ Example1:
+  class constr1{
+  
+       public static void main(String[] args){
+              constr1 con = new constr1();
+}
+
+Output:
+  E:\full_creative_internship\month1\week1\constructor> javac constr1.java
+
+E:\full_creative_internship\month1\week1\constructor>java constr1
+
+//The output is quite simple. When we created a object and executed it. While compiling there will be a default constructor created.
+
+Example2:
+
+class Ab{
+  int i;
+  String name;
+   public void display(){
+     System.out.println("name: "+name+"age: "+i);
+    }
+}
+public class constr3{
+  public static void main(String[] args){
+   Ab ex = new Ab();
+   ex.display();
+   }
+}
+
+Output:
+name: nullage: 0
+//It acts as a default constructor. We didn't pass any arguments so, we are getting our output as null.
+
+2)No-args Constructor
+-Constructor without any argument is known as no-args constructor.
+-It is almost same like Default constructor. The only difference is: we can add print statements in it.
+
+Example:-
+  Example3:
+   class example{
+   example(){
+     System.out.println("Constructor would be displayed first!");
+      }
+   public void show(){
+     System.out.println("Method is execcuted");
+      }
+}
+class constr2{
+  public static void main(String[] args){
+     example ex = new example();
+    ex.show();
+    }
+}
+
+Output:
+Constructor would be displayed first!
+Method is execcuted
+
+//In example3, initially constructor data will be executed first.
+
+3)Parameterized Constructor
+-In Parameterized Constructor, we will be assigning to parameters into it.
+
+-We can assign 'n' no of parameters into it.
+-A program can contain no-args and parameterized constructor in it.
+
+Example:-
+ Example4:
+
+class Ab{
+    int i;
+    String name;
+    int sal;
+     Ab(){
+        System.out.println("This constructor acts as no-args constructor");
+}
+   Ab(int j, String name1, int salary){
+         this.i = j;
+         this.name = name1;
+         this.sal = salary;
+       }
+  public void show(){
+    System.out.println("name of the employee: "+name+"Age of the employee: "+i+"Salary of the employee: "+sal);
+   }
+}
+class constr4{
+   public static void main(String[] args){
+       Ab ex = new Ab(21,"uttej",400000);
+       Ab ex1 = new Ab();
+       ex.show();
+       ex1.show();
+   }
+}
+
+Output:
+
+E:\full_creative_internship\month1\week1\constructor>javac constr4.java
+
+E:\full_creative_internship\month1\week1\constructor>java constr4
+This constructor acts as no-args constructor
+name of the employee: uttejAge of the employee: 21Salary of the employee: 400000
+name of the employee: nullAge of the employee: 0Salary of the employee: 0
+
+Constructor Overloading
+-When we are having more than one constructor in our program differentiated by arguments. Then it is known as constructor overloading.
+
+Example5:
+
+class Ab{
+  int i;
+ String name;
+  Ab(){
+     System.out.println("Working!");
+    }
+ Ab(String name1){
+   this.name = name1;
+     System.out.println("name of the employee is: "+name);
+   }
+ Ab(int j,String name1){
+   this.name = name1;
+   this.i=j;
+     System.out.println("name of the employee is: "+name+" and age of the employee: "+i);
+   }
+}
+class constr5{
+   public static void main(String[] args){
+     Ab ex = new Ab();
+     Ab ex1 = new Ab("uttej");
+     Ab ex2 = new Ab(21,"uttej");
+     }
+}
+
+Output:
+
+E:\full_creative_internship\month1\week1\constructor>javac constr5.java
+
+E:\full_creative_internship\month1\week1\constructor>java constr5
+Working!
+name of the employee is: uttej
+name of the employee is: uttej and age of the employee: 21
+
+Private constructor
+-A constructor can be declared as private constructor when we keep its access modifer as private. We can access that constructor when its objects are created inside the same class.
+- To achieve singleton design, we will be doing private constructor.
+-We use private constructor to achieve more security.
+
+Example:-
+
+Example6:
+
+class constr6{
+  int a;
+  String name;
+      private constr6(){
+         a = 21; name = "uttej";
+         System.out.println(a+" "+name);
+        }
+   public static void main(String[] args){
+   constr6 ex = new constr6();
+   }
+}
+
+output:
+E:\full_creative_internship\month1\week1\constructor>javac constr6.java
+
+E:\full_creative_internship\month1\week1\constructor>java constr6
+21 uttej
+
+Example 7:
+
+class con{
+  int a;
+  String name;
+      private con(){
+         a = 21; name = "uttej";
+         System.out.println(a+" "+name);
+        }
+}
+class constr7{
+   public static void main(String[] args){
+   con ex = new con();
+   }
+}
+
+output:
+
+E:\full_creative_internship\month1\week1\constructor>javac constr7.java
+constr7.java:11: error: con() has private access in con
+   con ex = new con();
+            ^
+1 error
+
+// Private data can only be accessed in same class only. 
+// Solution is main should be in same class or static block needs to be declared.
+
+
+Copy constructor
+-In java there is no copy constructor. We can copy the values from one object to another.
+
+Ways to create a constructor:
+1)By constructor
+2)By assigning the values from one object into another
+
+1)By constructor
+
+We will declaring the constructor by giving the parameters as another constructor name.
+
+Example 8:
+
+class Student6{  
+    int i;  
+    String name;  
+   
+    Student6(int j,String n){  
+    i = j;  
+    name = n;  
+    }  
+    //constructor to initialize another object  
+    Student6(Student6 s){  
+    i = s.i;  
+    name =s.name;  
+    }  
+    void display(){System.out.println(i+" "+name);}  
+   }
+class constr8{
+    public static void main(String args[]){  
+    Student6 s1 = new Student6(114990,"uttej");  
+    Student6 s2 = new Student6(s1);  
+    s1.display();  
+    s2.display();  
+   }  
+}  
+
+Output:
+
+E:\full_creative_internship\month1\week1\constructor>javac constr8.java
+
+E:\full_creative_internship\month1\week1\constructor>java constr8
+114990 uttej
+114990 uttej
+
+2)Without constructor
+-We will copy the values of one object into another object.
+
+Example9:
+
+class Student7{  
+    int i;  
+    String name;  
+    Student7(int j,String n){  
+    i = j;  
+    name = n;  
+    }  
+    Student7(){}  
+    void display(){System.out.println(i+" "+name);}  
+}
+  class constr9{ 
+    public static void main(String args[]){  
+    Student7 s1 = new Student7(114990,"uttej");  
+    Student7 s2 = new Student7();  
+    s2.i=s1.i;  
+    s2.name=s1.name;  
+    s1.display();  
+    s2.display();  
+   }  
+}  
+
+Output:
+
+E:\full_creative_internship\month1\week1\constructor>javac constr9.java
+
+E:\full_creative_internship\month1\week1\constructor>java constr9
+114990 uttej
+114990 uttej
+
+-----------------------xxxxxxxxxxxxxxx-----------------
+
