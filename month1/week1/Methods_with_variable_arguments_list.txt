@@ -1,0 +1,137 @@
+                                                      Methods with variable arguments list
+
+What is Varargs?
+ -Variable Arguments shortly known as Varargs. The special about varargs are we can n number of variables in a method.
+-The 'n' number of variables in that method needs to be of single data type.
+
+Why Varargs?
+-While creating a method initially we would assign one or two arguments based on our program. But, if there comes a situation like we need to add more arguments for that method then we can overload it. But, we can't overload 'n' number of times. So, to optimize the memory we use varargs.
+-Varargs has been introduced in JAVA 5 version.
+-Before JAVA 5 we use to declare it via overloading method or using arrays.
+
+When to use Varargs?
+-We should use Varargs when we are not sure how many variables we are gonna pass to a method.
+
+Syntax:
+
+return-type method-name(datatype ... argument-name){
+  //Body of the method
+}
+
+datatype ... argument-name
+// In this syntax we need to have three periods which will tell the compiler that we are using varargs.
+
+Example:-
+Example1:
+   class Ab{
+      public void b(int ... c){
+          for(int i:c){
+               System.out.println(i);
+                }
+           }
+       }
+   class Vargs1{
+      public static void main(String[] args){
+         Ab ex = new Ab(); 
+           ex.b(1,2,3,4,5,6,7);
+             }
+         }
+
+Output:
+
+
+
+PS E:\full_creative_internship\month1\week1\Methods with variable arguments list> javac Vargs1.java
+PS E:\full_creative_internship\month1\week1\Methods with variable arguments list> java Vargs1
+1
+2
+3
+4
+5
+6
+7
+
+Rules while declaring a Varargs:
+
+1)In a method we can only have one Varargs
+2)In a method if we are having more than one argument list, then we need to Varargs in last.
+
+Example2:
+ class Ex2{
+    static void show(String clg,String... name){
+        for( String i:name){
+             System.out.println("Name of the college: "+clg+"Name of the student: "+i);
+                 }
+              }
+            }
+   class Vargs2{
+      public static void main(String[] args){
+        Ex2 m = new Ex2();
+           m.show("VJIT","uttej","bhavana");
+                }
+           }
+
+
+Output:
+
+PS E:\full_creative_internship\month1\week1\Methods with variable arguments list> javac Vargs2.java
+PS E:\full_creative_internship\month1\week1\Methods with variable arguments list> java Vargs2
+Name of the college: VJITName of the student: uttej
+Name of the college: VJITName of the student: bhavana
+
+
+
+Example3:
+
+class Ex3{
+   public void show(int ... a,String name){
+    for(int i:a){
+      System.out.println(a+"name");
+          }
+         }
+        }
+class Vargs3{
+   public static void main(String[] args){
+   Ex3 m = new Ex3();
+   m.show(1,2,3,"uttej");
+   }
+}
+
+Output:
+PS E:\full_creative_internship\month1\week1\Methods with variable arguments list> javac Vargs3.java
+Vargs3.java:2: error: varargs parameter must be the last parameter
+   public void show(int ... a,String name){
+                            ^
+1 error
+
+//Varargs should always be last argument.
+
+Example4:
+class Ex3{
+   public void show(int ... a,String ... name){
+    for(int i:a){
+      System.out.println(a+"name");
+          }
+         }
+        }
+class Vargs4{
+   public static void main(String[] args){
+   Ex3 m = new Ex3();
+   m.show(1,2,3,"uttej");
+   }
+}
+
+Output:
+
+PS E:\full_creative_internship\month1\week1\Methods with variable arguments list> javac Vargs4.java
+Vargs4.java:2: error: varargs parameter must be the last parameter
+   public void show(int ... a,String ... name){
+                            ^
+1 error
+
+---------------xxxxxxxxxxx------------------------
+
+
+
+
+
