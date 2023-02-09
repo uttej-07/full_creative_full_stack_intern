@@ -1,0 +1,135 @@
+Class member modifiers
+
+-They are also known as access modifiers.
+-Mainly there are 4 access modifiers
+1)public
+2)default
+3)private
+4)protected
+
+-Other than these we have abstract,static,final,synchronize.
+
+Why do we use modifiers?
+-Security purpose. While we are creating a program it is not necessary that we need to share all the data in the program. We can only share the essential information with the end user.
+-So, to do this we use access modifiers.
+
+1)Public- The name itself tells everything. Public means everyone. So, if we are using public modifer then that data can be accessed by everyone.
+-It can be accessed by same class, same package,different package,and different classes.
+Syntax:
+public class
+public return type methodname()
+
+-We need to use public mainly for methods rather than variables. Because methods contain only service formula. But variables contains data.
+
+Example: -
+ Example1:
+
+class p1{
+   public void show(){
+    System.out.println("Hello world!");
+      }
+  }
+class Pub1{
+  public static void main(String[] args){
+    p1 m = new p1();
+    m.show();
+     }
+  }
+
+ Output:
+
+PS E:\full_creative_internship\month1\week1\ClassMemberModifiers> javac Pub1.java
+PS E:\full_creative_internship\month1\week1\ClassMemberModifiers> java Pub1
+Hello world!
+  
+2)Default
+-A class or method is declared without any access modifier then it is known as Default.
+-Default members can be accessed by same class, same package. But, can't be accessed in different packages.
+
+Example2:
+  class Ex2{
+     void show(){
+          System.out.println("Hello World!");
+                }
+              }
+   class Defa1{
+      public static void main(String[] args){
+            Ex2 m = new Ex2();
+              m.show();
+                }
+             }
+
+Output:
+
+PS E:\full_creative_internship\month1\week1\ClassMemberModifiers> javac Defa1.java
+PS E:\full_creative_internship\month1\week1\ClassMemberModifiers> java Defa1
+Hello World!
+
+//It is in same package. That's the reason we have got the output.
+
+3)Private
+-In the word itself it tells private means, keep our data secured. So, that no one can access it.
+-Private modifier is mostly used for variable. Because variables contains data.
+-They are only accessed in same class.
+-Can't be accessed in same package, different packages.
+
+Example3:
+
+class K
+{
+private void display()
+    {
+        System.out.println("Hello World!");
+    }
+}
+ 
+class pri1
+{
+public static void main(String args[])
+    {
+        K obj = new K();
+        obj.display();
+    }
+
+Output:
+
+PS E:\full_creative_internship\month1\week1\ClassMemberModifiers> javac pri1.java
+pri1.java:15: error: reached end of file while parsing
+    }
+     ^
+1 error
+
+4)Protected
+-Protetcted is declared to any data member declared with the keyword protected.
+-It can be accessed in same package and different package sub-classes.
+-Protected can be accessed on data member, method and constructor. It can't be applied on the class.
+
+Example4:
+//save by pro1.java
+ package pack;
+   public class pro1{
+     protected void show(){
+        System.out.println("hello world");
+             }
+          }
+
+//save by pro2
+  package pack2;
+   import pack.*;
+     class pro2 extends pro1{
+        public static void main(String[] args){
+            pro1 m = new pro1();
+             m.show();
+               }
+           }
+
+Output:
+
+hello world
+
+------------------------------------xxxxxxxxxxxxxx--------------------
+
+
+
+
+  
