@@ -1,0 +1,228 @@
+Static keyword
+
+What is static?
+-Static keyword is used for memory management.
+-With the static keyword any variables/method can make a copy and other variables/methods can use it as reference which can help the end user to save memory.
+-Static keyword can be used when the data is fixed for every element.
+
+Example:
+
+When we are working for a company, our name and employee id might be different but our company is same which is known as static.
+In these cases static keyword can be used.
+
+When to use Static keyword?
+
+-Static keyword is used for the property that is common to all objects.
+
+
+-We can create static variables at the class level only. We can't create static local variables because it violated the purpose of static where compiler can't recognise it and displays error.
+
+Example: -
+ Example1:
+
+class static1{
+ static int fun(){
+  static int a=10;
+  System.out.println("hello world!");
+  return a;
+  }
+public static void main(String[] args){
+  System.out.println(fun());
+ }
+}
+
+Output:
+
+PS E:\full_creative_internship\month1\week1\static> javac static1.java
+static1.java:3: error: illegal start of expression
+  static int a=10;
+  ^
+static1.java:4: error: <identifier> expected
+  System.out.println("hello world!");
+                    ^
+static1.java:4: error: illegal start of type
+  System.out.println("hello world!");
+                     ^
+static1.java:5: error: illegal start of type
+  return a;
+  ^
+static1.java:5: error: <identifier> expected
+  return a;
+          ^
+static1.java:7: error: class, interface, enum, or record expected
+public static void main(String[] args){
+              ^
+static1.java:9: error: class, interface, enum, or record expected
+ }
+ ^
+7 errors
+
+//It displays errors.
+
+Where can we use static keyword?
+
+-We can use static keyword for variables, methods, blocks and classes.
+
+Syntax:
+
+For variable: static datatype variable-name
+
+For method: static returntype methodname()
+
+For block: static {
+  }
+
+For classes:
+ When it comes to classes, we can't directly declare for a class. We can declare for a nested class.
+
+Advantages:
+1)Memory Management
+2)a non-static can't refer to a static
+
+1)Static variable
+-When a variable is declared as static, it gets converted into a static variable. A static variable acts as a global variable means, which can be accessed anywhere. A single copy of that variable would be created and can be accessed by every object.
+
+Example:-
+ Example2:
+ 
+class college{
+  int rollno;
+  String name;
+  static String clgname = "VJIT";
+  
+ college(int roll_no,String name1){
+   this.rollno= roll_no;
+   this.name=name1;
+  }
+ 
+public void show(){
+  System.out.println("Name of the student: "+name+"Roll.no of the student: "+rollno+ "Name of the college: "+clgname);
+ }
+}
+class static2{
+  public static void main(String[] args){
+  college uttej = new college(10,"uttej");
+ college bhavana = new college(11,"bhavana");
+uttej.show();
+bhavana.show();
+ }
+}
+
+Output:
+
+PS E:\full_creative_internship\month1\week1\static> javac static2.java
+PS E:\full_creative_internship\month1\week1\static> java static2
+Name of the student: uttejRoll.no of the student: 10Name of the college: VJIT
+Name of the student: bhavanaRoll.no of the student: 11Name of the college: VJIT
+
+-If we are using variable and assign any integer value to it. Then we can update it. But, if we won't assign static to a variable which needs to updated. Then, the value remains same.
+
+2)Static method
+- Any method which is declared with static keyword is known as static method. 
+-Main() is one of the example where we use static keyword.
+-A static method belongs to a class rather than a object.
+-A static method can only access variables or methods which have static keyword in them.They cannot refer to "this" or "super".
+
+Example:-
+ Example3:
+ class Calculate{  
+   int cube(int x){  
+  return x*x*x;  
+  }  
+  
+  public static void main(String args[]){  
+  int result=Calculate.cube(5);  
+  System.out.println(result);  
+  }  
+} 
+
+Output:
+PS E:\full_creative_internship\month1\week1\static>
+                                                    javac Calculate.java
+Calculate.java:7: error: non-static method cube(int) cannot be referenced from a static context
+  int result=Calculate.cube(5);
+                      ^
+1 error
+
+// If we try to access a non- static method by a static. Then we get a error
+
+//We need to insert static for that method.
+
+class Calculate{  
+   static int cube(int x){  
+  return x*x*x;  
+  }  
+  
+  public static void main(String args[]){  
+  int result=Calculate.cube(5);  
+  System.out.println(result);  
+  }  
+} 
+
+Output:
+
+PS E:\full_creative_internship\month1\week1\static>
+                                                    javac Calculate.java
+PS E:\full_creative_internship\month1\week1\static> java Calculate
+125
+
+3)Static block
+- Static block will be executed as soon as class is loaded.
+-Used to initialize the static data member.
+-No need of object for static block.
+
+Example4:
+ class Ab{
+    
+   static{
+  System.out.println("Static block has higher preference than main block");
+ }
+}
+class static3{
+ public static void main(String[] args){
+ Ab m = new Ab();
+ }
+}
+
+Output:
+ PS E:\full_creative_internship\month1\week1\static>
+                                                    javac static3.java
+PS E:\full_creative_internship\month1\week1\static> java static3
+Static block has higher preference than main block
+
+4)Static class
+-A static class can't be declared to the top-level class. It can be declared for the nested class.
+-Just like static members, a static nested class does not have access to the instance variables and methods of the outer class.
+
+Example4:
+
+class outer{
+    static class inner{
+       int a;
+       int b;
+         inner(int x, int y){
+           this.a=x;
+           this.b=y;
+          }
+      public void add(){
+        System.out.println("result: "+(a+b));
+        }
+     }
+}
+class static4{
+   public static void main(String[] argss){
+   outer.inner s4 = new outer.inner(5,5);
+  s4.add();
+  }
+}
+
+Output:
+
+PS E:\full_creative_internship\month1\week1\static> javac static4.java
+PS E:\full_creative_internship\month1\week1\static> java static4
+result: 10
+
+
+
+
+

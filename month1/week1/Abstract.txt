@@ -1,0 +1,171 @@
+Abstraction
+What is Abstraction?
+>Abstraction- It is a mechanism by which we will be hiding the internal implementation and only highlighting the services/ esssential information to the end-user.
+
+>We will be data binding
+>Binding the application of UI and business logic. Any change made in the business logic will reflect directly to the application UI.
+
+Abstraction can be achieved in 2 ways:
+1)Abstract class
+2)Interfaces
+
+1.Abstract class
+>Abstract class comes under Abstraction. We need to use a keyword abstract as a pre-fix to an class or method.
+>There is no Abstract variable.
+>Abstract class is not 100% pure abstraction. If we declare any method as abstract then its class also needs to be declared as abstract class.
+>All the methods which are declared as abstract in abstract class can't be implemented. They can be implemented via child class.
+>Abstract class can have constructors and can be declared using static keyword.
+>If  we declare any class as abstract class then we can't create objects for that abstract class.
+
+Advantages:
+1)Security:- We will not enclosing the internal implementation. So, no one can know what is happening inside.
+2)Enhancement:-We can the code from one language to another language syntax.
+3)Maintainability
+4)Modularity
+
+Syntax:
+abstract class class-name{
+ //body of abstract class
+}
+
+
+>An abstract method needs to be declared in a abstract class. But, an abstract class no need to have an abstract method.
+
+
+Why we need Abstract?
+>Meaning of abstract - partial/ don't know completely.
+>We will be declaring any class as abstract when there is no information complete.
+
+Example: A vehicle. A vehicle can be a 2-wheeler, 3-wheeler, 4-wheeler, 6-wheeler,and  8-wheeler also.
+We can't say every vehicle will be 2 or 4 wheeler until we have complete information. So, we use abstraction.
+
+>This is why we abstract class.
+
+>If we declare any method in abstract class which is also abstract. Then, all those abstract methods need to be implemented in child class or else there will errors.
+
+Syntax of Abstract method:
+
+abstract void walk(); // we are using the keyword abstract with return type and name of the method. We can only declare it but, can't implement it. If we try, we are gonna get errors as our outputs.
+
+>Concrete class- An concrete class is a class which is not declared with the keyword abstract. An concrete class can extend abstract class and its methods. But, an abstract class can't extend an concrete class.
+
+Examples:
+Example1-
+abstract class vehicle{
+ abstract void wheels();
+}
+class bike extends vehicle{
+   public void wheels(){
+  System.out.println("Bike has 2 wheels");
+}
+}
+class car extends vehicle{
+public void wheels(){
+  System.out.println("Bike has 4 wheels");
+}
+}
+class Demo{
+public static void main(String[] args){
+bike b = new bike();
+car c = new car();
+b.wheels();
+c.wheels();
+}
+}
+
+Output:
+E:\full_creative_internship\month1\week1\Abstract Classes>javac Demo.java
+
+E:\full_creative_internship\month1\week1\Abstract Classes>java Demo
+Bike has 2 wheels
+Bike has 4 wheels
+
+
+Example2-
+
+abstract class A{
+  }
+class B extends A{
+  public void show(){
+    System.out.println("Hello World!");
+    }
+}
+public class C{
+public static void main(String[] args){
+  B d = new B();
+  d.show(); 
+  }
+}
+
+Output:
+E:\full_creative_internship\month1\week1\Abstract Classes>javac C.java
+
+E:\full_creative_internship\month1\week1\Abstract Classes>java C
+Hello World!
+
+>In Example2 we have declared an abstract class with no body in it.
+
+Example3-
+abstract class Animal{
+    abstract void walk();
+}
+class Horse extends Animal{
+  public void walk(){
+   System.out.println("Horse walks on 4 legs");
+ }
+}
+class Chicken extends Animal{
+  public void walk(){
+   System.out.println("Chicken walks on 2 legs");
+ }
+}
+public class Ab{
+public static void main(String[] args){
+Animal h = new Horse();
+Animal c = new Chicken();
+h.walk();
+c.walk();
+}
+}
+
+Output:
+E:\full_creative_internship\month1\week1\Abstract Classes>javac Ab.java
+
+E:\full_creative_internship\month1\week1\Abstract Classes>java Ab
+Horse walks on 4 legs
+Chicken walks on 2 legs
+
+//In Example 3 I want to cover that while we declared a class as abstract and while we want to create an object. We can give the name of the class as same as abstract class.
+
+Example4-
+
+abstract class A{
+  abstract void B();
+}
+class C extends A{
+ public void B(){
+  System.out.println("It is working!");
+  }
+}
+class Cd{
+public static void main(String[] args){
+ A d = new A();
+d.B();
+}
+}
+
+Output:
+
+
+E:\full_creative_internship\month1\week1\Abstract Classes>javac Cd.java
+Cd.java:11: error: A is abstract; cannot be instantiated
+ A d = new A();
+       ^
+1 error
+
+//In Example4, I just want to show if we create a object of abstract class. Then it gives error.
+
+-------------------------------------------------------------------XXXXXXXXXXXXXXXXXXXX-------------------------------------------------------------
+
+
+

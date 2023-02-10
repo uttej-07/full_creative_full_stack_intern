@@ -1,0 +1,162 @@
+Interfaces
+
+What is an Interface?
+-An interface is just a class, which contains abstract methods in it.
+-It is the 2nd way by which we can implement abstraction.
+-An interface is a pure abstract mechanism. There are no constructors involved while we are declaring a class as Interface.
+-All the methods in Interface doesn't contain any implementation. They can only be declared and by default they are abstract and public methods.
+-An interface can be created on a class by the keyword "interface" as a prefix.
+-If we want to access an interface in another class then we need to use the keyword "implements" by which it can be accessing the interface class and its methods.
+-Interface variables are public,static, and final.
+-Interface is nothing but deals between client and developer.
+
+Example:
+A software company.
+- A software company gets projects from clients and the client tells all the requirements.
+-The software company share the details with the developers and the developers need to implement the project as how the client has told.
+
+Syntax:
+interface interface-name{
+//body of the interface
+}
+
+Example:
+Example1-
+
+interface A{
+public void B();
+public void C();
+}
+class D implements A{
+  public void B(){
+ System.out.println("Hello World!");
+}
+public void C(){
+System.out.println("It is working!");
+}
+}
+public class E{
+public static void main(String[] args){
+D m = new D();
+m.B();
+m.C();
+}
+}
+
+Output:
+E:\full_creative_internship\month1\week1\Interfaces>javac E.java
+
+E:\full_creative_internship\month1\week1\Interfaces>java E
+Hello World!
+It is working!
+
+Example2-
+interface A1{
+public void B1();
+public void C1();
+}
+
+abstract class D1 implements A1{
+  public void B1(){
+  System.out.println("My name is Uttej");
+}
+}
+class E1  extends D1{ 
+  public void C1(){
+  System.out.println("I am from Hyderabad and I am doing internship in Full-Creative");
+  }
+}
+public class Demo1{
+ public static void main(String[] args){
+ E1 x = new E1();
+  x.B1();
+  x.C1();
+ }
+}
+
+Output:
+E:\full_creative_internship\month1\week1\Interfaces>javac Demo1.java
+
+E:\full_creative_internship\month1\week1\Interfaces>java Demo1
+My name is Uttej
+I am from Hyderabad and I am doing internship in Full-Creative
+
+ 
+-Interfaces can implement multiple inheritance.
+
+Reason:
+Interface contains pure abstraction model which isn't possible in inheritance. So, all the abstract methods need to be implemented by child class. By this way, interface is possible.
+
+Example:
+Example1
+
+interface A{
+  void add();
+}
+
+interface B{
+ void add();
+}
+
+class C implements A,B{
+  int a,b;
+  public void add(){
+   a=5;b=5;
+   System.out.println(a+b);
+ }
+}
+
+class DI{
+  public static void main(String[] args){
+    C mi = new C();
+     mi.add();
+  }
+}
+
+Output:
+
+E:\full_creative_internship\month1\week1\Interfaces>javac DI.java
+
+E:\full_creative_internship\month1\week1\Interfaces>java DI
+10
+
+//In Example 1 we have tried to intiate multiple interface. But, both the interfaces are having the same method.
+
+Example2:
+
+interface A{
+ void add();
+}
+
+interface B{
+ void sub();
+}
+
+class C implements A,B
+{
+  int a=10, b=5;
+  public void add(){
+   System.out.println(a+b);
+  }
+  public void sub(){
+   System.out.println(a-b);
+  }
+}
+public class M1{
+ public static void main(String[] args){
+  C m = new C();
+   m.add();
+   m.sub();
+  }
+}
+
+Output:
+
+E:\full_creative_internship\month1\week1\Interfaces>javac M1.java
+
+E:\full_creative_internship\month1\week1\Interfaces>java M1
+15
+5
+
+//In Example2 we have 2 interfaces with 2 different methods.
+

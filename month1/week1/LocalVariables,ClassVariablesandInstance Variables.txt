@@ -1,0 +1,140 @@
+                                  Local Variables, Class Variables and Instance Variables
+
+What is a variable?
+-It is a container which stores data.A variable is assigned to a datatype that designates the type and quantity of value it can hold.
+-A variable is a memory location. Variables must be declared and initialized before use.
+-Operations done on variable will affect the memory location.
+
+Why to use Variable?
+-We use variables because we can store data.
+
+Syntax:
+ data type variable name
+
+example:  int a;
+
+Rules to declare a Variable?
+- A variable must start with alphabet or underscore(_).
+-A variable can't start by numbers, special symbols.
+
+How to initialize a variable?
+data type variable name value
+example:
+int a =10;
+//This is how we intialize a variable.
+
+data type- returns the type of data it can store.
+variable name-name given to the variable
+value-initial value stored in the variable.
+
+Types of variables:
+1)Local variables
+2)Class variables
+3)Instance Variables
+
+1)Local Variables
+-These type of variables are declared inside a method.
+-The variable can only be accessed inside that method block. We can't access it outside the method.
+-The scope of the variables exists only within the block.
+
+Example:
+Example1:
+class Var1{
+  public static void main(String[] args){
+      int a=10;
+     System.out.println(a);
+         }
+      }
+
+Output:
+  
+PS E:\full_creative_internship\month1\week1\Variables> javac Var1.java
+PS E:\full_creative_internship\month1\week1\Variables> java Var1
+10
+
+2)Instance Variables
+-These variables are declared inside the class.
+-These can be accessed when we call objects.
+-Intilization is not mandatory. Its default value is 0 for numeric. For char/string it is null.
+-These are also known as non-statiz variables.
+-We can also assign access specifier for instance variables.If not default modifier is assigned to it.
+
+Example:-
+ Example2:
+   class Ex6{
+  String s;
+  public void show(){
+   System.out.println(s);
+}
+}
+class Var2{
+   public static void main(String[] args){
+  Ex6 v = new Ex6();
+   v.show();
+  }
+} 
+
+Output:
+ 
+PS E:\full_creative_internship\month1\week1\Variables> javac Var2.java
+PS E:\full_creative_internship\month1\week1\Variables> java Var2
+null
+
+Example3:
+
+class Ex9{
+  String name;
+  int id;
+   public void disp(int i,String n){ 
+     this.id = i;
+     this.name = n;
+      System.out.println("Name of the employee: "+name+" Employee id: "+id);
+        }
+      }
+class Var3{
+   public static void main(String[] args){
+      Ex9 v = new Ex9();
+      v.disp(1,"madhav");
+        }
+       }
+
+Output:
+
+PS E:\full_creative_internship\month1\week1\Variables> javac Var3.java
+PS E:\full_creative_internship\month1\week1\Variables> java Var3
+Name of the employee: madhav Employee id: 1
+
+//If we want to access instance variables then we need to use "this" keyword.
+
+-An instance variable can't be accessed by static.
+
+this-The this keyword refers to the current object in a method or constructor.
+
+3)Static variables
+-Variables which are declared by the keyword static are called as static variables.
+-Also known as class variables.
+-When it comes to static variable, there will be one copy of it and all can access it.But, when it comes to instance variables if there are 5 objects there will be 5 copies created which would increase memory.
+-Static variables are created at the beginning of the program and destroyed when execution ends.
+-Initialization of a static variable is not mandatory. Its default value is 0.
+
+Example4:
+ 
+class Mm{
+   static int a = 10;
+     static{ 
+       System.out.println(a);
+        }
+}
+class Var4{
+  public static void main(String[] args){
+    Mm v = new Mm();
+      }
+   }
+
+Output:
+
+PS E:\full_creative_internship\month1\week1\Variables> javac Var4.java
+PS E:\full_creative_internship\month1\week1\Variables> java Var4
+10
+
+

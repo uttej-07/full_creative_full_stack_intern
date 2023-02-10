@@ -1,0 +1,205 @@
+Class Declaration
+•	Class can be declared using the keyword class followed by class name.
+•	While declaring a Main class, Main class and file of our java file should be same.
+•	Why should Main class name and java file name should be same?
+	Reason: Because it is the entry point where JVM will be identifying and creating .class file.
+
+
+Syntax:   Class class-name {
+                       //Attributes or variables
+                      //Methods
+             }
+Example:
+    class Ex{
+    int num1;
+    int num2;
+    int result;
+     void add(){
+         result = num1 + num2;
+         System.out.println(result);
+     }
+     void sub(){
+         result = num1 - num2;
+         System.out.println(result);
+     }
+     void multiplication(){
+         result = num1 * num2;
+         System.out.println(result);
+     }
+     void divide(){
+         result = num1 / num2;
+         System.out.println(result);
+     }
+}
+class Main{
+    public static void main(String[] args){
+        Ex a = new Ex();
+        a.num1 = 10;
+        a.num2 = 5;
+        a.add();
+        a.sub();
+        a.multiplication();
+        a.divide();
+    }
+}
+Output:
+15
+5
+50
+2
+
+
+•	Class can be even declared via using access-modifiers which will be discussed now.
+
+Modifiers for Class
+What are Modifiers?
+•	 Modifiers are used to change the functionality or level of a class/ variable/ method.
+Why to use Modifiers?
+•	We use Modifiers to change the functionality of a class/variable/method.
+How can we use Modifier?
+•	 Modifier can be used as a pre-fix to a class/variable/method.
+Types of Modifiers:
+     There are 2 types of Modifiers:
+1.	Access Modifiers
+2.	Non-Access Modifiers
+
+“In this document I cover about both the types of Modifiers but only for classes.
+There are even modifiers for attributes and methods which changes it functionality.”
+
+1.	Access Modifiers: Control the access level of a field.
+a.	Public: - We need to use the keyword “public” as a pre-fix while declaring a class. It can be accessed anywhere (class, package, subclass, other packages, and other files).
+b.	Default: It can be accessed within the same class and package. There is no specific keyword to be used.
+Example 1:
+class Ex{
+  public void show(){
+        System.out.println("Hello World!");
+}
+}
+public class disp{
+public static void main(String[] args){
+ Ex a = new Ex();
+a.show();
+}
+}
+Output: Hello World!
+In the above example we have used the keyword public for the Main class. When we are mentioning any class as public class then it needs to main method in it or else it will show error.
+
+Example 2:
+Main.java
+public class Main {
+  String fname = "Uttej";
+  String lname = "Cheedalla";
+  String email = "uttej@xyz.com";
+  public int age = 21;
+}
+Second.java
+class Second {
+  public static void main(String[] args) {
+    Main obj = new Main(); 
+    System.out.println("Name: " + obj.fname + " " + obj.lname);
+    System.out.println("Email: " + obj.email);
+    System.out.println("Age: " + obj.age);
+    if(obj.age>18){
+    System.out.println("Eligible to vote");
+   }else{
+    System.out.println("Not Eligible to vote");
+  }
+}
+}
+Output:
+E:\full_creative_internship\month1\week1>javac Main.java
+
+E:\full_creative_internship\month1\week1>javac Second.java
+
+E:\full_creative_internship\month1\week1>java Main
+Error: Main method not found in class Main, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+
+E:\full_creative_internship\month1\week1>java Second
+Name: Uttej Cheedalla
+Email: uttej@xyz.com
+Age: 21
+Eligible to vote
+ 
+
+2.Non-Access Modifier: When it comes to non-access modifier there is additional functionalities in it. But, no special access.
+a)	Final: Final is a keyword. Final keyword has a specialty in it. It would be restricting to modify the particular field. Final keyword can be used for a class/variable/method. If we declare any class using final keyword then we can’t inherit by other class.
+b)	Abstract: Abstract keyword comes under OOPs. It is one of the pillars in OOPs. Abstract means, it only the essential information to the end users. If we use abstract keyword for a class then we can’t create objects.
+Example:
+Final class
+final class Ex{
+ int a =1;
+ public void show(){
+     System.out.println("Final keyword is used");
+  }
+}
+class a extends Ex{
+  public void show(){
+   System.out.println(a+" "+ "is printing");
+  }
+}
+class Ex1{
+  public static void main(String[] args){
+     Ex a = new Ex();
+     a.show();
+     a b = new a();
+     a.show();
+}
+}
+Output:
+E:\full_creative_internship\month1\week1>javac Ex1.java
+Ex1.java:7: error: cannot inherit from final Ex
+class a extends Ex{
+                ^
+1 error
+When we declared one of our class with final keyword and if we try to inherit then we get the output as error which is shown above.
+
+Example2:
+final class Ex{
+ int a =1;
+ public void show(){
+     System.out.println("Final keyword is used");
+  }
+}
+/*class a extends Ex{
+  public void show(){
+   System.out.println(a+" "+ "is printing");
+  }
+}*/
+class Ex1{
+  public static void main(String[] args){
+     Ex a = new Ex();
+     a.show();
+    /* a b = new a();
+     a.show();*/
+}
+}
+Output: E:\full_creative_internship\month1\week1>javac Ex1.java
+
+E:\full_creative_internship\month1\week1>java Ex1
+Final keyword is used
+
+Example3:
+Abstract
+abstract class A{
+  int a = 21;
+  String name = "uttej";
+}
+class B extends A{
+  void disp(){
+   System.out.println("Name of the intern is: "+name+ "and age is: "+a);
+  }
+}
+class Ex2{
+  public static void main(String[] args){
+   B a = new B();
+   a.disp();
+}
+}
+Output: E:\full_creative_internship\month1\week1>javac Ex2.java
+
+E:\full_creative_internship\month1\week1>java Ex2
+Name of the intern is: uttej and age is: 21
+ 
+-----------------------------------------------------xxxxxxxxxxxxxxxxxxxxxxxxxxx----------------------------------

@@ -1,0 +1,187 @@
+                            Data types in Java
+What is Datatype?
+-Data types are different sized and values that can be stored in a variable.
+-The programmer has all the access of which data they want to use.
+
+-When it comes to Java, Java is a statically typed language. Means, if we declare a variable in one data type it can't hold another data type.
+Even C,C++ comes into this caategory.
+
+-Python,Ruby comes under Dynamically typed language.
+
+-In Java we need to predefine the datatype which is not necessary in Python.
+
+Data types in Java:
+There are 2 types:
+1)Primitive Datatype
+2)Non-Primitive Datatype
+
+1)Primitive Datatype:
+ -They are most common used datatypes in Java.
+ -They are used for data manipulation and they don't have any special capabilities in them.
+-There are 8 primitive types in Java.
+                    Primitive Data types
+                              |
+                              |
+                              |
+                       --------------
+                      |                 |
+                 Boolean        Numeric 
+                   Type             Type
+                     |                     |
+                     |                     |
+                     |             ---------------
+                boolean      |                   |
+                                  |                   |
+                            Character      Integral
+                              Value            Value
+                                 |                    |
+                              Char                |
+                                                      |
+                                          --------------------
+                                         |                          |
+                                         |                          |
+          byte-----------------Integer         Floating-point
+         short------|                                          |                 
+        int--------- |                                 -----------------
+       long--------|                                 |                     |
+                                                     float           double
+
+
+1)Boolean
+-Boolean return only 1-bit of information either True or False.
+-Size of the boolean datatype if virtually machine - independent.
+-Boolean datatype values can't converted.
+-Default value of Boolean is False.
+
+Syntax:
+
+boolean var = true;
+boolean var = false;
+
+2)Byte
+-It is of 8-bit(1 byte) signed integer. Byte datatype is used to save memory in large arrays.
+-Values in Byte are from -128 to 127. Default value of byte is 0.
+
+Syntax:
+byte var = 126;
+byte var = 127;
+byte var = 128; //output : -128 because it extends the size.
+
+3)short
+-It is of 16-bit(2 bytes) signed integer. Similarly to byte even short can save memory when we are working on large arrays. But, situation matters on which data type to use.
+-Values are from -32,768 to 32,767 and the default is 0.
+
+Syntax:
+
+short var;
+short var = 10;
+short var =  32,767;
+
+4)int
+-It is of 32-bit(4 bytes) signed integer.We frequently use integers in programming language.
+-Values are from -2,147,483,648 to 2,147,483,647 and the default value is 0.
+-In java se 8 and later, unsigned integer came into use.
+
+Syntax:
+
+int a;
+int a= 10;
+
+5)Long
+-It is of 64 bits(8 bytes) signed integer. Long is used very rarely. We use when the value size is more than int.
+-In java se 8 and later, unsigned integer came into use.
+-Values are from -9, 223, 372, 036, 854, 775, 808 to 9, 223, 372, 036, 854, 775, 807 and the default value is 0.
+
+Syntax:
+
+long v;
+long v = 123,456,789,012;
+
+6)Float
+-Float type is mainly used for storing values which are in decimal format.
+-It is of 32-bit(4 bytes) floating-point.
+-To save memory for large arrays we can use floating type float and the default value is 0.0
+-It can store upto 7 decimal digits.
+
+Syntax:
+
+float v1 = 9.87; // we come across with an error that it is an incompatible type.
+
+float v1=9.87f;// Output is 9.87
+
+7)Double
+-It is of 64-bit(8 bytes) floating point. When we are working on huge programs then we need to use Double.
+-It can store upto 16 decimal digits and the default value is 0.0.
+-It is created for scientific calculations.
+
+Syntax:
+
+double var;
+double var = 87.9845;
+
+8)char
+-It is used to store character.
+-It is of 16-bit(2 bytes) Unicode character.
+-Values are from  ‘\u0000’ (0) to ‘\uffff’ (65535) and the default value is '\u0000'.
+-Java used Unicode instead of ASCII.So, java uses 2 bytes of data to store all the character data in it.
+
+Syntax:
+
+char c;
+char c = 'a';
+
+Example:
+  Example1:
+
+    class Dt1 {
+ 
+    public static void main(String args[])
+    {
+        char a = 'U';
+
+        int i = 89;
+ 
+        // use byte and short
+        // if memory is a constraint
+        byte b = 4;
+ 
+        // this will give error as number is
+        // larger than byte range
+        // byte b1 = 7888888955;
+ 
+        short s = 56;
+ 
+        // this will give error as number is
+        // larger than short range
+        // short s1 =989898989;
+ 
+        double d = 4.355453532;
+
+        float f = 4.7333434f;
+      
+          long l = 121212121;
+            
+          System.out.println("char: " + a);
+        System.out.println("integer: " + i);
+        System.out.println("byte: " + b);
+        System.out.println("short: " + s);
+        System.out.println("float: " + f);
+        System.out.println("double: " + d);
+          System.out.println("long: " + l);
+    }
+}
+ 
+Output:
+
+PS E:\full_creative_internship\month1\week1\Datatypes> javac Dt1.java
+PS E:\full_creative_internship\month1\week1\Datatypes> java Dt1
+char: U
+integer: 89
+byte: 4
+short: 56
+float: 4.7333436
+double: 4.355453532
+long: 121212121
+
+------------------------------xxxxxxxxxxxxxxxxxx--------------------------
+
