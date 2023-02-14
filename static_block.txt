@@ -1,0 +1,108 @@
+                                                                      Static block
+-Static block which is been declared in class.
+-Static block will be executed as soon as the class is loaded. 
+-Static block is used for initializing static variables.
+-Static will be higher priority than main method.
+-Static block will also be loaded when we don't call objects using Class.forName(classname).
+-When we are using Class.forName(classname) method we need to throw Exception.
+
+-Static block in java is used for changing the default value of static variables, initializing static variables of the class, write a set of codes that you want to execute during the class loading in memory
+
+-We can have 'n' number of static blocks in our programs.
+
+-Before Java JDK 1.6 static block is executed directly without main method. But, after and later versions of JDK 1.6 static block is not executed without main method.
+If we wanna execute it we need to load the class.
+
+-Static block is used for intializing the static members.
+-Class loader which is located in JVM. Whenever JVM is loaded. It first loads the class.
+
+Example:
+Example1:
+package static_and_initilization_block;
+
+class staticexample{
+
+	static int j;
+	
+	static {
+		int j = 10;
+		System.out.println(j+" "+"is printed from static block");
+	}
+	
+	public void display() {
+		j = 6;
+		System.out.println(j+" "+"is printed in non static method");
+	}
+	
+	{
+		System.out.println("initilization block");
+	}
+
+}
+public class static_block1 {
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        staticexample sb = new staticexample();
+        sb.display();
+	}
+
+}
+
+Output:
+
+10 is printed from static block
+initilization block
+6 is printed in non static method
+
+//static block is been given the higher priority
+//Initilization block is given 2nd higher priority
+
+Example2:
+
+package static_and_initilization_block;
+
+import java.lang.Class;
+
+class staticexample2{
+	static int k;
+	
+	static {
+		k = 20;
+		System.out.println(k+"is printed in static block");
+	}
+	
+	public void display() {
+		k=10;
+		System.out.println(k+"is prinited in display method");
+	}
+}
+public class static_block2 {
+
+	public static void main(String[] args) throws ClassNotFoundException {
+		// TODO Auto-generated method stub
+          Class.forName("staticexample2");
+	}
+
+}
+
+Output:
+
+20 is printed in static block
+
+Initializer Block
+-The initializer block contains the code that is always executed whenever an instance is created and it runs each time when an object of the class is created/called.
+
+-Initializer block will be called whenever the constructor is invoked.
+
+Difference between static and initializer block:
+
+
+Static Block                                                                                     	Instance Initializer Block
+It executes during class loading	                                             It executes during class instantiation
+It can only use static variables	                                    It can use static or non-static (instance variables).
+It can not use "this" keyword                                               	It can use "this" keyword
+It executes only once during the entire execution           It can run many times whenever there is a call to the                        
+of the program when the class loads                                                             constructor
+into the memory	
+
