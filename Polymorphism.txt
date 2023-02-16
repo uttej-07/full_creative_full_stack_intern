@@ -1,0 +1,207 @@
+                 Polymorphism
+What is Polymorphism?
+-Polymorphism is one of the concept in OOPs.
+
+-Polymorphism means representing/showing any object/thing/element/message in different forms.
+
+- Poly-"many" morphism-"forms".
+
+-In real time polymorphism acts in human behavior , their characteristics.
+
+-In construction also polymorphism acts 
+Example: In a land of 200 square yards we can construct a house in different forms.
+
+Why use Polymorphism in Java? 
+-Polymorphism in Java makes it possible to write a method that can correctly process lots of different types of functionalities that have the same name.
+
+-It helps in understanding a code.
+
+-It describes the concept that you can access objects of different types through the same interface.
+
+-Polymorphism also used Inheritance.
+
+-Polymorphism allows for the implementation of elegant software.
+
+Types of Polymorphism:
+1)Compile time Polymorphism
+2)Run time Polymorphism
+
+1)Compile time Polymorphism
+-In Compile time Polymorphism, compiler checks the methods involved  in it. Method overloading comes into action.
+Method Overloading: We will be having same method with different parameters. The functionality will be overloaded.
+ Not only arguments even we can overload it by changing the return type, data type also.
+
+Compile time is also known static polymorphism.
+
+In java function overloading is possible. But, operator overloading is not possible.
+
+Example:
+  Example1:
+   package Polymorphism_practice;
+
+class Example1{
+	
+	//Method Overloading and Operator Overloading is involved in class Example1
+	
+	//Method Overloading- add function is overloaded
+	
+	//Internal Operator Overloading- "+" is used as addition and as concatenation
+	
+	public void add(int a, int b) {
+		int c = a + b;
+		 System.out.println("Result: "+ c);
+	}
+	
+	public double add(int x, double y) {
+		
+		return (double) (x+y);
+	}
+	
+	public float add(int x, double y, float z) {
+	   
+		return (float) (x+y+z);
+	}
+	
+}
+public class Polymorphism1 {
+
+	 public static void main(String[] args) {
+		 
+		 Example1 p = new Example1();
+		 
+		 p.add(5, 5);
+		 
+		 System.out.println("Result is: " + p.add(10, 65.89));
+		 
+		 System.out.println("Result is: "+p.add(92,67.98,(float) 34.67));
+	 }
+}
+
+Output:
+
+Result: 10
+Result is: 75.89
+Result is: 194.65
+
+2)Run time Polymorphism.
+-The call to an overridden method is resolved dynamically at runtime than at compile time.
+-Also known as Dynamic Method Dispatch.
+-In this process method overriding is involved.
+Method overriding- When a subclass extends superclass and the same method which is in superclass is also declared in sub class is known method overriding.
+-We use the keyword @Override.
+
+-Overriding is done by using a reference variable of the superclass. The method to be called is determined based on the object which is being referred to by the reference variable. This is also known as Upcasting.
+
+
+-While we are workng on method override we need to check the methods are overriden or not.
+
+Example of Method override:
+Radios which are having same functionality but the devices are changed according to generation change(look of radio).
+
+Example:
+  Example2:
+   
+  package Polymorphism_practice;
+
+class Example2{
+	
+	public void display() {
+		 System.out.println("Main class Method is Displayed");
+	}
+}
+
+class Subclass extends Example2{
+	
+	   
+        public void display() {
+        	  System.out.println("Sub class Method is Displayed");
+        }
+}
+public class Polymorphism2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Example2 p;
+		
+		p = new Example2();
+		
+		p.display();
+		
+		p = new Subclass();
+		
+		p.display();
+		
+	}
+	
+}
+
+Output:
+
+Main class Method is Displayed
+Sub class Method is Displayed
+
+Example3:
+
+package Polymorphism_practice;
+
+class Example2{
+	
+	public void display() {
+		 System.out.println("Main class Method is Displayed");
+	}
+}
+
+class Subclass extends Example2{
+	
+	//In this program we have method overriding and polymorphic variable
+
+        public void display() {
+        	   super.display();
+        	  System.out.println("Sub class Method is Displayed");
+        }
+}
+public class Polymorphism2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Example2 p;
+		
+//		p = new Example2();
+//		
+//		p.display();
+		
+		p = new Subclass();
+		
+		p.display();
+		
+	}
+	
+}
+
+Output:
+
+Main class Method is Displayed
+Sub class Method is Displayed
+
+// We can write the same program using the keyword @override
+
+Characteristics of Polymorphism:
+1)Coercion
+2)Internal Operator Overloading
+3)Polymorphic Variables
+
+1)Coercion
+-Implicitly converting one typr of object into a new types of object. 
+-To prevent type errors in the code.
+
+-In java we have typing casting option by which coercion is possible.
+
+2)Internal Operator Overloading
+-We have so many operators in java. We can use each operator in different case.
+Example: + plus can be used as addition and concatenation.
+
+3)Polymorphic Variables
+-the object or instance variables represent the polymorphic variables.
+-This is because any object variables of a class can have an IS-A relationship with their own classes and subclasses.
