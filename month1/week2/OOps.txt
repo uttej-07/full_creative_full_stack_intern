@@ -1,0 +1,59 @@
+                                    OOPs
+-OOPs stands for Object-Oriented Programming language.
+-In OOPs it totally acts on objects and classes.
+-Examples of OOPs languages are Java, C++, JavaScript.
+-While coming to Java, it is not 100% oops. But, if we use wrapper class then it converts it to 100% oops.
+
+Wrapper class helps in converting primitive data types to objects.
+
+-OOPs is a fundamental programming concept which developers use for binding the data and function together using the concept of classes and objects.
+
+-In OOPs, it totally cares about the program manipulation rather than logic of the program.
+
+-OOPs help to improve code readability and reusability. When it comes to Java, we can use oops in Java and C++. But, the difference is:
+C++ is only a compiled language.
+Java is both compiled and interpreted language.
+
+-When already we have C++ which supports OOPs why to use Java?
+Reason:
+C++ is used for large scale development like banks, government websites or applications.
+When it comes to Java, Java creates consumer products like apps, software, and video games.
+Most of the apps which we use in our devices are of Java based. All the android application follow Java and Kotlin as their programming language.
+
+
+-Why Java is the best OOP language?
+Java was designed to be easy to use and is therefore easy to write, compile, debug, and learn than other programming languages. Java is object-oriented. This allows you to create modular programs and reusable code. Java is platform-independent.
+
+-Advantages of OOPs:
+->used to solve real time problems.
+->will be dividing the problem into smaller parts and solving them.
+
+-Javascript is both OOPs and procedural language because it doesn't support all the OOPs concepts in it. 
+-JavaScript is a prototype-based programming language. A prototype-based programming language is a style of object-oriented programming that uses functions as constructors for classes . Although JavaScript has a keyword class, it has no class statement. Also, it employs cloning and not inheritance
+
+Advantages of OOPs:
+1)Modularity for easier troublshooting
+Ex: If you working on a electronics based application.
+If any objects gets disturbed or not working. Then, you can directly go and check on that classes which saves time.
+
+2)Reuse of code
+In OOPs we have a concept called Inheritance which helps in reusability of codes which saves memory.
+
+3)Flexibility 
+-In OOPs we have a concept called Polymorphism which helps in flexibility. Whenever we are having a issue in our AC. At, that time polymorphism comes to action. An AC can be centralized AC, Window Air Conditioners, Portable AC, etc.
+To repair each type of AC there will be a unique type of materials.
+
+4)Effective Problem Solving
+-OOPs is not that easy to understand. It is harder to get habituated to it. But, if we get  habituated to it. Then we can be master of it. OOPs helps in solving real time problems.
+
+Concepts under OOPs:
+1)Class
+2)Object
+3)Encapsulation
+4)Inheritance
+5)Abstraction
+6)Polymorphism
+
+-These are the main concepts and pillars of OOPs. By, which we will be handling the real time problems and solving them.
+
+
