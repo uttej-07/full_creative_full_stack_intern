@@ -1,0 +1,76 @@
+Pass by Value and Pass by Reference
+
+-In Java we can pass both values and references.
+
+-When it comes to reference, we need to pass Objects as reference or else the values will not change.
+
+-Pass by Value
+-We will be passing the values as parameters to method.
+
+Call by Value means calling a method with a parameter as value. Through this, the argument value is passed to the parameter.
+
+While Call by Reference means calling a method with a parameter as a reference. Through this, the argument reference is passed to the parameter.
+
+In call by value, the modification done to the parameter passed does not reflect in the caller's scope while in the call by reference, the modification done to the parameter passed are persistent and changes are reflected in the caller's scope.
+
+But Java uses only call by value.
+It creates a copy of references and pass them as value to the methods. If reference contains objects, then the value of an object can be modified in the method but not the entire object.
+
+The main difference between pass by value and pass by reference is:
+Copying the function parameter value to another variable.
+Passing the actual parameters to the function.
+
+-And when it comes to pass by reference we need to pass Objects.
+
+-Pass by value requires more memory than pass by reference.
+
+-We can't use string class because strings are immutable. So, we can't pass String as arguments.
+
+Example:
+ Example1:
+  
+ class Example1{
+   public int addition(int a, int b){
+      return a+b;
+       }
+   }
+ class passbyvalue1{
+   public static void main(String[] args){
+     Example1 ex = new Example1();
+     System.out.println(ex.addition(5,5));
+       }
+    }
+
+Output:
+
+10
+
+Example2:
+ 
+package Array_practice;
+
+class Example2{
+	public int square(Integer p) {
+		 return p*p;
+	}
+}
+
+public class passbyreference {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Integer s = 10;
+		
+		Example2 m = new Example2();
+  		
+		System.out.println("Area of a square: "+m.square(s));
+
+	}
+
+}
+
+Output:
+
+Area of a square: 100
+
+ 
