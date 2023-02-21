@@ -1,0 +1,1008 @@
+                                                                   Exception Handling
+
+Real time example of Exception Handling
+  Unexpected Disconnectivity of Internet
+
+-Exceptions occur only at runtime.
+
+Disturbing the normal flow of program is known Exception.
+
+Example:We have a plan for today. But, unexpectedly there is a imp work assigned. Here work is unexpected event that disturbed the plan.
+
+While we are working on a project in our laptop. Unexpectedly my laptop has restarted without our permission. Restart-unexpected event.
+Working on a project-Normal flow
+
+What is Exception?
+-Disturbing the normal flow of program due to an Unxpected event is known as Exception.
+
+What is Exception Handling?
+If Exception occurs at that time we need to capable to handle which is known Exception Handling.
+Handling the Exception is known as Exception Handling.
+Graceful termination of program.
+
+Pupose of Exception Handling?
+Graceful termination of program.
+So, that we should not loose any data.
+
+Exception Handling is like searching for alternative.
+Example:Want to travel from one place to another place but no bus. So, the alternative is train.
+
+-Every Exception in java is a class.
+
+Example:Cricket match. Players will be having Plan A,B,C. If Plan A is gonna fail they will go for Plan B.
+
+Example:If clock is not working in anywhere app. We can use YoCo board.
+
+RuntimeStackMechanism
+-Every thread has a method.
+each entry in a stack is known stack frame or activation record.
+-JVM is responsible for creating and destroying the stack.
+-For every thread stack will be created.
+-Mainthread calls main method as its first entry.
+
+Default Exception Handling in Java:
+
+The method where exception formed that method is reponsible for creating exception object.
+The details in exception object are
+          Name of the file:
+          Description of the exception
+          Stack Trace/Location:Where the exception formed.
+
+-All these details need to be shared with JVM and from there JVM checks on.
+-JVM terminates the program without running it.
+-JVM checks all the programs then it goes to Default Exception and handles the exception to it.
+-Before JVM hand over Exception Object to Default Exception Handling it will check whether code contain Handling method or not. If no, then Default Exception comes into action.
+
+-Default exception displays the exception name and reason and where it is formed(Stack Trace) and at which function.
+
+Example:While we do programs in java we face exceptions those all come under Default Exception Handling.
+
+Example: Exception in thread "main" java.lang.ArithmeticException: / by zero
+   at Test.doMoreStuff(Test.java:13)
+   at Test.doStuff(Test.java:9)
+   at Test.main(Test.java:5)
+
+-Default Exception displays where there are abnormal functions. 
+
+-If their is atleast abonormal function in it. Then it is abonormal termination.
+
+Exception Hierarchy:
+
+-Throwable is a Class. It contains all the exceptions and errors in it. It is root class for java Exceptions.
+
+-Throwable has 2 child classes:
+    1)Exception  2)Error
+
+-Exception are recoverable using Exception Handling.
+-Exception occur due to illogical program.
+
+-Errors occur due to lack of system resources.
+
+-Exception have several child classes 
+    1)Run time Exception
+    2)IO Exception
+    3)Interrupted Exception(Imp in Multi threading)
+    4)Remote Exception
+
+1)Run time Exception child classes:
+
+1)Arithmetic Exception
+2)Null pointer Exception
+3)Classcast Exception
+4)IndexOutofBoundsException
+   4.1)ArrayIndexOutofBounds
+   4.2)StringIndexOutofBounds
+5)IllegalArgumentException
+  5.1)NumberFormatException
+
+2)IO Exception child classes:
+
+1)EOF Exception (EndofFile)
+2)FileNotFound Exception
+
+Error child classes:
+1)VMError(Virtual Machine Error)
+  1.1)StackOverFlow Error
+  1.2)OutOfMemory Error
+2)Linkage Error
+  2.1)VerifyError
+3)AssertionError
+4)ExceptionInInitializationError
+
+
+Checked Vs Unchecked Exception
+-If we are having idea on Checked Vs Unchecked Exception. The benefits are throws keyword, how to define cutomised exceptions.
+
+-Checked Exception:Exception which are checked by compiler for smooth execution of the program at runtime whether programmer handling the exception or not.
+
+-Before runtime compilers checks whether the program is handled or not.
+
+Example:When we gave our car for servicing. After servicing, before returning away the car to owner. Once again checking the car and returning the car.
+
+Example:InterrputedException while we working with main thread. The main thread went to sleep.So, at that there is a possibility of interruption.
+
+Interrputed Exception,FileNotFound Exception,IOException also comes in CheckedException.
+
+Unchecked Exception:Exceptions which occur at runtime are known as RuntimeException.
+
+Example:ArrayOutOfBounds. We have declared the size of array as 10. But, we have inserted 11 elements then the output is ArrayOutOfBounds.
+ArthmeticExceptions are runtime exceptions.
+
+Runtime goes for illogical errors and prints exceptions.
+
+Difference btw checked and uncheckedexception:
+Checked:
+In checked exceptions are recoverable
+checked by compiler
+JVM needs the exception to catch and handle.
+IOExcpetion,SQLException,InterruptedException,Exception(Not all Child Class),Throwable
+
+Unchecked Exception:
+In unchecked exceptions are not recoverable.
+not checked by compiler
+Here, the JVM does not require the exception to catch and handle.
+Error, RuntimeException
+
+Fully vs Partially Checked Exception:
+
+Fully Checked:
+-It is said to be fully checked when everything is being checked in it.
+
+Example: If we check every file which is pushed by intern is known as fully checked.
+2)In airport if we are travelling with our family. Security checks everything the laguage and family then it is known as Fully checked.
+IOException is fully checked.
+
+Partially Checked:
+-It is said to be partially checked when everything is not checked in it.
+Example:While we went to a shopping mall the security might only check us. They might not check our kids.
+Exception,Throwable class is partially checked.
+
+-If there is no chance of exception then we get compiler error. When we use fully checked expection then we get error.
+
+-For partially and unchecked we do not get any error.
+
+Example:
+  try{
+  SOP("hello");
+  }catch(IOException e){
+  }
+
+Output: CE:exception Exception; Exception is never thrown.
+
+Customized Exception Handling by using try-catch:
+
+Abonormal termination happens when there is any illogical statements and misuse of programming statements due to which execution stops.
+
+
+To handle abnormal termination we use try-catch.
+
+A try / catch block is basically used to handle errors in Java. You use this when you don't want an error in your script to break your code.
+
+try-In try block we need to insert risky code inside.
+The code which might raise expection that is known risky code.
+
+catch-In catch block we need to insert handling code.
+
+To handle abonormal termination we use try catch which makes to the program normal termination.
+
+Syntax:
+try{
+//  risky code
+}catch(name of the exception handler){
+// handling code
+}
+
+Control flow of try-catch
+Example:
+try{
+stmt1
+stmt2-if error occurs at stmt 2 then stmt 3 will not execute.
+stmt3
+}catch(XYZ a){
+stmt4
+}
+stmt 5
+
+We need to maintain the try block as less as possible. If we are more than 2 risky areas then we can use multiple try catch. But we should not use one try catch for every stmt which is risky.
+
+try{
+ stmt1
+}catch(XYZ a){
+stmt 4
+}
+try{
+stmt2
+}catch(XYZ a){
+stmt 5
+}
+try{
+stmt3
+}catch(XYZ c){
+stmt6
+}
+
+While even we are declaring catch we need to check the type of exception handler we are declaring or else it will come under abonormal termination.
+
+Exception can also occur at catch block.
+Catch block are only responsible for try block statements only.
+
+Methods to print Exception Information:
+
+-If we wanna print the exception information then there are 3 methods:
+1)printStackTrace()
+2)toString()
+3)getMessage()
+
+-These methods are under Throwable class
+
+Example:
+Whenever unfortunately if there is a internet issue immediately we are notified by a message.
+
+1)e.printStackTrace()
+-Name of the Exception:Description of Exception
+   Stack Trace(in which method does exception occured)
+
+Example:
+java.lang.ArithmeticException/by zero
+        at Test.main(Test.java:7)
+
+2)e.toString()
+-Name of the Exception:Description of Exception
+
+Example:
+java.lang.ArithmeticException/by zero
+
+3)e.getMessage
+-Description of Exception
+
+Example:
+/ by zero
+
+Try with multiple catch blocks:
+
+-While we working on real time projects we might enclose so many exceptions. A single object/program statement might enclose more than one exception at that we need to use multiple catch blocks.
+
+For every exception we can't give same type of exception handled message which makes us a bad programmer.
+
+For every exception we need to give separate message which makes us a efficient programmer.
+
+Syntax:
+try{
+//risk code
+}catch(XYZ e){
+//handler msg
+}catch(XYZ2 e){
+//handler msg
+}catch(XYZ3 e){
+//handler msg
+}
+
+If the program has multiple catch blocks then JVM follows top to order.
+
+Example1:
+
+try{
+Sop(10/0);
+}catch(Exception e){
+//body
+}catch(Arthmetic Exception e){
+//body
+
+Output: Exception java.lang.ArthmeticException has already been caught.
+
+In catch block we need to declare child blocks to parent block or else we will occur the above output.
+
+Example2:
+
+try{
+Sop(10/0);
+}catch(Arithemtic Exception e){
+//body
+}catch(Exception e){
+//body
+}
+
+Output:
+//body of ArthmeticException
+
+//In example 2 arithmetic exception is handled first. Other than arthmetic exception if there are any other exception then 2nd catch block comes to action.
+
+//We can't declare multiple catch blocks with same exception name. If we declare it then we are get compile time error.
+
+Finally block:
+-It is a special block where it is designed to execute the clean up code or any message or any program statement.
+-It will be executed irrespective of exception handled or not.
+
+Syntax:
+try{
+//risk code
+}catch(Exception e){
+//Handling code
+}finally{
+//clean up code
+}
+
+Example:
+try{
+Sop("try");
+Sop(10/0);
+}catch(NullPointerException e){
+Sop("catch");
+}finally{
+Sop("finally");
+}
+
+Ouput:
+try
+finally
+Exception in thread "main" java.lang.ArithmeticException/ by zero
+at Test.main(Test.java"8)
+
+Finally vs System.exit(0)
+
+-System.exit(0)- It will shutdown JVM.
+ 
+Example:
+
+try{
+Sop("try");
+System.exit(0);
+}catch(Exception e){
+Sop("catch");
+}finally{
+Sop("finally");
+}
+
+Output:
+try
+
+//System.exit(0) terminates JVM because of that finally block doesn't executed.
+
+The number in System.exit(argument(number)) represents the status
+For 0 - Normal Termination
+For Non-zero-Abnormal Termination
+If the argument is non-zero then internal function might affect anything.
+But what ever number we insert the JVM is gonna shutdown.
+
+Control flow in try catch finally:
+
+-If exception occurs in finally block then it is considered as abnormal termination.
+
+Nested try catch finally:
+
+try{
+  try{
+    }catch{
+      }finally{
+               try{
+                  }catch{
+                      }finally{
+                         }
+    }
+  catch{
+  }finally{
+   }
+
+-Whenever we are using try catch finally block.If we declare try then there should be a catch or finally block or else there will be a compiler error.
+The same comes to catch finally block also.
+
+try{
+}finally{
+}catch(){
+}
+Compile time error: catch without try
+
+-We need to follow order while we are using try catch finally
+
+try
+  sop();
+catch{
+}
+//it is an invalid statement
+
+Difference between final, finally, finalize:
+
+final is used for class, methods, variables.
+when used for class-class can't be inherited
+when used for method- method can't be override
+when used for variable- we can't change its value
+
+finally-block assoicated with try-catch.Inside final block it contains resource deallocation code/cleanup code.
+
+finalize-It is a method. Associated with garbage collector. 
+To perform cleanup activity before destroying any object.
+Garbage Collector calls finalize method. Just before destroy an object garbage collector calls finalize method.To perform clean up activity.
+
+Difference between finally cleanup and finalize cleanup:
+-finally block clean up code is meant for closing resources which are opened in try block.
+
+-If we want to object related resources then we need to use finalize.
+
+Throw keyword:
+-to hand over custom exception to JVM manually.  
+
+-to indicate something is going wrong at that we need to use customized exception. Means,  creating our own exception which handles a specific exception and that must be thrown by throw keyword.
+
+Customized Exception: Creating our own exception
+
+-Throw keyword is mainly for throwing customized  exception to JVM manually.  It  is also used for predefine also.
+
+Example:
+Assume 2 peoples A and B, A throw ball on B.
+Here A is programmer the ball is Exception object
+B is JVM.
+
+throw new ArithmeticException( / by zero)
+    |            |-creating of exception object explicitly
+    |-handover created exception object to the JVM manually
+
+When we use throw keyword the exception occurs manually explicitly.The programmer itself hand overs the exception manually to JVM explicitly.
+
+-without throw keyword exception occurs internally.
+
+
+example:
+
+class test{
+   static ArithmeticException ae = new ArithmeticException();
+  public static void main(String[] args){
+    throw e; 
+   }
+}
+
+Output:
+Exception in thread "main" java.lang.ArithmeticException
+ at Test.<clinit>(Test.java:3)
+
+example:
+
+class test{
+   static ArithmeticException ae;
+  public static void main(String[] args){
+    throw e; 
+   }
+}
+
+Output:
+Exception in thread "main" java.lang.NullPointerException
+ at Test.<clinit>(Test.java:3)
+
+example:
+ class test{
+  public static void main(String[] args){
+    throw new ArithmeticException("\ by zero");
+    SOP("hello");//unreachable statement
+    }
+}
+
+Output:
+Compile time error: unreachable statement.
+
+-Throw keyword is only applicable for Throwable class types.
+-We get syntatical error if we use any other element of program other than Throwable class types.
+
+Example:
+ class test{
+  public static void main(String[] args){
+   throw new Test();
+   }
+}
+
+Output:
+error:incompatible types: Test cannot be converted to Throwable 
+
+class Test extends RuntimeException{
+   public static void main(String[] args){
+     throw new Test();
+     }
+}
+
+Output:
+Exception in thread main "Test"
+// It is runtime exception but not compile time error
+
+Throws keyword:
+
+-It is mainly for checked exception. Throws keyword is used to handle all checked exceptions.
+
+-It is one of the way to handle checked expection.
+
+-The throws keyword in Java is used to declare exceptions that can occur during the execution of a program
+
+-It provides information to the caller.
+
+-After using throws keyword the exception directly gets controlled by JVM. So, compiler will not care about it.
+
+Checked expectations can be solved by 2 ways:
+1)try-catch block
+2)throws keyword
+
+Example:
+ class Test{
+  public static void main(String[] args) throws InterruptedException{
+   Thread.sleep(1000);
+   }
+ }
+
+-But try-catch is recommended than throws keyword because when we are using throws keyword the compiler doesn't check and it all goes to JVM and there are huge chances of getting abnormal activity. Throws keyword is required to convience compiler and it doesn't prevent abnormal event.
+
+Important  concept on throws
+-We can use to delegate responsibility of exception handling to the caller(JVM or another method)
+
+-It is required only to convince to compiler and its usage does not prevent abonormal termination of program.
+
+-It is required for checked exceptions.
+
+Example:
+
+Class Test{
+  public static void main(String[] args) throws InterruptedException{
+         doStuff();
+  }
+  public void doStuff(){
+   domoreStuff();
+  }
+  public void domoreStuff(){
+    Thread.sleep(1000);
+    }
+}
+
+Output:
+  Exception occured at domoreStuff() Interrputed Exception
+
+This is one of the disadvantage when we are using throws keyword because it is always depended on other. In example give above domoreStuff and doStuff is depended on main() which is handling the exception.
+
+And if we have more methods in our program for every program we need to use throws keyword.
+
+-Exception handling can only be used for Constructor, methods.
+
+-Usage of throws keyword cannot be used on class.
+It shows compiler time error.
+-{ expected- this is the error declared if we declare throws keyword for a class.
+
+Example:
+ class Test{
+  public static void main(String[] args) throws Test{
+  }
+}
+
+Output:
+compile time error
+incompatible types:test cannot be converted to throwable.
+
+class Test extends Throwable/Exception/RuntimeException
+{
+public static void main(String[] args) throws Test{
+}
+}
+
+Output:
+code is compiled
+
+Example:
+ class Test{
+  public static void main(String[] args){
+    throw new Exception();
+   }
+}
+
+output: unreported exception Exception;
+Exception must be caught or report to be throw
+
+Example:
+  class Test{
+  public static void main(String[] args){
+    throw new Error();
+   }
+}
+
+Output: Code compiles because Error is unchecked exception
+We get error at runtime
+Exception in thread main java.lang.Error
+
+ User-defined or Customized Exceptions:
+-For every programming we need to use user define exceptions because pre defined exceptions can't handle all type of exceptions. So, we need to create for userdefine for new type of expections.
+-To meet our programming exceptions.
+
+Example:
+-If we want to withdraw an amount from ATM. If requested amount is greater than balance. We don't have any predefined expection related to this. So, we need to use user define expection
+
+-The exceptions which are raised/created based on programmer specifications.
+
+Example:
+ATM withdraw
+
+
+Example:
+ArrayOutOfBoundsException
+
+ class Test{
+  public static void main(String[] args){
+    int[] a = new int[10];
+     System.out.println(a[0]);
+     System.out.println(a[9]);
+     System.out.println(a[100]);
+ }
+}
+
+Output:
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 100
+   at Test.main(Test.java:8)
+
+Example:
+NullPointer Exception
+ class Test{
+   public static void main(String[] args){
+    String s = "uttej";
+    System.out.println(s.length());
+    String k = null;
+    System.out.println(s.length());
+  }
+}
+
+Output:
+Exception in thread "main" java.lang.NullPointerException
+
+StackOverflow Error:
+-When we have recursive method call then we may get StackOverflow 
+ class Test{
+  public static void m1(){
+   m2(); 
+   }
+public static void m2(){
+  m1();
+} public static void main(String[] args){
+     m2();
+  }
+}
+
+Output:
+java.lang.StackOverlow
+
+ClassCastException
+-If we face any problem while typecasting then we get classcastexception.
+
+-child can be casted to parent.But parent can't be casted to child
+
+class Test{
+ public static void main(String[] args){
+  Object o = new Object();
+ String s = (String)o;
+  System.out.println(s);
+  }
+}
+
+output: 
+
+This expection occurs at run time: java.lang.ClassCastException: java.lang.Object
+ 
+ExpectionInIntializerError
+
+class Test{
+  static int x =10/0;
+  public static void main(String[] args){
+  }
+}
+
+Output:
+ExceptionInInitializerError
+Caused by java.lang.ArithmeticException
+
+-When we didn't initialize static variable/block/method correctly then we get ExpectionInIntializerError
+
+class Test{
+ static{
+  String s = null;
+  System.out.println(s.length);
+ }
+public static void main(String[] args){
+ }
+}
+
+Output:
+ExceptionInInitializerError
+Caused by java.lang.NullPointerException
+
+IllegalArgumentException
+-If you are calling a method with inapropriate argument or illegal argument
+class Test{
+  public static void main(String[] args){
+   Thread t = new Thread();
+    t.setPriority(10);
+    t.setPriority(100);
+    }
+}
+
+Output:
+ 
+java.lang.IllegalArgumentException
+
+NumberFormatException
+-child class of IllegalArgumentException
+-If the data is not in number format then we get numberformatexception
+
+Example:
+int i =  Integer.parseInt("ten");
+
+IllegalStateException
+-Child class RuntimeException
+-If we are calling a method at wrong time then it is called IllegalStateException
+
+class Test{
+public static void main(String[] args){
+
+Thread k = new Thread();
+k.start();
+k.start();
+}
+}
+
+Output:
+IllegalThreadStateException
+
+
+AssertionError
+-While performing debugging we can get this type of error.
+-When assert statement fails then we get AssertionError.
+
+Try with resources:
+Until java version 1.6 we use to close the resources in finally which leads to increase the length of code and complexity increases. To prevent these disadvantages from version 1.7 and later resources have been closed inside try block only.
+
+Examples:
+ Example1:
+  package ExceptionHandling_practice;
+
+public class ExceptionHandlingExample1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		try {
+			int[] a = new int[10];
+			System.out.println(a[-1]);
+		}catch(ArrayIndexOutOfBoundsException e) {
+			e.printStackTrace();
+			System.out.println("Exception Handled");
+		}
+	}
+}
+
+Output:
+
+java.lang.ArrayIndexOutOfBoundsException: Index -1 out of bounds for length 10
+	at Java_Full_Creative_Task/ExceptionHandling_practice.ExceptionHandlingExample1.main(ExceptionHandlingExample1.java:10)
+Exception Handled
+
+  Example2:
+
+package ExceptionHandling_practice;
+
+public class ExceptionHandlingExample2 {
+      public static void main(String[] args) {
+    	  
+    	 try {
+    		 System.out.println(10/0);
+    	 }catch(ArithmeticException e) {
+    		 e.printStackTrace();
+    		 System.out.println(10/2);
+    	 }
+      }
+}
+
+Output:
+
+java.lang.ArithmeticException: / by zero
+	at Java_Full_Creative_Task/ExceptionHandling_practice.ExceptionHandlingExample2.main(ExceptionHandlingExample2.java:7)
+5
+
+Example3:
+  package ExceptionHandling_practice;
+
+class NotEligibleException extends Exception{
+	
+	NotEligibleException(){
+		System.out.println("You are not eligible to vote");
+	}
+}
+public class ExceptionHandlingExample3 {
+
+	 public static void main(String[] args) {
+		 
+		 try {
+			 vote(12);
+		 }catch(NotEligibleException e) {
+			 e.printStackTrace();
+		 }
+	 }
+	 
+	 public static void vote(int age) throws NotEligibleException {
+		  if(age<18) {
+		   throw new NotEligibleException();
+          }else {
+        	   System.out.println("You are eligible to vote");
+          }
+    }
+}
+
+Output:
+
+You are not eligible to vote
+ExceptionHandling_practice.NotEligibleException
+	at Java_Full_Creative_Task/ExceptionHandling_practice.ExceptionHandlingExample3.vote(ExceptionHandlingExample3.java:22)
+	at Java_Full_Creative_Task/ExceptionHandling_practice.ExceptionHandlingExample3.main(ExceptionHandlingExample3.java:14)
+
+ Example4:
+  package ExceptionHandling_practice;
+
+public class ExceptionHandlingExample4 {
+  public static void main(String[] args) {
+	  int a = 10;
+	  int b = 0;
+	  try {
+		  System.out.println(10/0);
+	  }catch(ArithmeticException e) {
+		  e.printStackTrace();
+	  }finally {
+		  System.out.println("10/0 will display Arithmetic Exception");
+	  }
+  }
+}
+
+Output:
+
+java.lang.ArithmeticException: / by zero
+	at Java_Full_Creative_Task/ExceptionHandling_practice.ExceptionHandlingExample4.main(ExceptionHandlingExample4.java:8)
+10/0 will display Arithmetic Exception 
+
+
+Example5:
+
+ package ExceptionHandling_practice;
+
+public class ExceptionHandlingExample5 {
+      public static void main(String[] args) {
+    	  try {
+    		  String s = null;
+    		  System.out.println(s.length());
+    	  }catch(NullPointerException e) {
+    		  e.printStackTrace();
+    	  }
+      }
+	}
+
+Output:
+
+java.lang.NullPointerException: Cannot invoke "String.length()" because "s" is null
+	at Java_Full_Creative_Task/ExceptionHandling_practice.ExceptionHandlingExample5.main(ExceptionHandlingExample5.java:7)
+
+Example6:
+ package ExceptionHandling_practice;
+
+import java.io.*;
+
+public class ExceptionHandlingExample6 {
+
+	 public static void findFile() throws IOException {
+
+		    // code that may generate IOException
+		    File newFile = new File("test.txt");
+		    FileInputStream stream = new FileInputStream(newFile);
+		  }
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	    try {
+	        findFile();
+	      }
+	      catch (IOException e) {
+	        System.out.println(e);
+	      }	
+	}
+}
+
+Output:
+
+java.io.FileNotFoundException: test.txt (The system cannot find the file specified)
+
+Example7:
+
+ package ExceptionHandling_practice;
+
+class Test extends Exception { }
+
+public class ExceptionHandlingExample7 {
+	
+	public static void main(String[] args) {
+
+    try {
+        throw new Test();
+     }
+     catch(Test t) {
+        System.out.println("Got the Test Exception");
+     }
+     finally {
+        System.out.println("Inside finally block ");
+     }
+ }
+
+}
+
+Output:
+
+Got the Test Exception
+Inside finally block 
+
+Example8:
+ package ExceptionHandling_practice;
+
+public class ExceptionHandlingExample8 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		try
+		{
+			int a[]= {1, 2, 3, 4};
+			for (int i = 1; i <= 4; i++)
+			{
+				System.out.println ("a[" + i + "]=" + a[i] + "\n");
+			}
+		}
+		
+		catch (Exception e)
+		{
+			System.out.println ("error = " + e);
+		}
+		
+		catch (ArrayIndexOutOfBoundsException e)
+		{
+			System.out.println ("ArrayIndexOutOfBoundsException");
+		}
+	
+	}
+
+}
+
+Output:
+
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	Unreachable catch block for ArrayIndexOutOfBoundsException. It is already handled by the catch block for Exception
+
+	at Java_Full_Creative_Task/ExceptionHandling_practice.ExceptionHandlingExample8.main(ExceptionHandlingExample8.java:22)
+
+Example9:
+
+package ExceptionHandling_practice;
+
+public class ExceptionHandlingExample9 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		try 
+        {
+            System.out.print("A");
+            int num = 99/0;
+            System.out.print("B");
+        }
+        catch(ArithmeticException ex) 
+        {
+            System.out.print("C");
+            System.exit(0);
+        }
+        catch(Exception ex)
+        {
+            System.out.print("D");
+        }
+        finally
+        {
+            System.out.print("E");
+        } 
+        System.out.print("F");
+        
+	}
+}
+
+Output:
+
+AC
