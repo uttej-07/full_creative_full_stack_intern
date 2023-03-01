@@ -1,0 +1,29 @@
+                             List Interface
+
+-We use List if we want duplicates and insertion order is preserved.
+
+-Index plays a key role in List it helps in duplication and preserved insertion order.
+ 
+Methods in List:
+add("a")-inserts at the start
+add("b")-inserts after a
+
+add(int index, Object o)-inserts at a particular postition.
+
+add(int index, Collection c)-inserts a group of objects at particular position.
+
+remove(Object o)-removes an particular object
+
+remove(int index)-removes the object which is located at a particular index
+
+indexOf(Object o)-returns the index position of that Object.
+
+lastIndexof(Object o)-returns the previous position of that Object.
+
+get(int index)-returns the object which is there at specified index.
+
+listIterator()- print object one by one
+Example:
+ListIterator.listIterator()
+
+set(int index, Object o)-Replaces the element with the new Object.

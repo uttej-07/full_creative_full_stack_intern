@@ -1,0 +1,261 @@
+                       LinkedList in Collections
+-LinkedList in Collections is the Implementation of List Interface and Dequeue Interface.
+-LinkedList consist of nodes. A node contain a data value and a link to next node.
+-In java, there are no pointers. Due, to which we use index position to access the nodes.
+Why are we not using pointers?
+-Because pointers contain address of the data. Which can manipulated.
+-LinkedList is an ordered collection and supports duplicate elements.
+-It stores elements in Insertion order, it supports index based operations.
+-We can add null elements in LinkedList.
+-We can have Single and Double LinkedList.
+-It is not thread safe.
+-For making thread safe, we need to make use Collections.synchronizedList() method.
+-It is non-contiguous and it is not RandomAccess.
+-From Java SE 8 on-wards, we can convert a LinkedList into a Stream and vice-versa.
+-Java SE 9 is going to add couple of factory methods to create an Immutable LinkedList.
+
+LinkedList is preferred over Arrays:
+1)In Array we need to specify the size of an Array.
+Whereas, in LinkedList it is not prefered.
+2)Array store memory at compile time, whereas LinkedList store at run-time.
+3)Arrays are contiguous, where as LinkedList are non-contiguous.
+4)Arrays use less memory when compare to LinkedList, LinkedList store more memory due to data and link to next node.
+5)In Arrays Insertion and deletion takes more time when compared to LinkedList. LinkedList is faster.
+6)In Arrays elements can be accessed easily, when comes LinkedList we need to traverse whole LinkedList.
+
+Disadvantages of LinkedList:
+1)It doesn't support Random Access due to which we can access any random element easily.
+2)Extra memory required.
+3)Takes a lot of time for traversing
+
+Differences between ArrayList and LinkedList:
+1)ArrayList initial capacity is 10, where as there is no intital capacity in LinkedList.
+2)ArrayList is better for accessing, storing, whereas LinkedList is best for manipulation.
+3)ArrayList take less memory when compared to LinkedList because LinkedList contain data and next node link.
+4)ArrayList can act as List, But LinkedList can act as both List and Dequeue.
+5)ArrayList only contain List Interface methods, Whereas LinkedList contain both List and Dequeue methods.
+6)ArrayList is contiguous, LinkedList is non-contiguous.
+7)ArrayList is resizeable array, LinkedList implements the doubly LinkedList of the list interface.
+
+Realtimeexample of LinkedList:
+A garden of flowers, here all flowers are nodes, where there are roots are connected to other roots.
+
+-When we are frequently use operations like adding or removing elements in any specified position. Then we can use LinkedList.
+
+Methods of LinkedList using List Interface:
+1)int size()-returns the no of elements present in the LinkedList.
+2)Iterator iterator()-Returns an iteratoor over the elements in the list in proper sequence.
+3)boolean add()-Appends the specified element to the end of the list.
+4)Object[] toArray()- Returns an Array containing all of the elements in this list in proper sequence.
+5)ListIterator listIterator()- Returns a list iterator over the elements in the list.
+
+Methods of LinkedList using Dequeue Interface:
+1)void addFirst()- Inserts the specified element at the beginning of the list.
+2)void addLast()- Inserts the specified element at the end of the list.
+3)getFirst()- Retrives the first element of this list.
+4)getLast()- Retrives the last element of this list.
+5)removeFirst()- Retrives and removes the first element from this list.
+6)removeLast()- Retrives and removes the last element from this list.
+
+Example1:
+ package LinkedListPractice;
+
+import java.util.LinkedList;
+import java.util.List;
+
+public class LinkedList1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+       List names = new LinkedList();
+       names.add("Uttej");
+       names.add("Goutham");
+       names.add("Dheeraj");
+      
+       System.out.println(names);
+       System.out.println(names.size());
+	}
+
+}
+
+Output:
+
+[Uttej, Goutham, Dheeraj]
+3
+
+Example2:
+
+package LinkedListPractice;
+
+import java.util.LinkedList;
+import java.util.List;
+
+public class LinkedListExample2 {
+    public static void main(String[] args) {
+	
+    List<Integer> num = new LinkedList<Integer>();
+    num.add(100);
+    num.add(400);
+    num.add(300);
+    System.out.println(num);
+    List<String> names = new LinkedList<String>();
+    names.add("Uttej");
+    names.add("Goutham");
+    names.add("Dheeraj");
+    System.out.println(names);
+    names.toArray();
+    System.out.println(names);
+    
+ }
+}
+
+Output:
+
+[100, 400, 300]
+[Uttej, Goutham, Dheeraj]
+[Uttej, Goutham, Dheeraj]
+
+Example3:
+package LinkedListPractice;
+
+import java.util.LinkedList;
+import java.util.List;
+
+public class LinkedListExample3 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+    
+		Integer[] numbers = {1,2,3,4,5};
+		List<Integer> numberList = new LinkedList<>();
+		for(Integer s: numbers) {
+			numberList.add(s);
+		}
+		System.out.println(numberList);
+	}
+}
+
+Output:
+
+[1, 2, 3, 4, 5]
+
+Example4:
+
+package LinkedListPractice;
+
+import java.util.LinkedList;
+import java.util.Deque;
+
+public class LinkedListExample4 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Deque numbers = new LinkedList();
+		numbers.add(2);
+		numbers.addFirst(1);
+		numbers.add(3);
+		numbers.addLast(4);
+		numbers.add(5);
+		numbers.add(6);
+		numbers.addFirst(0);
+		System.out.println(numbers);
+		System.out.println(numbers.size());
+		numbers.removeFirst();
+		numbers.removeLast();
+		System.out.println(numbers);
+		System.out.println(numbers.size());
+	}
+}
+
+Output:
+
+[0, 1, 2, 3, 4, 5, 6]
+7
+[1, 2, 3, 4, 5]
+5
+
+Example5:
+
+ package LinkedListPractice;
+
+import java.util.LinkedList;
+import java.util.List;
+
+public class LinkedListExample5 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		List<Integer> numberList = new LinkedList<>();
+		
+	numberList.add(1);
+	numberList.add(2);
+	numberList.add(3);
+	numberList.add(4);
+	numberList.add(5);
+		
+	//convert List to stream
+	numberList.stream().forEach(System.out::println);
+
+}
+}
+
+Output:
+
+1
+2
+3
+4
+5
+
+Example6:
+ 
+package LinkedListPractice;
+
+import java.util.Arrays;
+//import java.util.LinkedList;
+import java.util.List;
+
+class Student{
+	private int std_id;
+	private String name;
+	
+	public Student(int id,String name) {
+		this.std_id = id;
+		this.name = name;
+		// TODO Auto-generated constructor stub
+	}
+
+	public int getStd_id() {
+		return std_id;
+	}
+	
+	public void setStd_id(int std_id) {
+		this.std_id = std_id;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+}
+public class LinkedListExample6 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		List<Student> s1 = Arrays.asList(new Student (1,"uttej"), new Student(2,"goutham"));
+	    for(Student s:s1) {
+		System.out.println(s.getStd_id()+" "+s.getName());
+	}
+}
+}
+
+Output:
+
+1 uttej
+2 goutham

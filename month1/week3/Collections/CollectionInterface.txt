@@ -1,0 +1,39 @@
+                       Collection Interface
+
+-A group of single objects represent in single entity is known as Collection
+
+-Considered as root interface of Collection Framework.
+
+-Defines the most common methods which are applicable for any collection object.
+
+Methods in Collection:
+
+add(Object o)-Adds an single object.
+
+addAll(Collection c)-Add a group of objects.
+
+remove(Object)-removes an single object.
+
+removeAll(Collection c)- removes a group of objects
+
+clear()-removes all objects
+
+retainAll(Collection c)- Expect for c remove all other elements.
+
+isEmpty()-Checks whether it is size or not.
+
+size()-checks the size of the collection
+
+contains(Object o)-Checks whether that particular object is available or not.
+
+containsAll(Collection c)- Checks whether the group of objects are available or not.
+
+toArray()- converts objects to Array.
+Example: Object[] a = c.toArray();
+
+iterator()-returns the element and goes to next element.
+Iterator = iterator()
+
+-There are no retrieve methods available in Collection Interface.
+
+-There is no concrete class which implements collection class directly.

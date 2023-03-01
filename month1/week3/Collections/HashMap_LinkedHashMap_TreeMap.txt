@@ -1,0 +1,252 @@
+                                HashMap
+-It is class implementes the Map Interface. It allows us to store key-value pairs, where keys should be unique.
+-HashMap is found in java.util package.
+-It contains only one null key and n number of null values.
+-HashMap in Java is like the legacy Hashtable class, but it is not synchronized.
+-Even if we try to add duplicate keys the HashMap ignores it.
+-It maintains no order.
+-The initial default capacity of Java HashMap class is 16 with a load factor of 0.75.
+-The application of HashMap is Hashing. It is useful when we need efficient implementation of search, insert and delete operations.
+-There is no fixed time complexity.
+
+Performances of HashMap
+1)Initial Capacity-The default of capacity of HashMap is 16.
+2)Load Factor-It is the percent value of the capacity after which the capacity of Hashmap is to be increased. The default is load factor is 0.75
+3)Threshold-It is the product of load factor and initial capacity. 16*0.75=12. So, HashMap does ReHasing after inserting 12 elements.
+4)Rehashing-Process of doubling the capacity of HashMap after it reaches the threshold.
+
+Internal Structure of HashMap
+1)int hash
+2)K key
+3)V value
+4)Node next
+
+-It also implements Cloneable and Serializable interface. K and V in the above definition represent Key and Value respectively.
+-HashMap allows doesn't allow duplicates but allows duplicate values.
+
+Constrcutors in HashMap
+1)HashMap()- creates a default HashMap with default capacity.
+2)HashMap(Map<?extends K,? extends V>m)- used to initialize the hash map by using the elements of the given Map object m.
+3)HashMap(int capacity)- creates a HashMap with user insisited capacity.
+4)HashMap(int capacity, float LoadFactor)- creates a HashMap with user insisited capacity and loadfactor.
+
+-There is no preservation order in HashMap. The elements are stored randomly.
+
+-To make a HashMap synchronize we need to use a method Collections.synchronizedMap(new HashMap(..));
+
+HashMap vs HashSet
+1)HashMap is implemented by Map, whereas Set is been implemented by Set.
+2)Duplicates
+-HashMap:Duplicates values are allowed
+-HashSet:No
+3)Insertion order:
+-HashMap:put()
+-HashSet:Add()
+4)Null
+-Map:Have one single null key and n number of null values
+-Set:Have a single null value
+
+Example1:
+  package MapPractice;
+
+import java.util.HashMap;
+
+public class HashMapExample1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		HashMap<Integer,String> student = new HashMap<>();
+		student.put(1, "uttej");
+		student.put(2, "Bhavana");
+		student.put(3, "goutham");
+		student.put(4, "Gowrav");
+		student.put(5, "Bhanu");
+	
+		HashMap<Integer,String> student1 = new HashMap<>();
+		student1.putAll(student);
+
+		System.out.println(student1);
+	}
+}
+
+Output:
+{1=uttej, 2=Bhavana, 3=goutham, 4=Gowrav, 5=Bhanu}
+
+Example2:
+ package MapPractice;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Set;
+
+public class HashMapExample2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		HashMap<Integer,String> student = new HashMap<Integer,String>();
+		student.put(1, "uttej");
+		student.put(2, "bhavana");
+		student.put(3, "goutham");
+		student.put(4, "Gowrav");
+		student.put(5, "Bhanu");
+		
+		if(student.containsKey("bhavana")) {
+			System.out.println(student.get("bhavana"));
+		}
+	
+		Set<Integer> getkeys = student.keySet();
+		System.out.println(getkeys);
+		
+		Collection<String> getvalues = student.values();
+		System.out.println(getvalues);
+		
+		student.put(6, "sujith");
+		
+		student.putIfAbsent(7, "Krishna");
+		
+		System.out.println(student);
+		
+		student.remove(4);
+		
+		System.out.println(student);
+		
+		student.putIfAbsent(7, "Krishna");
+		student.putIfAbsent(4, "Gowrav");
+		
+		System.out.println(student);
+		
+		
+	}
+
+}
+
+Output:
+
+[uttej, bhavana, goutham, Gowrav, Bhanu]
+{1=uttej, 2=bhavana, 3=goutham, 4=Gowrav, 5=Bhanu, 6=sujith, 7=Krishna}
+{1=uttej, 2=bhavana, 3=goutham, 5=Bhanu, 6=sujith, 7=Krishna}
+{1=uttej, 2=bhavana, 3=goutham, 4=Gowrav, 5=Bhanu, 6=sujith, 7=Krishna}
+
+LinkedHashMap:
+-It follows all the features of HashMap. The only difference is it follows a predictable iteration order.
+-It maintains an insertion order.
+
+Constructors:
+-LinkedHashMap()-It is used to construct a default LinkedHashMap.
+
+-LinkedHashMap(int capacity)-It is used to initialize a LinkedHashMap with the given capacity.
+
+-LinkedHashMap(int capacity, float loadFactor)-It is used to initialize both the capacity and the load factor.
+
+-LinkedHashMap(int capacity, float loadFactor, boolean accessOrder)-It is used to initialize both the capacity and the load factor with specified ordering mode.
+
+-LinkedHashMap(Map<? extends K,? extends V> m)-It is used to initialize the LinkedHashMap with the elements from the given Map class m.
+
+Example:
+
+package MapPractice;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class LinkedHashMapExample1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		LinkedHashMap<Integer,String> student = new LinkedHashMap<Integer,String>();
+		student.put(1, "uttej");
+		student.put(2, "bhavana");
+		student.put(3, "goutham");
+		student.put(4, "Gowrav");
+		student.put(5, "Bhanu");
+        student.put(6, "sujith");
+		student.putIfAbsent(7, "Krishna");
+		
+		for(Map.Entry m:student.entrySet()) {
+			System.out.println(m.getKey()+" "+m.getValue());
+		}
+		
+		   System.out.println("Keys: "+student.keySet());  
+	     
+	       System.out.println("Values: "+student.values());  
+	   
+	       System.out.println("Key-Value pairs: "+student.entrySet()); 
+	}
+
+}
+
+Output:
+
+1 uttej
+2 bhavana
+3 goutham
+4 Gowrav
+5 Bhanu
+6 sujith
+7 Krishna
+Keys: [1, 2, 3, 4, 5, 6, 7]
+Values: [uttej, bhavana, goutham, Gowrav, Bhanu, sujith, Krishna]
+Key-Value pairs: [1=uttej, 2=bhavana, 3=goutham, 4=Gowrav, 5=Bhanu, 6=sujith, 7=Krishna]
+
+TreeMap
+-It is red-black tree based implementation. It provides an efficient means of storing key-value pairs in sorted order.
+-It contains only unique elements.
+-It can have multiple null values.
+-It maintains ascending order.
+
+Constructors:
+-TreeMap()-It is used to construct an empty tree map that will be sorted using the natural order of its key.
+
+-TreeMap(Comparator<? super K> comparator)-It is used to construct an empty tree-based map that will be sorted using the comparator comp.
+
+-TreeMap(Map<? extends K,? extends V> m)-It is used to initialize a treemap with the entries from m, which will be sorted using the natural order of the keys.
+
+-TreeMap(SortedMap<K,? extends V> m)-It is used to initialize a treemap with the entries from the SortedMap sm, which will be sorted in the same order as sm.
+
+Example:
+ package MapPractice;
+
+import java.util.Map;
+import java.util.TreeMap;
+
+public class TreeMapExample1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		TreeMap<Integer, String> student = new TreeMap<>();
+		student.put(1, "uttej");
+		student.put(2, "bhavana");
+		student.put(3, "goutham");
+		student.put(4, "Gowrav");
+		student.put(5, "Bhanu");
+        student.put(6, "sujith");
+		student.putIfAbsent(7, "Krishna");
+		
+		   for(Map.Entry m:student.entrySet())  
+		      {  
+		          System.out.println(m.getKey()+" "+m.getValue());      
+		      } 
+		   System.out.println("descendingMap: "+student.descendingMap());
+		   System.out.println("HeadMap: "+student.headMap(1,true));
+		   System.out.println("TailMap: "+student.tailMap(2,true));
+		   System.out.println("SubMap: "+student.subMap(1,false,2,true));
+	}
+
+}
+
+Output:
+1 uttej
+2 bhavana
+3 goutham
+4 Gowrav
+5 Bhanu
+6 sujith
+7 Krishna
+descendingMap: {7=Krishna, 6=sujith, 5=Bhanu, 4=Gowrav, 3=goutham, 2=bhavana, 1=uttej}
+HeadMap: {1=uttej}
+TailMap: {2=bhavana, 3=goutham, 4=Gowrav, 5=Bhanu, 6=sujith, 7=Krishna}
+SubMap: {2=bhavana}

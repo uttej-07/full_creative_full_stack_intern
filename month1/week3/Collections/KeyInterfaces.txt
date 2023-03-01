@@ -1,0 +1,95 @@
+                               List Interface(1.2V)
+
+-Child Interface of Collection
+Implementation from List Interface
+
+1)ArrayList(1.2V)
+2)LinkedList(1.2V)
+3)Vector->Stack(1.0V)(Legacy Classes)
+
+-If we want to represent a group of individual objects as a single entity where duplicates are allowed and insertion order preserved then we should go for List.
+   
+                               Set Interface(1.2V)
+
+-Child interface of Collection
+
+-If we want to represent a group of individual objects as a single entity where duplicates aren't allowed and insertion order isn't preserved then we should go for List.
+ 
+Implemenetation Classes in Set:
+1)HashSet(1.2V)
+2)LinkedHashSet(1.2V)
+
+Difference between List and Set:
+
+List allows duplicates
+Set doesn't allow duplicates
+
+List insertion order is preserved
+Set insertion order isn't preserved
+
+                       SortedSet(Interface)(1.2V)
+
+-Child Interface of Set
+
+-If we want to represent a group of individual objects as a single entity where duplicates are not allowed but all objects should be inserted according to some sorting order then we should go for SortedSet.
+
+                      Navigable Set(Interface)(1.6V)
+
+-Child Interface of SortedSet..
+
+-It implements TreeSet.(1.2V)
+
+-It defines several methods for navigation purpose.
+
+                     Queue(Interface)(1.5V)
+
+-Child Interface of Collection
+
+-If we want to represent a group of individual objects prior to processing then we should go for Queue.
+-It follows FIFO(First In First Out) approach.
+
+Example: Queue in booking counter
+
+In Queue, the child classes are Priority Queue(1.5V), Blocking Queue(1.5V)
+
+-From BlockingQueue we have LinkedBlockingQueue(1.5V), PriorityBlockingQueue(1.5V)
+
+                               Map(1.2V)
+
+-If we want to represent the objects as key value pairs then we can use Map. 
+
+-Collection is not root interface for Map.
+
+-In Map, values can be duplicated.
+
+Implementations in Map:
+1)HashMap(1.2V)-LinkedHashMap(1.4V)
+2)WeakHashMap(1.2V)
+3)IdentityHashMap(1.4V)
+4)Hashtable-properties and Hashtable is child of Dictionary (1.0V) (Legacy Classes)
+
+                  SortedMap(Interface)(1.2V)
+
+-Same as Map and according to  some sort techniques. 
+
+              NavigableMap(Interface)(1.6V)
+
+-It is child interface of SortedMap.
+
+-Several Methods for Navigation Purpose and its implementation process is TreeMap(1.2V)
+
+Sorting
+1)Comparable(Interface)- Default sorting order.
+
+2)Comparator(Interface)- Customized sorting order.
+
+                                 Cursors
+
+-These iterate the value one by one in 3 ways
+1)Enumeration(Interface)
+2)Iterator(Interface)
+3)ListIterator(Interface)
+
+There are 2 utility classes:
+1)Collections-several methods for Collections object.
+2)Arrays-several methods for Arrays object.
