@@ -1,0 +1,31 @@
+Lifecycle of Servlet
+
+-The entire lifecycle of servlet is managed by Servlet container which uses javax.servlet.Servlet.
+
+-There are about 4 stages in Servlet Life Cycle:
+1)Loading a Servlet
+2)Initializing the Servlet
+3)Request Handling
+4)Destroying a Servlet
+
+1)Loading a Servlet
+-Servlet would be loaded when the class has been loaded. After loading of the class Servlet will be initialized.
+-It creates the instance of the Servlet. To create the instance of the servlet, the container uses the no-argument constructor.
+
+2)Initializing a Servlet: 
+-The init() or Servlet.init(ServletConfig) method will be loaded and servlet would be created.
+-The servlet object will be initialized. 
+-This method is called only once and invoked by web-container.
+-If it fails then it throws exception like ServletException or UnavailableException.
+
+3)Handling Request: As Servlet is created now, the request starts coming from the client and Servlet.service(ServletRequest req, ServletResponse res) method get initialized and starts servicing. It accepts all the request and response would be sent.
+-It will be called whenever a request is made.
+-If is any problem then ServletException or UnavailableException is called.
+
+4)Destroying a Servlet:
+When the service method responds to all the request. After, all the requests are responded and the service job is done. Servlet would be destroyed. The servlet container releases all the references of this Servlet instance so that it becomes eligible for garbage collection.
+
+-In the LifeCycle of Servlet there are methods used:
+1)init()
+2)service()
+3)destroy()

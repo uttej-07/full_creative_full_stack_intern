@@ -1,0 +1,158 @@
+Sessions In Servlets
+
+-Sessions are used to track the request response in Servlets. They will tracking the time peroid and state of the user.
+
+We use Sessions because of Http protocol. Http protocols are stateless which means, whenever a user request the request will be a new request and the client or user will be named as a new user only. So, to identify who are watching or using the application we are using Sessions.
+
+Session means a particular interval of time.
+Session tracking means a way to maintain state of an user. It is known as session management.
+
+We use session tracking for recognizing the user.
+
+Why to recognize the user.
+Ex: If we went to a shop for first time the seller will sell at the same price.
+But, if we go to same shop reguarly then the seller will acknowledge us a regular customer and will be giving us few extra benefits.
+
+-Whenever we are using Sessions we will be given an Session Id to track us.
+-There are few unique identifer in request and response:
+
+1)User-authenication- We are authenicate the user by providing login credentials from the login page then we can pass the authenication information between server and client to maintain the session. But, User-authenication isn't quite safe. Because, same user can login from different web-browsers.
+
+2)HTML Hidden Field- We can create a unique hidden field in the HTML and when user starts navigating, we can set value unique to the user and keep track of the session. This method isn't quite safe because we are using HTML and it can be hacked and we need to create a new request for every request made by client.
+
+3)URL Rewriting: We can appened a session identifer parameter with every request and response to track the session. But, it is very tedious because we need to track of this parameter in every response and make sure it's not clashin with other parameters.
+
+4)Cookies: Cookies are a small piece of information sent by the web server at response time and gets stored in the browser cookies. Whenever the client requests, it add the cookies header and we can utilize it to keep track of the session. Cookies are useful but the problem comes when the user disable cookies in the web browser.
+
+Cookies
+
+A cookie is a small piece of information that is persisted between the multiple client requests.
+
+A cookie has a textual information in it and it will be added to the response header.
+
+Working of Cookie:
+When a client sents a request to the browser. The response will be adding a cookie with it and sents to client. So, whenever the same client sends the request the cookie will added to the request and the server identifies.
+
+Types of Cookie:
+
+1)Non-persistent cookie: It is valid for single session. It is removed each time when user closes the browser.
+
+2)Persistent cookie: It is valid for multiple session. It is removed when the user logout or signout from the application.
+
+Advantages:
+
+1)Maintained at the client side.
+2)Simplest technique of maintaining the state.
+
+Disadvantages:
+
+1)If browser disables cookie, then it will not work.
+2)Will send only textual information.
+3)Security is less.
+
+Constructors in Cookie:
+
+1)Cookie(): It is used to return a new Cookie.
+
+2)Cookie(String name, String value): It is used to return a new Cookie and we will be passing the name and value of the cookie.
+
+Methods in Cookie
+
+addCookie and getCookies method is under HttpServletRequest and HttpServletResponse Interface.
+
+1)public void addCookie(Cookie ck): It is used to add cookie in response object.
+
+2)public Cookie[] getCookies(): Used to return all the cookies from the browser.
+
+3)public void setMaxAge(int expiry): It is used to set the maximum age of the cookie and it is set in seconds.
+
+4)public String getName(): It returns the name of the cookie. Name can't be refactored again.
+
+5)public String getValue(): It returns the value of the cookie.
+
+6)public void setName(String name): Changes the name of the cookie.
+
+7)public void setValue(String value): Changes the value of the cookie.
+
+8)public void clone(): Overrides the standard java.lang.Object.clone method to return a copy of this Cookie.
+
+Hidden Form Field:
+
+When we are using a hidden form field a hidden textfield is used for maintaining the state of an user.
+
+We can store the information in the hidden field and get it from another servlet.
+
+We don't need to depend on the browser.
+
+<input type = "hidden" name = "uname" value = "uttej">
+
+The hidden form will be going to server as a request parameter when the form is submitted.
+
+Advantages:
+
+1)It's simple.
+2)No effect on security level setting on browser.
+3)Basic HTML knowledge is sufficient to work
+4)It works on server-side technology
+5)It will always work whether cookie is disabled or not.
+
+Disadvantages:
+
+1)Maintained at server side.
+2)Only textual information can be used.
+
+URL Rewriting
+
+If browser doesn't support cookies, URL rewriting provides you with another session tracking alternative. URL rewriting is a method in which the requested URL is modified to include a session ID.
+
+In URL Rewriting, we append a token or identifier to the URL of the next servlet or the next resource. We can send parameter name/value pairs.
+
+url?name1=value1&name2=value2&??
+
+We can use get methods to get the parameter names and values of the parameters.
+
+Name and value is separated by a equal =  sign, one parameter is separated from another parameter using the ampersand (&).
+
+When the user clicks the hyperlink, the parameter will passed to the server.
+
+Advantages:
+1)It will work always even if cookie is disabled
+2)Extra form submission is not requires on each types.
+
+Disadvantages:
+1)It will work with links.
+2)Only textual information can be sent.
+
+HttpSession Interface
+Container creates a session id for each user. The container uses this id and identifies the user.
+
+An object of HttpSession can be used to perform tasks:
+1)bind objects
+2)view and manipulate information about a session
+
+Advantages of HttpSession:
+
+1)Any kind of object can be stored in a session(text,database,etc)
+2)Sessions are secure and transparent
+3)It is not dependent on client's browser.
+
+Disadvantages of HttpSession:
+
+1)Performance overhead due to session object being stored on server.
+2)Overhead due to serlization and de-serlization of data.
+s
+Object creation of HttpSession:
+
+1)public HttpSession getSession(): Returns the current session associated with this request, if request does not have a session, creates one.
+
+2)public HttpSession getSession(boolena create): Returns the current Httpsession assoication with this request,if there is no session and if create is true, creates session else return empty.
+
+Methods in HttpSession:
+
+1)public String getId(): Returns a string containing the unique identifier value.
+
+2)public long getCreationTime(): Returns the time when the session has been created, measured in milliseconds.
+
+3)public long getLastAccessedTime(): Returns the time when the session was used last time.
+
+4)public void invalidate(): Invalidates the session then unbinds any object bounded to it. or terminates the session created.
