@@ -1,0 +1,67 @@
+                                Http Error
+
+What is an Http Error?
+-These type of errors occur in web-application. They only when there is any fault from client or server side.
+Example:
+Error 503 when a service is unavailable.
+
+These are known as Http Errors.
+
+There are various types of Http Errors
+For every Http Error there is a significant reason for it.
+
+1xx codes: Information statuses.
+
+2xx codes: Statuses after a successful action.
+
+3xx codes: Statuses showing a redirection.
+
+4xx codes: Statuses showing a client-side error.
+
+5xx codes: Statuses showing a server-side error.
+
+Error Codes:
+
+Error Code 400
+
+-When we occur a error code 400 it means it is bad request.Means, the client might not follow the header format which the server has instited.
+
+Error Code 401
+
+-It is mainly due to unauthorization. When the client is unable to provide the valid credentials and trying to login then the client might suffer 401 error.
+
+Error code 403
+
+-It is mainly due to Forbiddden. When the client might have loging with the valid credientials but the client wants to access a file which is protected with invalid credentials or incorrect approach.
+
+Error code 404
+
+-It occurs when we are unable to visit a site. When the client wants to access a web application but the client will not be able to visit because the link might be broken or there might be a disturbance occur.
+
+Error code 408
+
+-It occurs due to request time out. If the client is unable to provide all the information to the server within the time limit then the client may suffer this problem.
+
+Error code 410 
+
+-Same as error code 404. The difference is in code 404 the site might not be available for a limited peroid of time. But, when it comes to error code 410 the site might be deleted.
+
+Error code 415
+
+-It occurs when the client send the request in a unsupported media type. The server refuses to accept because the payload format is in an unsupported format.
+
+Error code 500
+
+-It is mainly due to Internal Server Error. Many times this problem occurs because a huge number of people want to access the same web application. There will be a lot of load on server which brings the server let itself down.
+
+Error code 501
+
+-It is mainly due to Not Implemented which means the client wants to do some configuration or want to send data to server but the browser might not support it.
+
+Error code 502 
+
+-It is mainly due to Service Temporarily Overloaded. This can be corrected in a limited peroid of time. As the server starts running again.
+
+Error code 503
+
+-It is mainly due to Service Unavailable. If site is busy or server gets down, then we might suffer error code 503.
