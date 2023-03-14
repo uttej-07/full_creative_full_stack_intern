@@ -1,0 +1,92 @@
+Filter
+-In java we use filter for preprocessing and postprocessing of data.
+-Filtering the data or clearing the unneeded data.
+
+-A filter is an object that is inovked at the pre and post processing of data.
+-It is mainly used to perform filtering tasks such as conversion,logging,compression,encryption and decryption, inputvalidation,etc.
+-The servlet filter is pluggable, i.e, its entry is defined in the web.xml file, if we remove the filter from the web.xml file then it will be automatically removed and no need to do changes in the servlet.
+
+-Why do we use Filter?
+
+-Java Servlet Filter is used to intercept the client request and do sone pre-processing. It can intercept the response and do post-processing before sending to the client in web application.
+
+-To validate the data, process we use Filter at the server side mainly. At client side we can do it with JavaScript. But, if we don't use JavaScript then we can use Filter at Client side also.
+
+-Logging request parameters to log files.
+-Authenication and autherization of request for resources.
+-Formatting of request body or header before sending it to servlet.
+-Compressing the response data sent to the client.
+-After response by adding some cookies, header information, etc.
+
+-Servlets and Filters are unaware of each other. We can add and remove filter by editing in web.xml
+-We can implement filters by javax.servlet.filter
+
+Advantage of Filter:
+
+1)They are pluggable
+2)Less Maintenance
+3)One filter doesn't need to depend on other resources.
+
+Filter API
+-The javax.servlet packaage contains the interfaces of Filter API.
+
+1)Filter
+2)FilterChain
+3)FilterConfig
+
+1)Filter
+
+-Same like servlet, filter interface also provides the life cycle methods for a filter.
+
+1)public void init(FilterConfig paramFilterConfig): This method is used for initializing the Filter. It is been invoked only once during initilization and it will be called before servlet init method.
+FilterConfig is used by the container to provide init parameters and servlet context object to the Filter. We can throw ServletException in this method.
+
+2)public void doFilter(ServletRequest paramServletRequest, ServletResponse paramServletResponse, FilterChain paramFilterChain): This method is invoked everytime by container when it has to apply for a filter to a resource. It is used to perform filter tasks.
+FilterChain is used to call the next filter.
+
+3)public void destroy(): It is used to destroy the filter. It is invoked only once.
+
+Servlet WebFilter annotation
+-It is introduced in Servlet 3.0 and the package is javax.servlet.annotation.WebFilter and we use this annotation to declare a servlet filter. We can use this to define the init parameters, filter name and description, servlets, url patterns and dispatcher types to apply the filter.If you make frequent changes to the filter configurations, its better to use web.xml because that will not require you to recompile the filter class.
+
+2)FilterChain Interface
+
+-This interface is responsible for invoking the next filter or resource in the chain.
+-This object is passed in the doFilter method of Filter Interface.
+
+Method in FilterChain Interface:
+
+1)public void doFilter(HttpServletRequest request, HttpResponse response): it passes the control to the next filter or resource.
+
+While filter we need to use these tags in web.xml file
+
+<filter>
+<filter-name>
+<filter-class>
+<filter-mapping>
+<url-pattern>- we can use url-pattern or servlet-name. There is one advantage by using <url-pattern> is that it can be applied on servlet, JSP or HTML.
+
+We can develop three types of filters as listed:
+
+1)Request Filter: Contain only pre-request processing logic
+Example: Request count filter, Aunthenication filter, Authorization filter, Validation filter
+
+2)Response Filter: Contains only Post-response generation logic.
+Example:Conversation filter, Compression filter and etc.
+
+3)Request-Response Filter: Contains both pre-request and post-reponse generation logic.
+Example:Performance Test Filter.
+
+FilterConfig
+
+-It is an object created by the web container. This object can get the information from the web.xml.
+
+Methods of FilterConfig Interface:
+
+1)public void init(Config config): it is invoked only once and it is used to initalize the filter.
+
+2)public String getInitParameter(String parameterName): returns the parameter value for the specified parameter name.
+
+3)public java.util.Enumeration getInitParameterNames(): returns an enumeration containing all the parameter values.
+
+4)public ServletContext getServletContext(): returns the servletContext object.
