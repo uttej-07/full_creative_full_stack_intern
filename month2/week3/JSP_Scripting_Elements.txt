@@ -1,0 +1,55 @@
+                                                   JSP Scripting Elements
+
+-Scripting Elements are used for writing the code in JSP Page. The java code will be written in JSP page using the scriplet tag.
+
+-There are 4 scripting elements:
+
+1)scriptlet tag
+
+2)declaration tag
+
+3)expression tag
+
+4)comment tag
+
+1)Declaration Tag
+
+-It is used to declare fields and methods.
+-These tags are declared outside the service method which means it can't be called everytime and the memory will be allocated everytime.
+-We can declare a static member, an instance variable and methods inside the declaration tag.
+
+Syntax: <%!  Dec var %>
+
+2)Scriptlet Tag
+
+-It is used to write the java code and used to execute java source code in JSP.
+
+-These tag code is written inside the service method. So for every request this method is called and used.
+
+Syntax: <% java source code %>
+
+3)Expression Tag
+
+-It is used to write the expressions.
+-It allows create expressions like arthimetic and logical.
+-It produces scriptless JSP page.
+
+<%=  expression %>
+
+-It prints the output of the code. It is written the output stream of the response.
+
+4)Comment tag
+
+-It is used for writing down the comments in the JSP program to know what we are writing
+
+Syntax: 
+<%-- comments --%>
+
+-These comments will not be shown.
+
+
+Difference between Scriptlet Tag and Declaration Tag
+
+1)Scriptlet tag is placed inside the _jspService() and Declaration Tag is placed outside the _jspService().
+
+2)Scriptlet tag can only decalre variables not methods. Whereas declaration tag can declare variables as well as methods.

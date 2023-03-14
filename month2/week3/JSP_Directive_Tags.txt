@@ -1,0 +1,42 @@
+                                                  JSP Directive Tags
+
+-JSP directives are the messages to JSP container.
+-JSP directive tags help in translating a JSP page into Servlet page.
+-They provide entire information about JSP page.
+-They provide instructions to JSP Engine/container of how to convert the JSP page to Servlet Page.
+
+<%@ %>- This is the syntax used for writing directives.
+
+-There are 3 types of  directives:
+1)Page Directive
+2)Include Directive
+3)TagLib Directive
+
+1)PageDirective
+-It consist of information of how a servlet page needs to be. All those tags and attributes are declared in JSP Page.
+
+-Attributes which are presented in this JSP page will be taken in consideration and JSP Engine using these attributes it will convert into Servlet page.
+
+There are 13 attributes which contain their own functionality:
+
+1)Language
+2)Extends
+3)Import
+4)contentType
+5)info
+6)session
+7)isThreadSafe
+8)autoflush
+9)buffer
+10)IsErrorPage
+11)pageEncoding
+12)errorPage
+13)isELIgnored
+
+
+-All the page attributes need to declared inside <%@ page %>
+1)Language
+
+-It defines what type of language we are using for defing the JSP.
+
+

@@ -1,0 +1,101 @@
+                                                    JSP Implicit Objects
+
+-These implicit objects are used at the translation phase. The data is written inside the scriptlet tag which goes directly to service method.
+
+-These are created by container automatically, and they can be accessed using objects.
+
+-There are 9 implicit objects available in JSP:
+
+1)out
+2)Request
+3)Response
+4)Config
+5)Application
+6)Session
+7)PageContext
+8)Page
+9)Exception
+
+Object                   Type
+
+out                        JspWriter
+Request                  HttpServletRequest
+Response                HttpServletResponse
+config                    ServletConfig
+application             ServletContext
+session                   HttpSesssion
+pageContext           PageContext Class
+page                      Object
+exception               Throwable
+
+
+1)JSP out implicit object
+
+-It is used to write the data to the buffer, JSP provides an implicit object named out.
+-The type of object is JspWriter. In servlet it is printwriter object.
+-It is located in javax.servlet.jsp.jspWriter class.
+
+-In sevlet it is been written as PrintWriter out = response.getWriter()
+-When comes to JSP we no need to write this.
+
+2)JSP Request implicit object
+
+-It is used to take the request from the client. 
+-The implicit object of type HttpServletRequest
+-It can get request information such as parameter, header information, remote address, server name, server port, content type, character encoding.
+-It is located at javax.servlet.http.HttpServletRequest.
+-It will be created by container for every request.
+-It uses getParameter() to access the request parameter.
+-It can also be used to get, set and remove attributes from the jsp request scope.
+
+3)JSP Response implicit object
+
+-It is used to take give the response to the server.
+-The implicit object is HttpServletResponse
+-It is created by the web container for each jsp request.
+-It can be used to add, manipulate response such as redirect response to another resource, send error etc.
+-The response implicit object is used to content type, add cookie and redirect to response page.
+
+4)JSP Config implicit object
+
+-It is used to get the information from the web.xml file.
+-Used to get the initilization parameters in web.xml file.
+-The implicit object of type ServletConfig.
+-Used to get initilization parameter for a particular JSP page.
+-Created by the web container for each jsp page.
+-Config is type of javax.servlet.servletConfig.
+
+5)JSP Application implicit object
+
+-It is used to get the information from the web.xml same like Config but the difference application is for the whole application.
+-It is created by the container one per application, when the application gets deployed.
+-It is an instance javax.servlet.ServletContext.
+-It is used to get, set or remove attribute from the application scope.
+-The implicit object of type ServletContext.
+
+6)JSP Session Implicit object
+
+-It is an implicit object HttpSession. We can use this object for set ,get or remove attributes or to get session information.
+
+7)JSP pageContext implicit object
+
+-It is an implicit object of pageContext class. We can use this object for get, set or remove attributes and used for few particular scopes:
+
+1)Page
+2)Request
+3)Session
+4)Application
+
+-These scopes are already in JSP Implicit Objects.
+-Page scope is the default scope.
+
+8)JSP Page implicit object
+
+-It is an implicit object of type Object class. The object is assigned to the reference of auto generated servlet class.
+-Acts as this object for current jsp page.
+
+9)JSP Exception implicit object
+
+-It is an implicit object of Throwable class. It is used to throw exceptions.
+-It is used for exception handling in JSP.
+-The exception object can be only used in error pages.
