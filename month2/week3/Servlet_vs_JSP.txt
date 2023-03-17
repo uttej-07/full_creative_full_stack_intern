@@ -1,0 +1,21 @@
+                                                            Servlets vs JSP
+
+-Servlets run faster than JSP. Whereas JSP runs slower as it takes time to compile the program and convert into servlets.
+
+-It is hard to write the code in Servlet. When compared with Servlets JSP is easier to write.
+
+-In MVC architecture, servlet works as a controller. Whereas, JSP works as a view for displaying output.
+
+-Servlets should be used when there is more data processing. When there is less data processsing JSP needs to be used.
+
+-There are no custom tags writing facility in Servlets. Whereas in JSP we can build custom tags that can directly call Java Beans.
+
+-Servlet is a Java Code. Whereas , JSP is a HTML based code.
+
+-We can override service() in Servlet. In JSP service() can't be overriden.
+
+-In Servlet Sessions should be set manually, whereas in JSP sessions can be set automatically.
+
+-In servlets business and presentation logic is implemented in a single file. Whereas in JSP business logic is split from presentation logic using Java Beans.
+
+-While doing modification in Servlet we need to reload, recomplile, and restart the server. Whereas in JSP we just need to click the refresh button.
