@@ -1,0 +1,104 @@
+                                Encapsulation
+-Encapsulation is defined as wrapping up of data in a single unit.
+-It binds together data and code into single unit.
+-Encapsulation helps the programmers to secure their data where the outsider can't access their data.
+-Encapsulated component- It is a combination of data-hiding and abstraction
+-Example:
+Verification of password. Whenever we try to login to our Gmail. We need to enter our password. After, entering our password. The backend verifies with the encrypted data which it is having.
+
+-If we want to access any variable or method then we need to use getter and setter method.
+
+What is data hiding?
+-It is a wasy of restricting the access of our data members by hiding the implementation details.
+Encapsulation also provides a way for data hiding.
+Only the data members which are in the same class can access these variables using getter and setter methods.
+
+How to implement Encapsulation?
+-Encapsulation will be implemented by hiding the variables inside it by using private access modifier.
+-Providing the getter and setter methods to modify and view the variables value.
+
+-By using encapsulation we can view or access the variables data. But, we can't change the inside functionality.
+
+-Advantages of Encapsulation:
+1)Improves security by hiding everything from the outside world.
+2)We can have read-only or write-only
+3)It provides you the control over the data.
+4)The encapsulated class is easy to test.
+
+Abstraction vs Encapsulation
+->In abstraction, we try to hide the internal functioning and only display the services.
+->In encapsulation, we try to wrap the data and methods in one single unit.
+
+->In abstraction, problems are solved at the design level
+->In encapsulation, problems are solved at the implementation level
+
+->Abstraction focus is on “what” should be done
+->Encapsulation focus is on “How” it should be done.
+
+Example:
+Example1:
+
+class Example{
+	private int number;
+	
+	public int getNumber() {
+		return number;
+	}
+	public int setNumber(int n) {
+		return this.number=n;
+	}
+}
+
+public class EncapsulationExample {
+  public static void main(String[] args) {
+	  Example ece = new Example();
+	  ece.setNumber(10);
+	  System.out.println(ece.getNumber());
+  }
+}
+
+Output:
+
+PS E:\full_creative_internship\month1\week2\Encapsulation> javac EncapsulationExample.java
+PS E:\full_creative_internship\month1\week2\Encapsulation> java EncapsulationExample
+10
+
+Example2:
+
+class Example2{
+  private int password = 658321;
+  private int pw1;
+  public int getPassword(){
+   return pw1;
+  }
+  public void setPassword(int p){
+    this.pw1=p;
+   }
+  public void verify(){
+   if(password == pw1){
+    System.out.println("Both are same. Verified!");
+       }else{
+    System.out.println("Password not matched");
+      }
+    }
+  }
+class EncapsulationExample2{
+  public static void main(String[] args){
+   Example2 e2 = new Example2();
+   e2.setPassword(658322);
+System.out.println(e2.getPassword());
+e2.verify();
+ }
+}
+
+Output:
+
+PS E:\full_creative_internship\month1\week2\Encapsulation> javac EncapsulationExample2.java
+PS E:\full_creative_internship\month1\week2\Encapsulation> java EncapsulationExample2
+658321
+Both are same. Verified!
+
+PS E:\full_creative_internship\month1\week2\Encapsulation> javac EncapsulationExample2.java
+PS E:\full_creative_internship\month1\week2\Encapsulation> java EncapsulationExample2
+658322
+Password not matched

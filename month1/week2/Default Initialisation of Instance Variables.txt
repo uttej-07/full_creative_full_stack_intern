@@ -1,0 +1,62 @@
+Default Initialisation of Instance Variables
+
+Every datatype has its own default if we didn't assigned any value to it.
+
+We should know the defaultu value of Instance Variables because if you dont initialize the variable then JVM will not understand what to assign and it will take any value which will result in unpredictable data.
+
+Example:
+ Example1:
+   
+  package typecasting_practice;
+
+public class defaultvaluestoinstancevariables {
+
+	   int varInt;
+	   float varFloat;
+	   boolean varBool;
+	   long varLong;
+	   byte varByte;
+	   short varShort;
+	   double varDouble;
+	   String varString;
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+         
+			   defaultvaluestoinstancevariables obj = new defaultvaluestoinstancevariables();
+			      System.out.println("Default int value ::"+obj.varInt);
+			      System.out.println("Default float value ::"+obj.varFloat);
+			      System.out.println("Default boolean value ::"+obj.varBool);
+			      System.out.println("Default long value ::"+obj.varLong);
+			      System.out.println("Default byte value ::"+obj.varByte);
+			      System.out.println("Default short value ::"+obj.varShort);
+			      System.out.println("Default double value ::"+obj.varDouble);
+			      System.out.println("Default string value ::"+obj.varString);
+			      
+			   }
+			
+	}
+
+Output:
+
+Default float value ::0.0
+Default boolean value ::false
+Default long value ::0
+Default byte value ::0
+Default short value ::0
+Default double value ::0.0
+Default string value ::null
+
+//The default values of different datatypes are:
+//	Integer numbers have default value: 0
+//for int type: 0
+//for byte type: (byte) 0
+//for short type: (short) 0
+//for long type: 0L
+//Floating point numbers have default value: 0.0
+//for float type: 0.0f
+//for double type: 0.0d
+//Boolean variables have default value: false
+//Character variables have default value: ‘\u0000’
+//Object references have default value: null
+

@@ -1,0 +1,100 @@
+Primitive type casting
+
+-Type casting is when you convert one primitive data type to another data type.
+
+-Type casting can be done in 2 types:
+
+1)Narrowing  Type Casting
+
+2)Widening Type Casting
+
+-Type casting is used for making the program lightweight.
+
+-Type casting can cast both reference and primitive datatypes.
+
+-By using casting, data can not be changed but only the data type is changed.
+
+What are the application of typecasting?
+
+-It is used in computer programming to ensure a function handles the variables correctly. A typecast example is the transformation of an integer into a string. This could be used to compare two numbers if one is stored as a string and the other is an integer.
+
+-Type casting isn't a memory-consuming operation.
+
+1)Widening Type Casting
+-Converting a lower datatype into a higher one is called widening type casting.
+-It is also implicit conversion or casting down.
+-It is done automatically and it is safe it doesn't lose data.
+
+byte->short->char->int->long->float->double
+
+2)Narrowing Type Casting
+-In Narrowing Type Casting it is reverse to Widening Type Casting.
+-We convert higher data type into a lower one.
+-It is also known as explicit conversion or casting up.
+-It is done manually and need to be carefull while casting or else we might get compile time errors.
+
+double->float->long->int->char->short->byte
+
+Example:
+ Example1:
+
+ package typecasting_practice;
+
+import java.util.*;
+public class typecastingexample1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		//Widening Type casting
+		
+	
+		int a = 10;
+	
+		//Converts the Integer type into long type
+		long b = a;
+		
+		//Converts long type into double
+		double c = b;
+		
+		System.out.println("The value at int datatype:"+a);
+		
+		System.out.println("The value at long datatype:"+b);
+		
+		System.out.println("The value at double datatype:"+c);
+		
+		
+		//Narrowing Type Casting
+		
+		 double d = 267.98;
+		 
+		 //converting double to int
+		 
+		 int e = (int)d;
+		 
+		 //converting int to byte
+		 
+		 byte f=(byte)e;
+		 
+		 System.out.println("The value at double data type:"+d);
+		 
+		 System.out.println("The value at int data type:"+e);
+		 
+		 System.out.println("The value at byte data type:"+f);
+	}
+
+}
+
+Output:
+
+The value at int datatype:10
+The value at long datatype:10
+The value at double datatype:10.0
+The value at double data type:267.98
+The value at int data type:267
+The value at byte data type:11
+
+//The value when it converts to byte will check the range and displays the ouput.
+//As we know the range of byte is -127 to 126. The value which we inputed is 266 which is out of range.
+
+
