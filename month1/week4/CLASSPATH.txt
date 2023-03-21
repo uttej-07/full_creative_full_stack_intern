@@ -1,0 +1,34 @@
+CLASSPATH
+-It is a place where we set the location of the class and jar files of the JAVA.
+-JVM or external machine no need to search every folder for the .class files or JAR files. We can set the location of the files where it is located in one place. From that place JVM searches and uses those classes.
+-We need to set CLASSPATH in command prompt or we need to go directly to environment variables and set it.
+-We can have different set of JAR and class files. We can set all those files in environment variables.
+-We need to define the name of the class as CLASSPATH and set the directory.
+
+Why to set CLASSPATH?
+-It is an environment variable which is used by Application ClassLoader to locate and load the .class files. The CLASSPATH defines the path, to find the third-party and user-defined classes that are not extensions or part of Java Platform.
+
+We need to set the CLASSPATH if:
+-If the class files are in different directory.
+-To load a class that is not in a location specified by the extensions mechanism.
+
+-Whenever we use the keyword 'import'. It will be importing from the CLASSPATH only.
+There will be few files which are available without using import keyword. But, few files need to be imported.
+
+Whenever we are setting a CLASSPATH. If already a path exists. We can add other path just we need to mention semicolon(;) after every JAR or class file.
+
+Difference between PATH and CLASSPATH
+
+PATH and CLASSPATH both are environment variables.
+
+PATH is used by the OS to find the executable files(.exe). Whereas, CLASSPATH used by Application ClassLoader to locate the .class file.
+
+In PATH we are required to include the directory which contains .exe files. Whereas, In CLASSPATH is required to include the directory which contains both .class and .JAR files.
+
+-PATH environment variable once set cannot be overridden. When it comes to CLASSPATH environment variable can be overridden by using the command line option -cp or -CLASSPATH to both javac and java command.
+
+To set CLASSPATH in Windows using Command Prompt
+
+-set CLASSPATH=%CLASSPATH%;C:\Program Files\Java\jre1.8\rt.jar;  
+
+-If the variable is existing then we need to mention '%' (percentage sign).
