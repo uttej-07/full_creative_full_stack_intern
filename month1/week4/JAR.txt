@@ -1,0 +1,60 @@
+JAR Files
+-Known as Java Archieve. These are same as Zip Files. Zip files consist of data which can be unzipped and used everday. So what is the difference between Zip and JAR. The name is only different. The terminology is same.
+-JAR files format is mainly used to aggregate a collection of files into a single one.
+-It is a single-cross platform archieve format that handles images, audio and class files.
+-Jar files are completely written in Java Programming Language.
+
+-We can create and use JAR files in Eclipse.
+-Whenever we want create a JAR file. We need to follow few steps:
+
+1)We need to export the file which we want to convert it as JAR.
+2)We need to save that JAR file in a location.
+3)To import that JAR file we need to go to build path and add external JAR file. That JAR file will be added into the libraries and we can use that JAR file.
+
+-If we do any change in JAR file. Then we need to again export and import for the updated changes.
+
+Why do we use JAR files?
+-We use JAR files for reusability of same code.
+
+-So you can use them for tasks such as lossless data compression, archiving, decompression, and archive unpacking. 
+
+-You can run JAR files as programs by loading them into Java runtime. Packages, based on their purpose, can be run as an executable from the command line, as a desktop application, or as a library as part of a bigger Java application
+
+Example:
+
+PROJECT Name: JARDEMO
+
+package JARPACKAGE;
+
+public class Calculator {
+
+	public int add(int a,int b) {
+		return a+b;
+	}
+   
+	public int sub(int a,int b) {
+		return a-b;
+	}
+}
+
+
+PROJECT Name: JarDemo1
+
+import JARPACKAGE.Calculator;
+
+public class arithmeticoperation {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Calculator c =  new Calculator();
+		System.out.println(c.add(5, 5));
+		System.out.println(c.sub(10, 5));
+	}
+
+}
+
+Output:
+
+10
+5
