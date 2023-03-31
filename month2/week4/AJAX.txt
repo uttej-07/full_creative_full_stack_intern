@@ -1,0 +1,109 @@
+AJAX
+
+AJAX stands for Asynchronous JavaScript and XML. It is not a programming language or library it is a group of inter-related technologies like JavaScript, DOM, XML, HTML, CSS, XMLHttpRequest etc.
+
+AJAX is same like servlets/jsp. It is used to handle request. It is gonna receive the request from the client and gonna send the information.
+
+It sends and receives data asynchronously without reloading the webpage. Because of this it is fast.
+
+AJAX allows you to send only important information to the server but not the entire page. We can't send every matter/data we can only send valuable data. Because of which it is interactive and faster.
+
+Examples: It is used in Gmail, Facebook, Youtube, etc.
+
+Working of AJAX?
+-The browser/client sends a request to the server. The server will be responding back to the client. This is how AJAX will be working.
+
+
+-AJAX is a misleading name. AJAX applications might use XML to transport data, but it is equally common to transport data as plain text or JSON text.
+
+What is Synchronous vs Asynchronous?
+
+-Why AJAX is Asynchronous?
+-Because if it is synchronous we can't accept every request. If there is one request in the queue we need to wait until the request is completed. Then it will jump for the next request. If is Asynchronous then we can get n number of requests at a time.
+
+Note: every blocking operation is not synchronous and every unblocking operation is not asynchronous.
+
+Where is AJAX used? 
+AJAX is used in virtually every modern web application. A familiar example of an AJAX-based web application is Google Suggest. When you type in the Google search, the written words are sent to the server, and suggestions are loaded in the drop-down without reloading the entire page.
+
+AJAX consist of few libraries/alternatives which are Fetch API, jQuery, Axios and etc.
+
+For sending and receiving data we need to use one object known XMLHttpRequest object. It is used to set up communication between client and server.
+
+It performs following operations:
+1)Sends data from the client in the background.
+2)Receives the data from the server.
+3)Updates the web-page without reloading it.
+
+var variable name = new XMLHttpRequest() - This is how we can create the object of XMLHttpRequest().
+
+-XMLHttpRequest is an API in the form of an object whose methods transfer data between a web browser and a web server.
+
+-XMLHttpRequest (XHR) objects are used to interact with servers. You can retrieve data from a URL without having to do a full page refresh. This enables a Web page to update just part of a page without disrupting what the user is doing.
+
+XMLHttpRequest Object Methods:
+
+abort()- cancels the current request.
+
+getAllResponseHeaders()- Returns header information.
+
+getResponseHeader()- Returns specific header information.
+
+open(method, url, async, user,psw)- Specifies the request
+method: The request type GET or POST.
+url: The file location
+async: true(asynchronous) or false(synchronous)
+user: optional user name
+psw: optional password
+
+send()- Send the request to the server. Used for GET requests.
+
+send(string)- Send the request to the server. Used for POST requests.
+
+setRequestHeader()- Adds a label/value pair to the header to be sent.
+
+XMLHttpRequest Object Properties:
+
+onreadystatechange - Defines a function to be called when the readyState property changes. It must not be used with synchronous requests.
+
+readyState - Holds the status of the XMLHttpRequest.
+                    0: request not initialized
+                    1: server connection established
+                    2: request received
+                    3: processing request
+                    4: request finished and response is ready
+
+responseText - Returns the response data as a String
+
+responseXML - Returns the response data as XML data.
+
+status - Returns the status-number of a request
+            200: "OK"
+            403: "Forbidden"
+
+statusText - Returns the status-text
+
+GET or POST?
+
+-Get is simpler and faster than POST, and can be used in most cases.
+
+POST can be used when:
+1)While sending a large amount of data to the server
+2)Sending user input
+3)A cached file is not an option
+
+Callback function:
+
+-It is used when we are having more than one task.
+-A call back function is passed as a parameter to another function.
+-If you have more than one AJAX task in a website, you should create one function for executing the XMLHttpRequest object, and one callback function for each AJAX task.
+
+Advantages of AJAX:
+1)Enchances performance
+2)Enables asynchronous processing
+3)Reduced bandwidth usage
+4)AJAX is user-friendly
+
+Disadvantage:
+1)It is Open-source
+2)Search Engine cannot index Ajax Pages
