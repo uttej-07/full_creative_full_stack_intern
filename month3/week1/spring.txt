@@ -1,0 +1,65 @@
+Spring-Backend and it is a framework. Web services development.
+
+Model View Controller(MVC)
+View-UI
+Controller-business logic
+Model-Datastoring
+
+Maven-repository
+
+Spring
+-Spring is a Framework. It is used for developing web applications. 
+-It enhances Java EE. It helps in improving loose coupling. It is a lightweight framework.
+-It is written by Rod Johnson in 2003.
+-Spring Framework helps us in improving our Business logic.
+-Spring handles the infrastructure so you can focus on your application.
+-It improves coding efficiency and reduces overall application development time because it is lightweight.
+-It lets us develop POJO(Plain Old Java Object) based programming model.
+
+Applications and Benefits of Spring
+
+1)POJO Based- Spring let's us develop applications using POJOs. The benefits of POJO is that you do not need to use EJB(Enterprise Java Beans) container product such as  application server but you have the option of using a robust server such as Tomcat, etc.
+
+2)Modular-Spring is a Modular Fashion. While using Spring there might be n number of libraries/packages. But we can use only necessary ones.
+
+3)Integration with Existing Framework- While working with Spring we will be using the existing technologies.
+
+4)Testability- Spring makes the code easy and testable. We can test numerous test cases using Spring.
+
+5)Web MVC- By spring we can make you use of Spring MVC. Which lets to use MVC architecture and we can develop web applications more easier and more efficient. Web MVC is an alternative for Struts.
+
+6)Central Exception Handling- Spring provides an convenient API to translate technology- specific expections into consistent.
+
+7)LightWeight- Spring is not heavy weighted and the code takes less memory which makes it  lightweight.
+
+8)Transaction Management
+
+
+-The Spring framework comprises several modules such as IOC, AOP, DAO, Context, ORM, WEB MVC etc.
+
+-One of the key compoents of Spring is the Aspect Oriented Programming Framework where we use Aspects.
+
+-The Spring framework comprises several modules such as IOC, AOP, DAO, Context, ORM, WEB MVC etc.
+
+Spring Framework Architecture
+It consist of Test, Core, Data-Access and Web
+
+Test
+-It consists of Testing where we can test the web application.
+
+Core
+-It consist of Core, Context, Bean, Expression Language
+
+Core- Provides the fundamental parts of the framework, including IOC and Dependency Injection.
+
+Bean- Provides Bean Factory
+
+Context- It is used for application development. Builds on the solid base provided by the Core and Beans modules and it is a medium to access any objects defined and configured.
+
+Expression Language- Provides a powerful expression languages for quering and manipulating an object graph at runtime.
+
+Data Access
+-It consist of JDBC, ORM, OXM, JMS and Transaction Modules
+
+Web
+-It consist of Web, Web-MVC, Web-Socket and Web-Portlet
