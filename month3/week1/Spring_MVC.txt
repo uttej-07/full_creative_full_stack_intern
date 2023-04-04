@@ -48,3 +48,12 @@ Advantages of Spring MVC:
 @Controller- it will be setting up the control. Whenver the dispatcherservlet is invoked it will be checking where controller anotation and gives the data to process the request.
 
 @Requestmapping: It is used to map the url. Not only mapping but even it consist of attributes in it like value-which tells the mapping, method-GET or POST , etc.
+
+We use Annotations to make our program more flexible, readable. It provides additional information to the framework about how to handle certain components or classes within an application.
+
+Benefits of Annotations:
+
+1)Improve readability and maintability of code
+2)Faster and easier development
+3)Better integration with the Spring Framework
+4)Improved error detection
