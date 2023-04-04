@@ -1,0 +1,50 @@
+Spring MVC
+
+-MVC stands for Model View Controller. By using MVC we can do our programs more easily and efficiently. In MVC we will be having every aspect in different scenario. There are 3 scenarios Model, View and Controller in which every scenario has its own functionality.
+
+Model- It is used for datastore whenever the user sends any data all the data will be carry forwarded by Model.They generally consist of POJO(Plain Old Java Object).
+
+View- It is like UI logic. The end view is provided by View. It can be of html, css, js, jsp.
+
+Controller- It consist of business logic. The data which is sent to Model. That data will be used here and after the process the data is again sent back by to model.
+
+-While working with Spring MVC we will be using DispatcherServlet.
+
+DispatcherServlet- What ever requests which are sent by the client and those requests will be coming to DispatcherServlet.
+
+Process of Handling Requests
+
+1)The requests from the client are sent to DispatcherServlet that handles all the Http requests and responses. The DispatcherServlet sent those requests to Handler Mapping where Handler Mapping send the request to the Controller.
+
+2)While sending there will be different request and different controllers handling mapping takes care about which request need to be sent to which controller. The controller returns and ModelandView object.
+
+3)When the request comes to controller it sends those request to specific methods which can solve it and send to it dispatcherservlert where it takes the help of view Resolver to pickup the defined View and sets the type of View.
+
+4)After the request is handled and view is setout. That response will be sent to DispatchServlet from where the response is sent to client.
+
+We need to use Annotations to use map the controllers.
+We have annotations like @controller, @requestmapping, etc.
+
+-We will be having pom.xml and web.xml where we define the spring configuration, mapping of the dispatcherservlet, java, jsp, etc.
+
+-In spring dispatcherservlet will act as frontcontroller. 
+
+Advantages of Spring MVC:
+
+1)Separate roles: In Spring MVC we will be having separate roles for presentation, storing, business, etc.
+
+2)Lightweight: It uses light weight container to develop and deploy your application.
+
+3)Powerful Configuration: It provides a robust configurations for both framework and application classes that includes easy referencing across contexts
+
+4)Easy to test: We create JavaBeans classes that enable you to inject test data using the setter methods.
+
+5)Flexible mapping: It provides the specific annotations that easily redirect the page.
+
+-While using Spring MVC we can have every type of logic written separately which doesn't disturb the code.
+
+-We need to care about the mapping only.
+
+@Controller- it will be setting up the control. Whenver the dispatcherservlet is invoked it will be checking where controller anotation and gives the data to process the request.
+
+@Requestmapping: It is used to map the url. Not only mapping but even it consist of attributes in it like value-which tells the mapping, method-GET or POST , etc.
