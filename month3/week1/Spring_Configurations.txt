@@ -1,0 +1,73 @@
+Spring Configurations:
+
+-While we are working in Spring. We will be having many files in Spring like pom.xml, web.xml and <servlet-name>-servlet.xml file which are used for configurations.
+
+pom.xml (project object model)
+
+-In pom.xml we will be adding dependencies. Dependencies like spring dependencies, servlet, testing, database ,etc dependencies.
+
+Example:
+
+<dependencies>
+  <dependency>
+    <groupId></groupId>
+    <artifact-id></artifact-id>
+    <version></version>
+  </dependency>
+</dependencies>
+
+Example:
+<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-webmvc</artifactId>
+    <version>4.1.3.RELEASE</version>
+</dependency>
+
+web.xml
+
+-In web.xml file we will be adding dispatcherservlet
+-We will be writing servlet and servlet-mapping for naming and mapping of the servlets.
+
+Example:
+
+<servlet>    
+    <servlet-name>spring</servlet-name>    
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>    
+    <load-on-startup>1</load-on-startup>      
+</servlet>    
+<servlet-mapping>    
+    <servlet-name>spring</servlet-name>    
+    <url-pattern>/</url-pattern>    
+</servlet-mapping>    
+
+<servlet-name>-servlet.xml
+
+-Here we will be defining the beans file. From where we  will be mapping, controlling.
+-We will be creating beans, initializing the beans, mapping the beans there are many properties in beans.
+
+Example:
+
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+    xmlns:context="http://www.springframework.org/schema/context"  
+    xmlns:mvc="http://www.springframework.org/schema/mvc"  
+    xsi:schemaLocation="  
+        http://www.springframework.org/schema/beans  
+        http://www.springframework.org/schema/beans/spring-beans.xsd  
+        http://www.springframework.org/schema/context  
+        http://www.springframework.org/schema/context/spring-context.xsd  
+        http://www.springframework.org/schema/mvc  
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">  
+  
+    <!-- Provide support for component scanning -->  
+    <context:component-scan base-package="com.javatpoint" />  
+  
+    <!--Provide support for conversion, formatting and validation -->  
+    <mvc:annotation-driven/>  
+  
+</beans> 
+
+What is the use of beans XML in Spring?
+It is typically used for retrieving public static final constants, which may then be used to set a property value or constructor arg for another bean.
