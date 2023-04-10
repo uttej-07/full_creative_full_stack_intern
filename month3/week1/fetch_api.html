@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API</title>
+</head>
+<body>
+    <!-- <button id = "btn"></button>
+    <div id = "con"></div> -->
+    <script>
+        // function success(){
+        //     var data = JSON.parse(this.responseText);
+        //     console.log(data);
+        // }
+
+        // function error(err){
+        //     console.log(data);
+        // }
+        // // document.getElementById('btn').addEventListener('click',loadText);
+
+        
+        //     var xhr =  new XMLHttpRequest();
+        //     xhr.onload = success;
+        //     xhr.onerror = error;
+        //     xhr.open('GET', 'https://api.github.com/users/uttej-07');
+        //     xhr.send();
+        
+
+
+        //GET Request
+        fetch('https://api.github.com/users/uttej-07',{
+            method:"GET",
+            headers:{"Content-type": "application/json;charset=UTF-8"}
+        })
+        //Handle success
+        .then(response=>response.json()) //convert to json
+        .then(json=>console.log(json)) //print data to console
+        .catch(err=>console.log('Request failed', err)) //Catch error
+    </script>
+</body>
+</html>
