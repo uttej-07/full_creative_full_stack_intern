@@ -1,0 +1,67 @@
+JSON Response
+-JSON Content type is an HTTP Header used to indicate what the content type is being used to indicate what the content type is being sent or received.
+-Usually it uses POST/PUT requests, the client tells the server about kind of data sent.
+
+What is JSON?
+-JavaScript Object Notation is a light-weight, text formatted for structured data based on the syntax of JavaScript Programming. It is used by most of the Programming languages for exchange of information. JSON will be replacing XML. As JSON also follows key-value pairs, amount of memory taken is less and simple syntax.
+
+Why use JSON instead of XML?
+-One of the most significant advantages of using JSON is that the file size is smaller; thus, transferring data is faster than XML. Moreover, since JSON is compact and very easy to read, the files look cleaner and more organized without empty tags and data.
+
+Content-type
+-It tells the type of media the resources uses in an HTTP entity. A content type is specified according to MIME (Multipurpose Internet Mail Extensions)
+-Content type headers descibes the nature of data in the body of HTTP messages by identifying type identifiers, subtype identifiers and optional parameters.
+
+Why is it important to specify the correct content type for JSON?
+- Whenever we are sending any request or response the type of request, content, media type will be declared. Based on that the browser and server will be communicating and it would be understanded properly. If the inputs are inappropriate then the outputs will not be correct.
+
+When it comes to MIME type. There are 2 types:
+1)MIME type: application/json
+2)MIME type: application/javascript
+
+MIME type: application/json
+-When we set the content type application/json. The browser and server will understand the content type and response will be sent in the format of JSON.
+-It is used when it is not known how this data will be used.
+-In client and server case it works differently,
+
+Client side:
+- the client-side only gets the data in JSON format that can be used as a link to data and can be formatted in real-time by any front end framework. 
+
+Server side:
+-When the information is to be just extracted from the server in JSON format, it may be through a link or from any file
+
+Syntax:
+
+response.setHeader("Accept", "application/json");
+response.setHeader("Content-type", "application/json");
+
+MIME type: application/javascript
+-It is used when the use of data is predefined.
+-It is used by applications in which there are calls by the client-side ajax applications.
+
+-It is recommended to use application/json instead of application/javascript because the JSON data is not considered as a javascript code. It is a standard and thus is given a separate content type as i.e. application/json. 
+
+Syntax:
+
+response.setHeader("Accept", "application/javascript");
+response.setHeader("Content-type", "application/javascript");
+
+Getting JSON from the URL
+-To request JSON from the URl, you need to send an HTTP Get request to the server and provide the Accept:application/json request header with your request. 
+-The Accept header tells the server that our client is expecting JSON. The server informs the client that it has returned JSON with a Content-Type: application/json response header.
+
+Example:
+
+JSON Request Example
+
+GET/echo/get/json HTTP/1.1
+Host: reqbin.com
+Accept: application/json
+
+JSON Response Example
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 19
+
+{"success" : "true"}
