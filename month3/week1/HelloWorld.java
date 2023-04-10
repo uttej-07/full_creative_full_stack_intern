@@ -1,14 +1,21 @@
-package com.example;
+package model;
 
 public class HelloWorld {
 
 	private String message;
+	private String dateTime;
 	
+	public String getMessage() {
+		return message;
+	}
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	
-	public void getMessage() {
-		System.out.println("Your Message: " + message);
+	public String getDateTime() {
+		return dateTime;
 	}
+	public void setDateTime(String dateTime) {
+		this.dateTime = dateTime;
+	}
+	
 }
