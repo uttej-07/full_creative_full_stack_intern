@@ -1,0 +1,97 @@
+Google App Engine
+It is started at 2008.
+Simplest way to deploy and scale your application in GCP(Google Cloud Platform).
+Provides end to end application management
+
+Supports Go, Java,.NET, Node.js,PHP, Python,Ruby using pre-configured runtimes.
+Use custom run-time and write code in any language.
+Connect to variety of Google Cloud storage products(Cloud  SQL)
+
+It is free of cost. Pay for resources.
+
+Features:
+Automatic load balancing & Auto Scaling
+Managed platform updates & Application health monitoring
+Application versioning
+Traffic Splitting
+
+
+Compute Engine vs App Engine
+
+Compute Engine
+-It is IAAS
+-It is more Flexible
+-It has more Responsibilities:
+   -Choosing image, Installing S/w, Choosing Hardware, Fine Grained Access/Permissions, -Availability.
+
+App Engine
+-It is PAAS.
+-It is Serverless
+-Lesser Responsibility
+-Lower Flexibility
+
+
+App Engine Environments
+
+-Runs in Standard and Flexible
+
+Standard: Runs in language specific sandboxes
+  We have 2 versions
+  v1: which run in Java, Python, PHP, Go(OLD Versions)
+       -Only for python and php runtimes:
+            -restricted network access
+            -only white listed extensions and libraries are allowed
+       -No restrictions for java and go runtimes
+  v2: java, python, php, node.js,ruby,go(NEWER versions_
+        -Full n/w access and no restrictions on language extensions
+
+Flexible: Application instances run with Docker Containers
+  -support any runtime, built - in support also.
+  -make use of compute engine virtual machines
+  -provide access to bg processes and local disks
+
+
+App Engine: Application Component Hierarchy
+Application: One App per Project
+
+Service: Multiple Microservices or App components
+ - You can have multiple services in a single application
+ -Each service can have different settings
+
+Versions: Each version assoicated with code and configuration
+  -Each version can run in one or more instances
+  -Multiple versions can co-exist
+  -Options to rollback and split traffic
+
+App Engine-Scaling Instances
+
+Automatic-If we have more workload.
+Basic-Not supported by Flexible.(Based on request instances are created)
+Manual-Configure specific number of requests.
+
+Config of GAE
+
+Commands:
+gcloud config set project "project name which is located in GAE"
+
+gcloud app deploy
+
+gcloud app services list (displays the number of services)
+
+gcloud app instaces list (displays all the instances)
+
+gcloud app versions list (displays the versions)
+
+gcloud app --versions=v2 (setting up the version for the project)
+
+gcloud app browse (used to give back the url for the project
+
+gcloud app --version "version name" gives back the url for the project
+
+gcloud app deploy --version=v3 --no-promote (this is command is gonna run the newer version of the appliation but without switching the traffic)
+
+watch curl "url" (get request to the url specified)
+
+gcloud app services set-traffic--splits=v3=.5,v2=.5(This command would split the traffic)
+
+gcloud app services set-traffic--splits=v3=.5,v2=.5 --split-by=random(splits traffic randomly)
