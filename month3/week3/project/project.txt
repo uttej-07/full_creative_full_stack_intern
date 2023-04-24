@@ -1,1 +1,5 @@
+This project is all about Displaying the data in template format and downloading the Template.
 
+While coming to input data. The input data needs to follow the rules of validation.
+
+While downloading the data. It will download the individual Template.
