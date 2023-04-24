@@ -1,0 +1,300 @@
+.template1 {
+    position: relative;
+    left: 450px;
+    top: -140px;
+}
+
+.template1table1{
+    border:"0";
+    cellpadding:"0";
+    cellspacing:"0";
+    min-width: 313px;
+    margin: 0px;
+    box-sizing: border-box;
+    border-collapse: collapse;
+    background-color: #ffffff;
+}
+
+.table1image1{
+    width: 125px;
+    height: 156px;
+    vertical-align: top;
+    text-align: right;
+}
+
+.table1image1set{
+    width: 125px;
+     height: 156px;
+      font-size: 16px;
+       color: #303030;
+}
+.table1username{
+    padding: 4px 0 0 24px;
+    vertical-align: top
+}
+
+.table1usernameResult{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    color: #006ec8;
+    font-size: 20px;
+    margin: 0 0 4px;
+    line-height: 24px;
+    letter-spacing: 0.8px;
+}
+
+.table1designationResult{
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgba(48, 48, 48, 0.6);
+    font-size: 16px;
+    margin: 0 0 10px;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+.table1space{
+    width: 44px;
+                border: 0;
+                border-top: 1px solid #83838333;
+                margin: 0 0 20px;
+                max-width: 44px;  
+}
+
+.table1emailResult{
+    margin: 0 0 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #303030;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18px;
+    text-decoration: none;
+}
+
+.table1emailLink{
+    font-family: Arial, Helvetica, sans-serif ;
+    color: #303030;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.table1mobileResult{
+    margin: 0 0 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #303030;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+.table1mobileLink{
+    font-family: Arial, Helvetica, sans-serif;
+                  color: #303030;
+                  font-size: 16px;
+                  font-weight: 400;
+                  line-height: 18px;
+                  text-decoration: none;
+                  cursor: pointer;
+}
+
+.table1bookappointment{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #303030;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+.table1bookappointmentlink{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #303030;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.template2{
+    position: relative;
+    left: 450px;
+    top: -140px;
+}
+
+.template2table1{
+    min-width: 575px;
+    margin: 0px;
+    box-sizing: border-box;
+    background: #ffffff;
+    width: 575px;
+    border-collapse: collapse;
+    border:"0";
+    align:"center";
+    cellpadding:"0";
+    cellspacing:"0";
+    bgcolor:"#ffffff";
+}
+
+.template2image{
+    padding: 0px;
+    width: 117px;
+    vertical-align: top;
+    text-align: center;
+    font-size: 0;
+    background-color: #ffffff;
+}
+
+.template2setimage{
+    width: 117px;
+    height: 130px;
+    max-width: 117;
+    max-height: 130px;
+    font-size: 0;
+    color: #ddd;
+}
+
+.template2icon{
+    padding: 0px 0 0 16px;
+    vertical-align: middle;
+    background: #ffffff;
+}
+
+.template2iconpara{
+    font-family: Arial, sans-serif;
+    color: #2181bc;
+    font-size: 0;
+    margin: 0;
+    padding: 2px 0 0;
+    font-weight: 400;
+}
+
+.template2iconlink{
+    border-radius: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    display: inline-block;
+    font-size: 0;
+}
+
+.template2logo{
+    width: 111px;
+    height: 23px;
+    max-height: 50px;
+    max-width: 111px;
+    display: block;
+    font-size: 0;
+    color: #ddd;
+}
+
+.templateusernameResult{
+    font-family: Arial, sans-serif;
+    margin: 9px 0 4px;
+    font-size: 18px;
+    line-height: 21px;
+    font-weight: bold;
+    color: #33393d;
+}
+
+.template2designationResult{
+    font-family: Arial, sans-serif;
+    margin: 0 0 12px;
+    font-size: 11px;
+    line-height: 13px;
+    color: #999c9e;
+}
+
+.template2table2{
+    width: 100%;
+    background-color: #3270d8;
+    border-radius: 6px 6px 6px 0;
+    border-collapse: collapse;
+}
+
+.template2mobile{
+    padding: 12px 12px 12px 12px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.template2mobilepara{
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    text-decoration: initial;
+    font-size: 0px;
+    margin: 0 0 6px;
+}
+
+.template2mobilelink{
+    text-decoration: initial;
+    color: #ffffff;
+    font-size: 0;
+    display: inline-block;
+}
+
+.template2mobileResult{
+    text-decoration: initial;
+    color: #ffffff;
+    font-size: 11px;
+    line-height: 12px;
+}
+
+.template2email{
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    font-size: 0px;
+    margin: 0;
+}
+
+.template2emaillink{
+    text-decoration: initial;
+    color: #ffffff;
+    font-size: 0;
+}
+
+.template2emailResult{
+    text-decoration: initial;
+    color: #ffffff;
+    font-size: 11px;
+    line-height: 12px;
+}
+
+.template2bookappointment{
+    padding: 12px 16px 12px 16px;
+    text-align: right;
+    vertical-align: middle;
+}
+
+.template2bookappointmentpara{
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    font-size: 0;
+}
+
+.template2bookappointmentlink{
+    text-decoration: initial;
+    color: #ffffff;
+    font-size: 0;
+}
+
+.template2calenderimage{
+    width: 199px;
+    height: 30px;
+    max-width: 199px;
+    max-height: 30px;
+    vertical-align: middle;
+    font-size: 0;
+    color: #ddd;
+}
+
+.template2footerimage{
+    width: 353px;
+    height: 46px;
+    max-width: 353px;
+    max-height: 46px;
+    font-size: 0;
+    color: #ddd;
+}

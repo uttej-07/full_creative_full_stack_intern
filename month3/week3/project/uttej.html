@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="style.css" />
+  <meta charset="ISO-8859-1" />
+  <title>Form Data</title>
+</head>
+
+<body>
+  <div id="myForm">
+    <table>
+      <tr>
+        <td>
+          Name of the Customer:
+          <input id="username" type="text" name="username" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Designation:
+          <input id="designation" type="text" name="designation" />
+        </td>
+      </tr>
+      <tr>
+        <td>Email: <input id="email" type="text" name="email" /></td>
+      </tr>
+      <tr>
+        <td>MobileNo: <input id="mobile" type="text" name="mobile" /></td>
+      </tr>
+      <tr>
+        <td>Type the whole bookingappointment URL</td>
+      </tr>
+      <tr>
+        <td>AppointmentLink <input id="appointment" type="text" name="appointment"/></td>
+      </tr>
+      <tr>
+        <td>
+          Image:<input type="file" id="image_input" accept="image/png, image/jpeg" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Choose Template
+          <input type="radio" id="templateselector" name="templateselector" value="Template1" checked
+             />
+          <label for="Template1">Template1</label>
+          <input type="radio" id="templateselector" name="templateselector" value="Template2"
+            /> 
+          <label for="Template2">Template2</label>
+        </td>
+      </tr>
+    </table>
+    <button type="button" onclick="validationform() ">Preview</button>
+  </div>
+  <div id="Template1" class="template1">
+    <table class="template1table1">
+      <tr>
+        <td  class="table1image1">
+          <img src = "#" id="image" class="table1image1set" width="125px" height="156px" >
+        </td>
+        <td id="text" class="table1username">
+          <p id="usernameResult" class="table1usernameResult">
+            <b style="font-weight: 600"></b>
+          </p>
+          <p id="designationResult" class="table1designationResult"></p>
+          <hr id="space" class="table1space" />
+          <p class="table1emailResult">
+            <a href="#" id="emailLink" class="table1emailLink"target="_self">
+              <span id="emailResult"></span></a>
+          </p>
+          <p class="table1mobileResult">
+            <a href="#" id="mobileLink" class="table1mobileLink">
+              <span id="mobileResult"></span>
+            </a>
+          </p>
+          <p id="bookingappointment" class="table1bookappointment">
+            <a href="#" class="table1bookappointmentlink" id="bookappointmentlink" target="_blank">Book appointment</a>
+          </p>
+        </td>
+      </tr>
+    </table>
+    <br />
+  </div>
+
+  <div id="Template2" class="template2">
+    <h2>Hello</h2>
+    <table class="template2table1">
+      <tbody>
+        <tr>
+          <td class="template2image" >
+            <img src="#" class="template2setimage" id="image" />
+          </td>
+          <td class="template2icon">
+            <p class="template2iconpara">
+              <a href="#" class="template2iconlink" target="_blank">
+                <img src="answerforcelogo.jpg" alt="AnswerForceLogo" class="template2logo" />
+              </a>
+            </p>
+            <p id="usernameResult" class="templateusernameResult"></p>
+            <p id="designationResult" class="template2designationResult"></p>
+            <table class="template2table2">
+              <tbody>
+                <tr>
+                  <td class="template2mobile">
+                    <p class="template2mobilepara">
+                      <a id="mobileLink" href="#" target="_self" class="template2mobilelink">
+                        <span id="mobileResult" class="template2mobileResult"></span>
+                      </a>
+                    </p>
+                    <p class="template2email">
+                      <a id="emailLink" href="#" target="_self" class="template2emaillink">
+                        <span id="emailResult" class="template2emailResult"></span>
+                      </a>
+                    </p>
+                  </td>
+                  <td class="template2bookappointment">
+                    <p id="bookingappointment" class="template2bookappointmentpara">
+                      <a href="#" target="_blank"
+                        class="template2bookappointmentlink" id="bookappointmentlink">
+                        <img
+                          src="https://storage.googleapis.com/email_signatures/Answerforce_US/images/book-appointment@2x.png"
+                          alt="calendar icon" class="template2calenderimage" />
+                      </a>
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <img src="https://storage.googleapis.com/email_signatures/Answerforce_US/images/partners-logo-strip.png"
+              alt="Partners Logo Strip" class="template2footerimage" />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br />
+  </div>
+  <button id="download-btn" style="position: relative; left: 450px; top: -140px">
+    Download
+  </button>
+</body>
+
+<script>
+  function validationform() {
+    const name = document.getElementById("username").value;
+    const designation = document.getElementById("designation").value;
+    const email = document.getElementById("email").value;
+    const mobile = document.getElementById("mobile").value;
+    const templatename = getTemplateName();
+
+    // let templatename;
+    // const ele = document.getElementsByName("templateselector");
+
+    // for (i = 0; i < ele.length; i++) {
+    //   if (ele[i].checked) templatename = ele[i].value;
+    // }
+
+    let count = 0;
+    var regName = /^[a-zA-Z ]+$/;
+
+    if (name == "" || name == null) {
+      alert("Username is required");
+    } else if (!name.match(regName)) {
+      alert("Name must be alphabets");
+    } else {
+      count++;
+      console.log(count);
+    }
+
+    if (email == "" || email == null) {
+      alert("Email is required");
+    } else if (
+      !email.match(/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)
+    ) {
+      alert("Please provide a valid email");
+    } else {
+      count++;
+      console.log(count);
+    }
+
+    if (designation == "") {
+      alert("Designation is required");
+    } else if (!designation.match(regName)) {
+      alert("Designation must be alphabets");
+    } else {
+      count++;
+      console.log(count);
+    }
+
+    if (mobile == "") {
+      alert("Mobile No is required");
+    } else if (mobile.length != 10) {
+      alert("Your mobile number should be of 10 digits");
+    } else if (isNaN(mobile)) {
+      alert("Mobile Number must be numeric");
+    } else if (
+      mobile.charAt(0) != 9 &&
+      mobile.charAt(0) != 8 &&
+      mobile.charAt(0) != 7 &&
+      mobile.charAt(0) != 6
+    ) {
+      alert("Mobile Number should start from 9,8,7,6");
+    } else {
+      count++;
+      console.log(count);
+    }
+
+    if (count == 4) {
+      changeTemplate(templatename);
+    }
+  }
+
+  document.getElementById("Template1").style.display = "none";
+  document.getElementById("Template2").style.display = "none";
+  document.getElementById("download-btn").style.display = "none";
+
+  function sendInput(templatename) {
+    const name = document.getElementById("username").value;
+    const designation = document.getElementById("designation").value;
+    const email = document.getElementById("email").value;
+    const mobile = document.getElementById("mobile").value;
+    const appointment = document.getElementById("appointment").value;
+
+    const template = document.getElementById(templatename);
+    template.querySelector("#usernameResult").innerHTML = name;
+    template.querySelector("#designationResult").innerHTML = designation;
+    template.querySelector("#emailResult").innerHTML = email;
+    template.querySelector("#mobileResult").innerHTML = mobile;
+
+    const mobilelink = template.querySelector("#mobileLink");
+    const emaillink = template.querySelector("#emailLink");
+    const bookappointmentlink = template.querySelector("#bookappointmentlink");
+
+
+    mobilelink.setAttribute("href", "tel:" + mobile);
+    emaillink.setAttribute("href", "mailto:" + email);
+
+    bookappointmentlink.setAttribute("href",appointment);
+
+    template.style.display = "block";
+    document.getElementById("download-btn").style.display = "block";
+
+    const downloadBtn = document.getElementById("download-btn");
+    downloadBtn.addEventListener("click", () => {
+      //console.log(event);
+      const downloadContent = template.innerHTML;
+      const fileName = "template.html";
+      const file = new Blob([downloadContent], {
+        type: "text/html"
+      });
+      const url = URL.createObjectURL(file);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = fileName;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      a.remove();
+      URL.revokeObjectURL(url);
+    });
+  }
+
+  function changeTemplate(value) {
+    const templateDiv = document.getElementById(value);
+    if (value == "Template1") {
+      document.getElementById(value).style.display = "block";
+      document.getElementById("Template2").style.display = "none";
+    }
+
+    if (value == "Template2") {
+      document.getElementById(value).style.display = "block";
+      document.getElementById("Template1").style.display = "none";
+    }
+    previewFile();
+    sendInput(value);
+  }
+
+  function getTemplateName() {
+    let templatename;
+    const ele = document.getElementsByName("templateselector");
+
+    for (i = 0; i < ele.length; i++) {
+      if (ele[i].checked) templatename = ele[i].value;
+    }
+    console.log(templatename);
+    return templatename;
+  }
+
+  function previewFile() {
+
+const templateName = getTemplateName();
+console.log(templateName);
+const templateNameDiv = document.getElementById(templateName);
+console.log(templateNameDiv);
+
+const preview = templateNameDiv.querySelector("img");
+console.log(preview)
+// const preview = document.querySelector("img");
+const file = document.querySelector("input[type=file]").files[0];
+const reader = new FileReader();
+
+reader.addEventListener(
+  "load",
+  () => {
+    preview.src = reader.result;
+  },
+  false
+);
+
+if (file) {
+  reader.readAsDataURL(file);
+}
+}
+</script>
+</html>
