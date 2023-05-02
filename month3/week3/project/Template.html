@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="style.css" />
+  <meta charset="ISO-8859-1" />
+  <title>Form Data</title>
+  <style>
+    .inputDiv {
+      padding: 5px 5px;
+      margin: 8px;
+    }
+
+    .errorMsg {
+      color: red;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="myForm">
+    <div class="inputDiv">
+      <input id="username" type="text" name="username" onblur="validationform()" placeholder="Customer Name" />
+      <div id="usernamemsg" class="errorMsg"></div>
+    </div>
+    <div class="inputDiv">
+      <input id="designation" type="text" name="designation" onblur="validationform()" placeholder="Designation" />
+      <div id="designationmsg" class="errorMsg"></div>
+    </div>
+
+    <div class="inputDiv">
+      <input id="email" type="text" name="email" onblur="validationform()" placeholder="Email" />
+      <div id="emailmsg" class="errorMsg"></div>
+    </div>
+
+    <div class="inputDiv">
+      <input id="mobile" type="text" name="mobile" onblur="validationform()" placeholder="Mobile Number" />
+      <div id="mobilemsg" class="errorMsg"></div>
+    </div>
+
+    <div class="inputDiv">
+      <input id="appointment" type="text" name="appointment" onblur="validationform()" placeholder="AppointmentLink" />
+      <div id="appointmentmsg" class="errorMsg"></div>
+    </div>
+
+    <div class="inputDiv">
+      <input type="text" id="image_input" accept="image/png, image/jpeg" onblur="validationform()"
+        placeholder="Write Your Image Link" />
+      <div id="imagemsg" class="errorMsg"></div>
+    </div>
+
+    <div class="inputDiv">
+      <label for="templateselector">Choose a Template:</label>
+      <select name="templateselection" id="templateselector">
+        <option value="Template1" id="templateselector">Lex-Template</option>
+
+        <option value="Template2" id="templateselector">AnswerForce-Template</option>
+      </select>
+    </div>
+    <!--
+    <table style="padding:5px 5px; margin:10px;">
+
+      <tr style="padding:5px 5px; margin-bottom: 35px;">
+        <td>
+          Name of the Customer:
+          <input id="username" type="text" name="username" onkeyup="validationform()" placeholder="Customer Name" />
+          <div id="usernamemsg"></div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+           Designation:
+          <input id="designation" type="text" name="designation" onkeyup="validationform()" placeholder="Designation" />
+          <div id="designationmsg"></div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Email: <input id="email" type="text" name="email" onkeyup="validationform()" placeholder="Email" />
+          <div id="emailmsg"></div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          MobileNo: <input id="mobile" type="text" name="mobile" onkeyup="validationform()"
+            placeholder="Mobile Number" />
+          <div id="mobilemsg"></div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+           AppointmentLink 
+          <input id="appointment" type="text" name="appointment" onkeyup="validationform()"
+            placeholder="AppointmentLink" />
+          <div id="appointmentmsg"></div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Image:<input type="file" id="image_input" accept="image/png, image/jpeg" />
+
+          <input type="text" id="image_input" accept="image/png, image/jpeg" onkeyup="validationform()"
+            placeholder="Write Your Image Link" />
+          <div id="imagemsg"></div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          
+          Choose Template
+          <input type="radio" id="templateselector" name="templateselector" value="Template1" checked />
+          <label for="Template1">Template1</label>
+          <input type="radio" id="templateselector" name="templateselector" value="Template2" />
+          <label for="Template2">Template2</label>
+          <label for="templateselector">Choose a Template:</label>
+          <select name="templateselection" id="templateselector">
+            <option value="Template1" id="templateselector">Lex-Template</option>
+
+            <option value="Template2" id="templateselector">AnswerForce-Template</option>
+          </select>
+        </td>
+      </tr>
+    </table> -->
+    <div class="inputDiv">
+      <button type="button" onclick="changeTemplate()">Preview</button>
+    </div>
+  </div>
+  <div id="showTemplate" style="position: relative; left: 450px; top:-240px;">
+
+  </div>
+  <div id="Template1" class="template1" style="position: relative; left: 450px; top: -240px">
+    <table class="template1table1" style="
+          min-width: 313px;
+          margin: 0px;
+          box-sizing: border-box;
+          border-collapse: collapse;
+          background-color: #ffffff;
+        ">
+      <tr>
+        <td class="table1image1" style="
+              width: 125px;
+              height: 156px;
+              vertical-align: top;
+              text-align: right;
+            ">
+          <img src="#" id="image" class="table1image1set" width="125px" height="156px" style="  width: 125px;
+          height: 156px;
+           font-size: 16px;
+            color: #303030;" />
+        </td>
+        <td id="text" class="table1username" style="padding: 4px 0 0 24px; vertical-align: top">
+          <p id="usernameResult" class="table1usernameResult" style="
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: 600;
+                color: #006ec8;
+                font-size: 20px;
+                margin: 0 0 4px;
+                line-height: 24px;
+                letter-spacing: 0.8px;
+              ">
+            <b style="font-weight: 600"></b>
+          </p>
+          <p id="designationResult" class="table1designationResult" style="
+                font-family: Arial, Helvetica, sans-serif;
+                color: rgba(48, 48, 48, 0.6);
+                font-size: 16px;
+                margin: 0 0 10px;
+                font-weight: 400;
+                line-height: 18px;
+              "></p>
+          <hr id="space" class="table1space" id="space" width="44px" style="
+                width: 44px;
+                border: 0;
+                border-top: 1px solid #83838333;
+                margin: 0 0 20px;
+                max-width: 44px;
+              " />
+          <p class="table1emailResult" style="
+                margin: 0 0 10px;
+                font-family: Arial, Helvetica, sans-serif;
+                color: #303030;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 18px;
+              ">
+            <a href="#" id="emailLink" class="table1emailLink" target="_self" style="
+                  font-family: Arial, Helvetica, sans-serif;
+                  color: #303030;
+                  font-size: 16px;
+                  font-weight: 400;
+                  line-height: 18px;
+                  text-decoration: none;
+                  cursor: pointer;
+                ">
+              <span id="emailResult"></span></a>
+          </p>
+          <p class="table1mobileResult" style="
+                margin: 0 0 10px;
+                font-family: Arial, Helvetica, sans-serif;
+                color: #303030;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 18px;
+              ">
+            <a href="#" id="mobileLink" class="table1mobileLink" style="
+                  font-family: Arial, Helvetica, sans-serif;
+                  color: #303030;
+                  font-size: 16px;
+                  font-weight: 400;
+                  line-height: 18px;
+                  text-decoration: none;
+                  cursor: pointer;
+                ">
+              <span id="mobileResult"></span>
+            </a>
+          </p>
+          <p id="bookingappointment" class="table1bookappointment" style="
+                margin: 0;
+                font-family: Arial, Helvetica, sans-serif;
+                color: #303030;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 18px;
+              ">
+            <a href="#" class="table1bookappointmentlink" id="bookappointmentlink" target="_blank" style="
+                  font-family: Arial, Helvetica, sans-serif;
+                  color: #303030;
+                  font-size: 16px;
+                  font-weight: 400;
+                  line-height: 18px;
+                  text-decoration: none;
+                  cursor: pointer;
+                ">Book appointment</a>
+          </p>
+        </td>
+      </tr>
+    </table>
+    <br />
+  </div>
+
+  <div id="Template2" class="template2" style="position: relative; left: 450px; top: -240px">
+    <table class="template2table1" style="
+          min-width: 575px;
+          margin: 0px;
+          box-sizing: border-box;
+          background: #ffffff;
+          width: 575px;
+          border-collapse: collapse;
+        ">
+      <tbody>
+        <tr>
+          <td class="template2image" style="
+                padding: 0px;
+                width: 117px;
+                vertical-align: top;
+                text-align: center;
+                font-size: 0;
+                background-color: #ffffff;
+              ">
+            <img src="#" class="template2setimage" id="image" style="
+                  width: 117px;
+                  height: 130px;
+                  max-width: 117;
+                  max-height: 130px;
+                  font-size: 0;
+                  color: #ddd;
+                " alt="user pic" />
+          </td>
+          <td class="template2icon" style="
+                padding: 0px 0 0 16px;
+                vertical-align: middle;
+                background: #ffffff;
+              ">
+            <p class="template2iconpara" style="
+                  font-family: Arial, sans-serif;
+                  color: #2181bc;
+                  font-size: 0;
+                  margin: 0;
+                  padding: 2px 0 0;
+                  font-weight: 400;
+                ">
+              <a href="https://www.answerforce.com/" class="template2iconlink" target="_blank" style="
+                    border-radius: 100%;
+                    box-sizing: border-box;
+                    margin: 0;
+                    display: inline-block;
+                    font-size: 0;
+                  ">
+                <img src="https://cdn.contactcenterworld.com/images/company/answerforce-1200px-logo.png"
+                  alt="AnswerForceLogo" class="template2logo" style="
+                      width: 111px;
+                      height: 25px;
+                      max-height: 100px;
+                      max-width: 111px;
+                      display: block;
+                      font-size: 0;
+                      color: #ddd;
+                    " />
+              </a>
+            </p>
+            <p id="usernameResult" class="templateusernameResult" style="
+                  font-family: Arial, sans-serif;
+                  margin: 9px 0 4px;
+                  font-size: 18px;
+                  line-height: 21px;
+                  font-weight: bold;
+                  color: #33393d;
+                "></p>
+            <p id="designationResult" class="template2designationResult" style="
+                  font-family: Arial, sans-serif;
+                  margin: 0 0 12px;
+                  font-size: 11px;
+                  line-height: 13px;
+                  color: #999c9e;
+                "></p>
+            <table class="template2table2" style="
+                  width: 100%;
+                  background-color: #3270d8;
+                  border-radius: 6px 6px 6px 0;
+                  border-collapse: collapse;
+                ">
+              <tbody>
+                <tr>
+                  <td class="template2mobile" style="
+                        padding: 12px 12px 12px 12px;
+                        text-align: left;
+                        vertical-align: middle;
+                      ">
+                    <p class="template2mobilepara" style="
+                          font-family: Arial, sans-serif;
+                          color: #ffffff;
+                          text-decoration: initial;
+                          font-size: 0px;
+                          margin: 0 0 6px;
+                        ">
+                      <a id="mobileLink" href="#" target="_self" class="template2mobilelink" style="
+                            text-decoration: initial;
+                            color: #ffffff;
+                            font-size: 0;
+                            display: inline-block;
+                          ">
+                        <span id="mobileResult" class="template2mobileResult" style="
+                              text-decoration: initial;
+                              color: #ffffff;
+                              font-size: 11px;
+                              line-height: 12px;
+                            "></span>
+                      </a>
+                    </p>
+                    <p class="template2email" style="
+                          font-family: Arial, sans-serif;
+                          color: #ffffff;
+                          font-size: 0px;
+                          margin: 0;
+                        ">
+                      <a id="emailLink" href="#" target="_self" class="template2emaillink" style="
+                            text-decoration: initial;
+                            color: #ffffff;
+                            font-size: 0;
+                          ">
+                        <span id="emailResult" class="template2emailResult" style="
+                              text-decoration: initial;
+                              color: #ffffff;
+                              font-size: 11px;
+                              line-height: 12px;
+                            "></span>
+                      </a>
+                    </p>
+                  </td>
+                  <td class="template2bookappointment" style="
+                        padding: 12px 16px 12px 16px;
+                        text-align: right;
+                        vertical-align: middle;
+                      ">
+                    <p id="bookingappointment" class="template2bookappointmentpara" style="
+                          margin: 0;
+                          font-family: Arial, sans-serif;
+                          color: #ffffff;
+                          font-size: 0;
+                        ">
+                      <a href="#" target="_blank" class="template2bookappointmentlink" id="bookappointmentlink" style="
+                            text-decoration: initial;
+                            color: #ffffff;
+                            font-size: 0;
+                          ">
+                        <img
+                          src="https://storage.googleapis.com/email_signatures/Answerforce_US/images/book-appointment@2x.png"
+                          alt="calendar icon" class="template2calenderimage" style="
+                              width: 199px;
+                              height: 30px;
+                              max-width: 199px;
+                              max-height: 30px;
+                              vertical-align: middle;
+                              font-size: 0;
+                              color: #ddd;
+                            " />
+                      </a>
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <img src="https://storage.googleapis.com/email_signatures/Answerforce_US/images/partners-logo-strip.png"
+              alt="Partners Logo Strip" class="template2footerimage" style="
+                  width: 353px;
+                  height: 46px;
+                  max-width: 353px;
+                  max-height: 46px;
+                  font-size: 0;
+                  color: #ddd;
+                " />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br />
+  </div>
+  <button id="download-btn" onclick="downloadTemplate()" style="position: relative; left: 450px; top: -240px">
+    Download
+  </button>
+</body>
+
+<script>
+   async function validationform() {
+    const name = document.getElementById("username").value;
+    const designation = document.getElementById("designation").value;
+    const email = document.getElementById("email").value;
+    const mobile = document.getElementById("mobile").value;
+    const appointmentvalidation = document.getElementById("appointment").value;
+    const imagevalidation = document.getElementById("image_input").value;
+    const templatename = getTemplateName();
+    const imgurl = await isImgUrl(imagevalidation);
+    console.log(imgurl);
+
+    const namemsg = document.getElementById("usernamemsg");
+    const designationmsg = document.getElementById("designationmsg");
+    const emailmsg = document.getElementById("emailmsg");
+    const mobilemsg = document.getElementById("mobilemsg");
+    const appointmentmsg = document.getElementById("appointmentmsg");
+    const imagemsg = document.getElementById("imagemsg");
+
+    //  let count = 0;
+    var regName = /^[a-zA-Z- ]+$/;
+
+    if (name == "" || name == null) {
+      namemsg.textContent = "Username is required";
+      return false;
+    } else if (!name.match(regName)) {
+      namemsg.textContent = "Name must be alphabets";
+      return false;
+    } else {
+      //  count++;
+      namemsg.textContent = "";
+    }
+
+    if (designation == "") {
+      designationmsg.textContent = "Designation is required";
+      return false;
+    } else if (!designation.match(regName)) {
+      designationmsg.textContent = "Designation must be alphabets";
+      return false;
+    } else {
+      //  count++;
+      designationmsg.textContent = "";
+
+    }
+
+    if (email == "" || email == null) {
+      emailmsg.textContent = "Email is required";
+      return false;
+    } else if (
+      !email.match((/^([A-Za-z\-\.])+([A-Za-z0-9_]{0,4})+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/))
+    ) {
+      emailmsg.textContent = "Please provide a valid email";
+      return false;
+    } else {
+      //count++;
+      emailmsg.textContent = "";
+
+    }
+
+    if (mobile == "") {
+      mobilemsg.textContent = "Mobile No is required";
+      return false;
+    } else if (mobile.length != 10) {
+      mobilemsg.textContent = "Your mobile number should be of 10 digits";
+      return false;
+    } else if (isNaN(mobile)) {
+      mobilemsg.textContent = "Mobile Number must be numeric";
+      return false;
+    } else if (
+      mobile.charAt(0) != 9 &&
+      mobile.charAt(0) != 8 &&
+      mobile.charAt(0) != 7 &&
+      mobile.charAt(0) != 6
+    ) {
+      mobilemsg.textContent = "Mobile Number should start from 9,8,7,6";
+      return false;
+    } else {
+      // count++;
+      mobilemsg.textContent = "";
+
+    }
+
+    if (appointmentvalidation == "" || appointmentvalidation == null) {
+      appointmentmsg.textContent = "URL is required";
+      return false;
+    } else {
+      //  count++;
+      appointmentmsg.textContent = "";
+
+    }
+
+    if (imagevalidation == "" || imagevalidation == null) {
+      imagemsg.textContent = "Image URL is required";
+      return false;
+    } else {
+      //   count++;
+      imagemsg.textContent = "";
+    }
+
+    if(imgurl){
+      imagemsg.textContent = "";
+    }else{
+      imagemsg.textContent = "The URL provided isn't an Image";
+      return false;
+    }
+
+    //    if (count == 6) {
+    return true;
+    //   }
+  }
+
+  function isImgUrl(imagevalidation) {
+    const img = new Image();
+    img.src = imagevalidation;
+    return new Promise((resolve) => {
+        img.onerror = () => resolve(false);
+        img.onload = () => resolve(true);
+      })
+      .then(value => value)
+      .catch(value => value);
+      
+  }
+
+  document.getElementById("Template1").style.display = "none";
+  document.getElementById("Template2").style.display = "none";
+  document.getElementById("download-btn").style.display = "none";
+
+  function sendInput(templatename) {
+    const name = document.getElementById("username").value;
+    const designation = document.getElementById("designation").value;
+    const email = document.getElementById("email").value;
+    const mobile = document.getElementById("mobile").value;
+    const image = document.getElementById("image_input").value;
+
+    const template = document.getElementById(templatename);
+    console.log(template);
+    template.querySelector("#usernameResult").innerHTML = name;
+    template.querySelector("#designationResult").innerHTML = designation;
+    template.querySelector("#emailResult").innerHTML = email;
+    template.querySelector("#mobileResult").innerHTML = mobile;
+
+    const mobilelink = template.querySelector("#mobileLink");
+    const emaillink = template.querySelector("#emailLink");
+    template.querySelector("#image").src = image;
+    const bookappointmentlink = template.querySelector(
+      "#bookappointmentlink"
+    );
+
+    mobilelink.setAttribute("href", "tel:" + mobile);
+    emaillink.setAttribute("href", "mailto:" + email);
+    bookappointmentlink.setAttribute("href", appointment);
+
+    // template.style.display = "block";
+    document.getElementById("download-btn").style.display = "block";
+  }
+
+  function downloadTemplate() {
+
+    const name = document.getElementById("username").value;
+    const templatename = getTemplateName();
+    const template = document.getElementById(templatename);
+    console.log(templatename);
+    const downloadBtn = document.getElementById("download-btn");
+
+    const downloadContent = template.innerHTML;
+    const fileName = `${name}.html`;
+    const file = new Blob([downloadContent], {
+      type: "text/html"
+    });
+    const url = URL.createObjectURL(file);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = fileName;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  }
+
+   async function changeTemplate() {
+    let showTemplateDiv = document.getElementById("showTemplate");
+    const isvalidated = await validationform();
+    if (!isvalidated) {
+    	console.log(isvalidated);
+    	showTemplateDiv.style.display = "none";
+      //document.getElementById("Template1").style.display = "none";
+      //document.getElementById("Template2").style.display = "none";
+      document.getElementById("download-btn").style.display = "none";
+      return;
+    }
+    document.getElementById("Template1").style.display = "none";
+    document.getElementById("Template2").style.display = "none";
+
+    const templatename = getTemplateName();
+    sendInput(templatename);
+    const templateDiv = document.getElementById(templatename);
+    showTemplateDiv.style.display = "block";
+    showTemplateDiv.innerHTML = "";
+    showTemplateDiv.innerHTML = templateDiv.innerHTML;
+    /*if (templatename == "Template1") {
+      document.getElementById(templatename).style.display = "block";
+      document.getElementById("Template2").style.display = "none";
+    }
+
+    if (templatename == "Template2") {
+      document.getElementById(templatename).style.display = "block";
+      document.getElementById("Template1").style.display = "none";
+    }
+    sendInput(templatename);*/
+  }
+
+  function getTemplateName() {
+    let templatename;
+    const ele = document.getElementById("templateselector");
+    templatename = ele.value;
+    return templatename;
+  }
+
+  /*
+  function previewFile() {
+    const templateName = getTemplateName();
+    console.log(templateName);
+    const templateNameDiv = document.getElementById(templateName);
+    console.log(templateNameDiv);
+
+    const preview = templateNameDiv.querySelector("img");
+    console.log(preview);
+    // const preview = document.querySelector("img");
+    const file = document.querySelector("input[type=file]").files[0];
+    const reader = new FileReader();
+
+    reader.addEventListener(
+      "load",
+      () => {
+        preview.src = reader.result;
+      },
+      false
+    );
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  }*/
+</script>
+
+</html>
