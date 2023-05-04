@@ -4,7 +4,7 @@
 <head>
   <link rel="stylesheet" href="style.css" />
   <meta charset="ISO-8859-1" />
-  <title>Form Data</title>
+  <title>3rd-Month-Project</title>
   <style>
     .inputDiv {
       padding: 5px 5px;
@@ -21,31 +21,31 @@
 <body>
   <div id="myForm">
     <div class="inputDiv">
-      <input id="username" type="text" name="username" onblur="validationform()" placeholder="Customer Name" />
+      <input id="username" type="text" name="username" onblur="validationform();changeTemplate()" placeholder="Customer Name" />
       <div id="usernamemsg" class="errorMsg"></div>
     </div>
     <div class="inputDiv">
-      <input id="designation" type="text" name="designation" onblur="validationform()" placeholder="Designation" />
+      <input id="designation" type="text" name="designation" onblur="validationform();changeTemplate()" placeholder="Designation" />
       <div id="designationmsg" class="errorMsg"></div>
     </div>
 
     <div class="inputDiv">
-      <input id="email" type="text" name="email" onblur="validationform()" placeholder="Email" />
+      <input id="email" type="text" name="email" onblur="validationform();changeTemplate()" placeholder="Email" />
       <div id="emailmsg" class="errorMsg"></div>
     </div>
 
     <div class="inputDiv">
-      <input id="mobile" type="text" name="mobile" onblur="validationform()" placeholder="Mobile Number" />
+      <input id="mobile" type="text" name="mobile" onblur="validationform();changeTemplate()" placeholder="Mobile Number" />
       <div id="mobilemsg" class="errorMsg"></div>
     </div>
 
     <div class="inputDiv">
-      <input id="appointment" type="text" name="appointment" onblur="validationform()" placeholder="AppointmentLink" />
+      <input id="appointment" type="text" name="appointment" onblur="validationform();changeTemplate()" placeholder="AppointmentLink" />
       <div id="appointmentmsg" class="errorMsg"></div>
     </div>
 
     <div class="inputDiv">
-      <input type="text" id="image_input" accept="image/png, image/jpeg" onblur="validationform()"
+      <input type="text" id="image_input" accept="image/png, image/jpeg" onblur="validationform();changeTemplate()"
         placeholder="Write Your Image Link" />
       <div id="imagemsg" class="errorMsg"></div>
     </div>
