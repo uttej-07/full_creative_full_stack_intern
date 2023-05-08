@@ -1,1 +1,15 @@
+TemplateCreator
 
+Languages used Java
+
+Scripting Languages are HTML, CSS, JavaScript.
+
+Index.html- This file consist of one drop down menu from where we will be fetching the templates. I have used fetch() to call the template.
+
+TemplateSelector.java- This file is the controller. The fetch() when sends the request. The request will be accepted by the controller. Controller sends the response back to the fetch().
+
+template1.html and template2.html- These 2 files are the HTML files. These are the templates which consist of input user fields and template format.
+
+Flow of program:
+
+Index.html(request for template)->TemplateSelector.java(accept the request and return back the template)->Index.html(receives the response and display to the user)
