@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Template-Selector</title>
+</head>
+<body>
+ <div class="inputDiv">
+        <label for="templateselector">Choose a Template:</label>
+        <select name="templateselection" id="templateselector" oninput="changeTemplate()">
+        <option value="Select" id="templateselector">Select</option>
+          <option value="Template1" id="templateselector">Lex-Template</option>
+          <option value="Template2" id="templateselector">AnswerForce-Template</option>
+        </select>
+      </div>
+      
+    <br/>
+    <br/>
+    <div id="display"></div>
+    
+</body>
+<script>
+
+ function changeTemplate(){
+    const dropdown = document.getElementById("templateselector");
+    const selector = dropdown.options[dropdown.selectedIndex].value; 
+    if(selector=="Select"){
+    	document.getElementById("display").innerHTML="";
+    }else{
+    fetch('/templateselector',{
+        method:'post',
+        headers:{
+            'Content-Type':'application/json; charset=UTF-8'
+        },
+        body:JSON.stringify({
+           template:selector
+        })
+    }).then(response=>response.text())
+      .then(html=>{
+    	//  const div = document.createElement('div');
+    	//  div.innerHTML = html;
+    	   
+    	    const div = document.createElement('iframe');
+    	    div.srcdoc = html;   	    
+    	    div.frameBorder = "0";
+    	    div.style.width="100%";
+    	    div.style.height="800px";
+    	    const container = document.getElementById("display");
+    	    container.innerHTML="";
+    	    container.appendChild(div);  
+      });
+}
+ }
+ 
+</script>
+</html>
