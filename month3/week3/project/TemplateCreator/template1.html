@@ -3,7 +3,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>LEX-Template</title>
-<style>
+<!-- <style>
 .myForm{
 display:table;
 padding: 5px 5px;
@@ -24,12 +24,12 @@ display:table-cell;
 	color: red;
 	margin-top: 5px;
 }
-</style>
+</style>  -->
 
 </head>
 
 <body>
-	
+	<!-- 
 	<div id="myForm">
 		<div class="inputDiv">
 			<label for="Name">Name:</label>
@@ -76,9 +76,9 @@ display:table-cell;
 			<button type="button" onclick="sendInput()" id="preview">Preview</button>
 		</div>
 	</div>
+                -->
 
-
-	<div id="Template1" class="template1"
+	<div id="Template" class="template1"
 		style="position: relative; left: 350px; top: -150px">
 		<table class="template1table1"
 			style="min-width: 313px; margin: 0px; box-sizing: border-box; border-collapse: collapse; background-color: #ffffff;">
@@ -126,18 +126,19 @@ display:table-cell;
 		<br />
 	</div>
 
-
+<!-- 
 	<button id="download-btn" onclick="downloadTemplate()"
 		style="position: relative; left: 350px; top: -150px">
 		Download</button>
+		 -->
 </body>
 
 <script>
-document.getElementById("Template1").style.display = "none";
-document.getElementById("download-btn").style.display = "none";
-document.getElementById("preview").style.display="none";
+//document.getElementById("Template1").style.display = "none";
+//document.getElementById("download-btn").style.display = "none";
+//document.getElementById("preview").style.display="none";
 
-async function validationform() {
+/*async function validationform() {
     const name = document.getElementById("username").value;
     const designation = document.getElementById("designation").value;
     const email = document.getElementById("email").value;
@@ -257,8 +258,9 @@ async function validationform() {
       })
       .then(value => value)
       .catch(value => value);    
-  }
-  
+  }*/
+ 
+/*  
   function sendInput(){
 	  const name = document.getElementById("username").value;
 	    const designation = document.getElementById("designation").value;
@@ -284,8 +286,10 @@ async function validationform() {
   
 	  document.getElementById("Template1").style.display = "block";
 	  document.getElementById("download-btn").style.display = "block";
-  }
-  function downloadTemplate() {
+  } */
+  
+  
+  /*function downloadTemplate() {
 	    const name = document.getElementById("username").value;
 	    const template = document.getElementById("Template1");
 	    const downloadBtn = document.getElementById("download-btn");
@@ -302,7 +306,7 @@ async function validationform() {
 	    a.click();
 	    a.remove();
 	    URL.revokeObjectURL(url);
-	  }
+	  }*/
  </script>
 </html>
 
