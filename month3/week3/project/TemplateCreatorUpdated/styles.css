@@ -1,0 +1,31 @@
+@charset "ISO-8859-1";
+.inputDiv {
+	padding: 5px 5px;
+	margin: 8px;
+	display: table-row;
+}
+
+.myForm {
+	display: table;
+	padding: 5px 5px;
+	margin: 8px;
+}
+
+.inputDiv1 {
+	padding: 5px 5px;
+	margin: 8px;
+	display: table-row;
+}
+
+label {
+	display: table-cell;
+}
+
+input {
+	display: table-cell;
+}
+
+.errorMsg {
+	color: red;
+	margin-top: 5px;
+}
