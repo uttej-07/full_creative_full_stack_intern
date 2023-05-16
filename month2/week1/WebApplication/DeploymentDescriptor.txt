@@ -1,0 +1,76 @@
+                       Deployment Descriptor
+-Deployment Descriptor file tells how to deploy a WebApplication.
+-It tells more about the file than its security files and file description.
+-For web applications written in java programming, deployment descriptor is written using the XML.
+-Deployment descriptor is named as web.xml and it is under WEB-INF.
+-The content of the file describes the security files, content files, configuration requirements and container options.
+-While declaring the deployment descriptor files, we should also declare versions and other files which lets declare even security related tags.
+Some of the tag:
+<servlet-name>
+<servlet-class>
+<servlet-mapping>
+
+Servlet-tags
+-In web.xml we need to set Servlet tags by which we can have communication with web application.
+-Servlet mapping controls how you access a servlet.
+<servlet>
+<servlet-name>
+<servlet-class>
+
+-The above 3 tags are used to define a servlet and name,class of the servlet.
+-Class defines the path of the servlet
+
+<servlet-mapping>
+<servlet-name>
+<url-pattern>
+
+-servlet mapping tag will be used for access and control of servlet
+-<url-pattern>- it defines the type of files whether it is a html,html,jsp,image files, etc.
+
+-We can set up default servlet. Default servlet can also be setup manually automatically.
+-While setting up default servlet we need to be careful while defining it.
+-WebLogic server uses an internal servlet called the FileServlet as the default servlet.
+
+Error page:
+-It defines when we come any error.
+-Internally if we won't throw any expection for the code. At, that time an error may occur in WebApplication.
+-When an error occurs—while WebLogic Server is responding to an HTTP request, or as a result of a Java exception—WebLogic Server returns an HTML page that displays either the HTTP error code or a page containing the Java error message. You can define your own HTML page to be displayed in place of these default error pages or in response to a Java exception.
+tags
+<error-code>- A valid HTTP error code.
+<exception-type>- We can know what type of exception is occured.
+<location>-Where the exact exception has occured.
+<location> tag is mandatory
+
+-We can define error page in 2 ways:
+1)By using JSP
+2)By using JSP and servlet
+
+Welcome-page
+-For every web application we need a welcome page which tells about the application and services in it.
+
+-In WEB-INF file we can define welcome page using few tags
+
+-<welcome-file-list> element contains an ordered list of welcome-file elements.
+
+-<welcome-file-list> is used to define the files that will be called by the server by default.
+
+welcome-file-list in web.xml
+index.html
+index.htm
+index.jsp
+The server returns a 404 error if none of these files are found.
+
+-When webserver checks for the welcome file it will check <welcome-file-list>, when that tag is found, then it will see the attributes inside it and starts the working, if the <welcome-file-list> isn't found then it will look at the default welcome files which can be a html, html, jsp files.
+
+Session-config:
+-The number of minutes after which sessions in the Web application expire.
+we need to define the tags <session-config> and inside it we can use<session-timeout> and define the number of minutes not seconds.
+
+-<session-timeout>-number of minutes after which sessions in the Web application expire.
+
+-It contains a Default value: -2
+-Maximum value: Integer.MAX_VALUE/60
+-In <session-timeout> -2 uses the value set by TimeoutSecs in <session-descriptor>.
+-In<session-timeout> -1- Session doesn't timeout. but it is ignored.
+
+-<session-descriptor>- it defines the tags <param-name> and <param-value>. and it is used to connect html and servlets(java).

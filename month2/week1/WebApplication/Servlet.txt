@@ -1,0 +1,49 @@
+Servlet
+
+-Servlet which helps to extend the capability of a server by letting it improve and increase request.
+-Servlet is used for implementing Web-Application
+-Servlet API acts as a Interface and contain classes.
+-Servlet is a web component that is deployed on the server to create a dynamic web page.
+-Servlet container which is a Servlet Engine, which helps the servlet to handle the request from the clients.
+
+-Before Servlets we have the same functionality i.e, CGI(Common Gateway Interface). But, there are few limitations which are prevented in Servlets. Even PHP is one of ther server side handler.
+
+-Servlets are Java programs that run on the Java-enabled web server or application server. They are used to handle the request obtained from the webserver, process the request, produce the response, then send a response back to the web-server
+
+
+Client<--->Web-Server<-->Servlet<-->Database
+
+-Servlet work on the server-side.
+
+-While client can send the request to web server via HTTP Protocol.
+-If we are using Servlet then it is dynamic web application.
+-If we are only using HTTP protocol then it is static web application.
+
+-Servlets are java programs which run on JVM on the server-side.
+-A dynamic web application can change the things in it. But, a static application will not change it.
+
+-Whenever there is a change at database then the web application will also change which is dynamic.
+-But, when comes to static there will be a server but there will no database.
+-So, servlet is a dynamic web application.
+
+Role of servlet in dynamic web application development?
+-Extends the servers that host the applications accessed by means of request-response of programming model.
+-they are commonly used to extend the applications hosted by web servers.
+
+-Servlet starts life when the container finds the servlet class file.
+
+Servlets are build from 2 packages:
+1)javax.servlet
+2)javax.servlet.http
+
+Advantages of Servlet:
+1)It uses threads.
+2)It doesn't use the CGI functionality process. It overheads it and create a single to handle.
+3)As it is server side component, servlet inherits the security provided by the web server.
+4)Servlets use web servers and many servers are free.
+5)It consumes less memory.
+
+How java servlet make web application dynamic?
+-When client sends a request, the webserver accepts the request and communicates with the servlet
+-Where servlet takes the request from the web-server and it goes the brings the output for the request and gives that response to web-server where that response will be given back to client.
+-Here, Servlet is taking the input working on the output and giving back the response which is dynamic in nature.

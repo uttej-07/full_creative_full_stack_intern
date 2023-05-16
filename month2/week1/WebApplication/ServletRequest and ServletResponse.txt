@@ -1,0 +1,46 @@
+ServletRequest and ServletResponse
+
+ServletRequest
+
+-It is used to help the client to send the requests to the sever. ServletRequest creates a object and it provides to the client and those requests information passed to server. Information such as content type, content length, parameter names and values, header, information, attributes, etc.
+
+-There are several methods in ServletRequest:
+
+1)public String getParameter(String name)- used to obtain the value of a parameter by name.
+
+2)public String[] getParameterValues(String name)- returns an array of String containing the values of given parameter name.
+
+3)java.util.Enumeration getParameterNames()- returns anenumeration of all the request parameter names.
+
+4)public int getContentLength()- returns the size of the request entity data, or -1 if not known.
+
+5)public String getCharacterEncoding()- returns the character set encoding for the input of this request.
+
+6)public String getContentType()- returns the type of the request entity data.
+
+7)public ServletInputStream getInputStream() throws IOException- returns an inputstream for reading binary data in the request body.
+
+8)getRequestDispatcher()-A RequestDispatcher object can be used to forward a request to the resource or to include the resource in a response. The resource can be static or dynamic.
+
+9)getServletContext()- gets the servlet context to which this ServletRequest was last dispatched.
+
+
+ServletResponse
+
+-There will be a object of ServletResponse which is used by server to send the response to client.
+
+-To send binary data in a MIME body response, use the ServletOutputStream returned by getOutputStream(). To send character data, use the PrintWriter object returned by getWriter(). To mix binary and text data, for example, to create a multipart response, use a ServletOutputStream and manage the character sections manually.
+
+Few methods in ServletResponse:
+
+1)ServletOutputStream getOutputStream()- method returns a ServletOutputStream that may be used to return the binary data to the response.
+
+2)PrintWriter getWriter()- object is used to transmit character text to the client.
+
+3)void setContentLength(int len)- Sets the length of the response's content body. This function sets the HTTP Content- Length Header in HTTP Servlets.
+
+4)void setContentType(String type)- sets the type of the response data.
+
+5)void setBufferSize(int size)- specifies the recommended buffer size for the response's body.
+
+6)setLocale()- Sets the locale of the response, if the response has not been committed yet.

@@ -1,0 +1,31 @@
+Running a WebApplication locally
+-We can run a webapplication locally uses a local server.
+-We can use Apache Tomcat Server for running a webapplication.
+-Why do we run a web application local?
+-Because before we deploy it to the public server or public. We need to work on it. We need to check the working of the webapplication.
+
+Tomcat Apache
+-It was released in 1998. It is quite matured server.
+-Tomcat helps us to run server and servlets.
+-A static web page if it wants to communicate then it needs to have a sever and that server is HTTP protocol. When it comes to dynamic webpage then it needs servlet and a server. So ,these both things can be done by Tomcat.
+-Initially it is used for Website API, Java-Server Pages and servlet. While technologies are increased most have went for its alternatives which provide good specifications. 
+-Tomcat serves for Java EE and we have Tomcat EE for enterprise specificaions which aren't available in Apache Tomcat.
+-Most of the beginners use Apache Tomcat for knowing the basic dynamic web application deployment, working state.
+-Servlet helps us to extend the capabilities of a server.
+-Servlet helps us to accept the request from the user and next use the application server, database to send the response to the user.
+-Tomcat take cares of the routing. Tomcat consist of the webserver known as Coyote Engine due to which it extend the capability of Tomcat to include several enterprise specification includes Java Persistance API(JPA).
+
+
+Advantages of Tomcat:
+1)Opensource- Its free of cost and anyone can download and use it.
+2)Incredibly Lightweight- If we want our web application to run faster and easier we can use Tomcat.
+3)Security- It provides extra firewall 
+
+Disadvantages of Tomcat:
+1)It is not as Fast as Apache if we are working on static pages
+2)Memory Leak
+3)Issues in the SSL installations
+
+Alternatives for Tomcat:
+1)Apache: 31% of the world uses Apache and it is one of the best because due to its customizability. It supports various programming languages.
+2)NGINX: 33% of the world uses NGNIX and its performance is quite better when compared to Tomcat and it can deal with high traffic sites.

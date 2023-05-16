@@ -1,0 +1,40 @@
+Servlet Attributes
+
+-An attribute is an object that is used to share information in a web-app.
+-Attribute allows servlet to share information among themselves.
+-Attributes can be SET and GET from one of the following scope:
+
+1)request
+2)session
+3)application
+
+
+-The servlet programmer can pass informations from one servlet to another using attributes.
+
+-for setting an information, we can use set attribute and for fetching an information we can use get attribute.
+
+-After fetching the information from web.xml these will be displayed in an HTML file.
+
+few methods using set and get:
+
+1)public void setAttribute(String name, Object object) - sets the given object in the application scope.
+
+2)public Object getAttribute(String name) - Returns the attribute for the specified name.
+
+3)public Enumeration getInitParameterNames() - returns the names of the context's initialized parameters as an Enumeration of String objects.
+
+4)public void removeAttribute(String name) - removes attribute with the given name from the servlet context.
+
+5)public void getRequestDispatcher() - it gives the request to another servlet by using forward or include.
+
+
+ServletConfig sc = getServletConfig();
+ here sc is an config object
+
+sc.getInitParameter(Company);
+-we are using get attribute to fetch the information from the parameter company.
+
+ServletContext scp = getServletContext();
+
+sc.setAttribute(String name, Object object)
+-we are using set attribute to set the name.

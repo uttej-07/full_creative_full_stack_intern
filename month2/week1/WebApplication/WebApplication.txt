@@ -1,0 +1,80 @@
+                         Web Application
+What is a WebApplication?
+-WebApplication is an application program that is usually stored on a remote server, and can be access it through Web-Browser.
+
+What is web browser ?
+-A web browser takes you anywhere on the internet. It retrieves information from other parts of the web and displays it on your desktop or mobile device. The information is transferred using the Hypertext Transfer Protocol, which defines how text, images and video are transmitted on the web.
+
+Why to use a WebApplication?
+-These can be accessed from anywhere. Just, we need to internet and browsers to access it.
+-WebApplications need not to be installed.
+-WebApplications also give us a UserFriendly Interactions and requests can be sent in WebApplications.
+
+-WebApplications are created using Web Technologies like HTML, CSS, JavaScript at front end and the server side they use PHP,ASP.
+
+Examples of a WebApplications:
+1)Online shopping, Online word processor, etc
+
+-When comes to WebApplication it can run on anytype of Platform at free of cost.
+
+How does a web-application work?
+-Initially after creating a webapplication we need to deploy it.
+-After deploying every  user can access it by a web browser.
+-While accessing it, if we have any forms or requests to be sent, those requests are sent to remote server from there it goes to application server.
+-When the request is in application server, application server and database work together for gaining and responding to the request. The reponse is sent to remote server and it sends to the end-user.
+
+Advantages of WebApplication:
+1)No need to waste our memory.
+2)Can access anytime 
+3)Reduces software piracy
+4)Can run at any operating system.
+
+Disadvantages of WebApplication:
+1)No security
+2)Crash
+3)Several people might access and might change
+
+Web App vs Native App vs Hybrid App
+-Web App are used in Browser and they can't be installed in os.
+-Native App are device-specific and can be worked on a particular platform only
+-Hybrid App can work in both browser and device specific which can be installed and even work on web browser.
+
+Difference between WebApplication and WebSite
+Created for
+-It is designed for end user
+-It consist of static content and accessed by all visitors.
+
+Authenication
+-WebApplication need authenication as they provide broader information
+-Authenication is not obligatory for informational websites.
+
+Compilation
+-WebApplication must be precompiled before deployment.
+-WebSite doesn't require any pre-compile.
+
+Deployment
+-All changes require the entire project to be re-compiled and deployed in a WebApplication
+-Small changes never require a full re-compilation and deployment. You just need to update the HTML code.
+
+
+WebApp Structure
+-Structure of how a WebApp work is located and formed or organised.
+-WebApplications have a directory structure and root files in it.
+-Root folder contains JSP files, HTML files, Code files, and static files.
+-WAR(Web Archive File)-complete web application in compressed form.
+-There is special directory under the document root, WEB-INF which contains information about application that is not in the public document tree of the application.
+- WEB-INF file isn't directly interacted with the client.
+
+Contents in WEB-INF:
+1)/WEB-INF/classes/*- The directory for servlet and other classes.
+2)/WEB-INF/web.xml and/WEB-INF/sun-web.xml- It mainly consist of files related to XML based deployment descriptors that specify the web application configuration, including mappings, initialization parameters and security constraints.
+
+-The web application directory structure follows the structure outlined in the Java EE specification
+
++ hello/
+       |--- index.jsp
+       |--+ META-INF/
+       |  |--- MANIFEST.MF
+       --+ WEB-INF/
+          |--- web.xml
+          --- sun-web.xml

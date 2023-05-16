@@ -1,0 +1,93 @@
+Servlet Config
+
+-It is used to deploy once inside init method.
+-An object of ServletConfig is created by the web container for each servlet.
+-It is used to get the configuration information from the web.xml.
+-It is used for only one servlet.
+-If the configuration information is modified from the web.xml file, we don't need to change the servlet.
+-Servlet Config is an object containing some initial parameters or configuration information created by Servlet Container and passed to the servlet during initilization.
+
+Advantage:
+-The core advantage of ServletConfig is that we don't need to edit the servlet file if information is modified from the web.xml file.
+
+Creating ServletConfig Object
+
+public ServletConfig getServletConfig()
+
+getServletConfig()-returns the object of ServletConfig.
+
+ServletConfig config = getServletConfig();
+
+Methods in ServletConfig:
+
+1)public String getInitParameter(String name) - returns the parameter value for the specified parameter name.
+
+2)public Enumeration getInitParameter()- returns an enumeration of all the initilization parameter names.
+
+3)public String getServletName() - returns the name of the Servlet.
+
+4)public ServletContext getServletContext() - returns an object of ServletContext.
+
+The tags used while using servletconfig:
+
+1)<init-param>- initilization parameter tag
+2)<param-name>- name of the parameter
+3)<param-value>- value of that particular parameter
+
+ServletContext
+-Servlet Context is used to get the configuration information from the web.xml file.
+-It used for the whole web-application. It isn't like ServletConfig.
+-An object of ServletContext is created by the web-container at time of deploying the project. There is only ServletContext object per web-application.
+-If any information is shared to many servlet, it is better to provide it from web.xml file using the <context-param> element.
+
+Advantage:
+-It is easy to maintain and if there is any information to be shared to all the servlets, it is better to make it available for all the servlet.
+-If there is any information changed we don't need to modify the servlet.
+
+
+-Provides an interface between the container and servlet
+-Used to get information from the web.xml file.
+-Used to get, set or remove attribute from the web.xml file.
+-Used to provide inter-application communication.
+
+public ServletContext getServletContext() 
+
+-We can define the object of ServletContext in 2 ways:
+
+1)getServletContext() - ServletConfig interface returns the object of ServletContext.
+
+2)getServletContext() - GenericServlet class returns the object of ServletContext.
+
+ServletContext sc = getServletConfig().getServletContext();
+
+ServletContext sc = getServletContext();
+
+Methods in ServletContext:
+
+1)public String getInitParameters(String name)- returns the parameter value for the specified parameter name.
+
+2)public Enumeration getInitParameterNames()- returns the names of the context's initilization parameters.
+
+3)public void setAttribute(String name, Object object)- sets the given object in the application scope.
+
+4)public Object getAtrribute(String name)-returns the attribute for the speicifed name.
+
+5)public Enumeration getInitParameterNames() - same as getInitParameterNames but the difference is it displays as Enumeration of String Objects.
+
+6)public void removeAttribute(String name) - removes the attribute of the name specified.
+
+Difference between ServletConfig and ServletContext
+
+ServletConfig is used for a particular servlet
+ServletContext is used for web-application
+
+ServletConfig are present as name-value pair in <init-param> inside <servlet>
+ServletContext arre present as name-value pair in <context-param> which is outside <servlet> tag.
+
+getServletConfig() for ServletConfig
+getServletContext() for ServletContext
+
+Use ServletConfig when information needed for one servlet
+Use ServletContext when information needed for whole web-application.
+
+

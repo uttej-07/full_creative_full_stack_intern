@@ -1,0 +1,103 @@
+Servlet Interface
+
+-Servlet interfaces defines methods that all servlets must implement.
+
+-Servlet interface needs to be implemented for creating any servlet
+It provides 3 life cycle methods and 2 non-life cycle methods.
+
+Methods in Servlet Interface
+-Life cycle methods are invoked by  web-container.
+
+1)public abstract void init(ServletConfig config) throws ServletException- Initializes the servlet. It is the life cycle method servlet and invoked only once by web-container.
+
+The init method should save the ServletConfig object so that it can be returned by the getServletConfig method.
+
+2)public abstract void service(ServletRequest req,ServletResponse res) throws ServletException, IOException- The method starts after the servlet is initialized. This method implements a request and response paradigm.
+-The request object contains information about the service request, including paramters by the client.
+-The response object is used to return the information to the client.
+-Both request and response object rely on the network transport.
+
+-They run inside multi-threaded servers. Due, to which they can handle multiple requests.
+
+3)public abstract void destroy()-After answering all the requests. We can terminate/ destroy the servlet.
+-Servlet writer is responsible for making sure that any threads are still in the service method complete.
+-It is invoked only once.
+
+4)public abstract ServletConfig getServletConfig()- it returns the object of ServletConfig. ServletConfig object paassed to init method. So, that this method could return it.
+
+5)public abstract String getServletInfo()-It returns the information of the servlet like version number, author and copyright.
+-The information should be plain text and not markup.
+
+Generic Servlet Class
+
+-It implements Servlet, ServletConfig and Serializable interfaces.
+-Except for service method it implements all the methods.
+-It can handle any type of request so it is protocol-dependent i.e, it works on HTTP,SMTP,FTP and other protcols.
+-GenericServlet makes writing servlets easier.It implements the lifecycle methods and log method.
+
+-In Generic Servlet it contains the life cycle and non-life cycle methods of Servlet Interface.
+
+-The other methods of Generic Servlet Methods are:
+1)public void init() throws ServletException -It is overridden and it is convience to the programmer and it doesn't call super.init(config)
+
+2)public void init(ServletConfig config) throws ServletException- Called by the servlet container to indicate the servlet that the servlet is being placed into service.
+
+3)public void log(String msg)- Writes the specified message to a servlet log file.
+
+4)public void log(String msg, Throwable t)- Write an explanatory message and a stack trace for given Throwable exception to the servlet log file.
+
+5)public String getServletName()- Returns the name of this servlet instance.
+
+6)public String getInitParameter(String name)- returns the value of the named initialization parameter, or null if id doesn't exist.
+
+7)public Enumeration<String> getInitParameterNames()- returns the names of the servlet's initialization parameter as an Enumeration of String objects, or empty if there are no Servlet initialization parameters.
+
+HTTPServlet Class
+-HTTPS servlet class extends the GenericServlet class and implements Serializable interface. It works under HTTP protocol only.
+
+Methods available in HTTPServlet class are:
+
+1)public void service(ServletRequest req, ServletResponse res)- dispatches the request to the protected services by converting the request and response object into http type.
+
+2)protected void service(HttpServletRequest req, HttpServletResponse res)- it dispatches the request to to doXXX()(GET/POST) method depending on the incoming http request type.
+
+3)protected void doGet(HttpServletRequest req, HttpServletResponse res)- handles the GET request. It is invoked by the web container.
+
+4)protected void doPOST(HttpServletRequest req, HttpServletResponse res)- handles the POST request. It is invoked by the web container.
+
+5)protected void doHead(HttpServletRequest req, HttpServletResponse res)- handles the HEAD request. It is invoked by the web container.
+
+6)protected void doOptions(HttpServletRequest req, HttpServletResponse res)- handles the Options request. It is invoked by the web container.
+
+7)protected void doPut(HttpServletRequest req, HttpServletResponse res)- handles the PUT request. It is invoked by the web container.
+
+8)protected void doTrace(HttpServletRequest req, HttpServletResponse res)- handles the TRACE request. It is invoked by the web container.
+
+9)protected void doDelete(HttpServletRequest req, HttpServletResponse res)- handles the DELETE request. It is invoked by the web container.
+
+10)protected long getLastModified(HttpServletRequest req)- returns the last modified request. It tells the time in milliseconds.
+
+
+Difference between Servlet, Generic, HTTP :
+
+-Servlet is an Interface. While Generic and HTTP are Abstract Classes.
+
+-Servlet and Generic are available in javax.servlet package. While HTTP is available in javax.servlet.http package.
+
+-When comes to methods all the methods which are avaiable in Servlet interface is avaiable in GenericServlet Class but not in HTTP Class.
+
+-Abstract methods:
+--All methods are abstract in Servlet Interface.
+--Only service method is abstract in Generic Class.
+--No abstract method in HTTPServlet Class.
+
+Usage:
+--Servlet Interface is used when we want to develop our own Servlet Container.
+
+--Generic Servlet is used when the protocol is independent i.e, we want work on any type of protocols that are HTTP, SMTP, FTP, etc.
+
+--HTTP Servlet is used when we only work on HTTP Protocol.
+
+-When it comes to Methods in HTTPClass we have doGet(), doPost(), doPut(), doOptions, doTrace(), getLastModified, doHead(), doDelete() which aren't available in Servlet Interface and Generic Servlet class.
+
+
