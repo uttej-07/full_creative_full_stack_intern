@@ -1,0 +1,130 @@
+                                                                  JSP
+
+-JSP stands for Jakarta Server Pages/Java Server Pages. It is an extension for Servlets. Where we write java code in HTML pages by making JSP pages.
+
+-We need to use the tag <% -- java code-- %>.
+
+-It provides additional functionalities like JSTL(JSP Standard Tag Library), expression languages and it makes a web page dynamic.
+
+-JSP will be internally translated into servlet and the servlet will be doing remaining task.
+
+-While working in Servlet we need to write presentation and business logic at one place. Here we need to write everything separately which might not effect the web application.
+
+-JSP consists of a engine known JSP engine which internally helps in translation of jsp into servlet.
+
+-It is used for HTML page, which makes it dynamic we can have registration page with dynamic content.
+
+Why JSP?
+
+-It is used for having a efficient performance.
+
+-It is much better than Common Gateway Interface(CGI).
+
+-JSP is built on the top of Java Servlet API so it can access all JAVA APIs and used in MVC architecture.
+
+Advantages of Servlet
+
+1)Extension to Servlet
+
+-We can use all the features of Servlet in JSP.  In addition we can use implicit objects, predefined tags, expression language and custom tags in JSP.
+
+2)Easy to maintain
+
+-JSP technology allows separating the development efforts between the HTML code that determines static page presentation, and the JAVA code that processes business logic and presents dynamic content. But, in servlets we need to mix the business and presentation logic.
+
+3)No recompile  and redeploy
+
+-When comes to JSP, the application server automatically translates the JSP into corresponding servlet, a Java file and then recompiles it to class file.
+
+4)Less code than Servlet
+
+-We can use tags like actions tags, JSTL, expression tags, scripting elements and other features which JSP more compatibile.
+
+Life cycle of JSP
+
+-In the life cycle of JSP we will be translating the JSP into servlet in order to process the service requests.
+
+There are 3 compilation process of JSP page involves three steps:
+
+1)Parsing of JSP
+2)Turing JSP into servlet
+3)Compiling the servlet
+
+There are 6 phases of Lifecycle in JSP:
+
+1)Translation of JSP page is translated to servlet
+
+2)Compilation of servlet is created
+
+3)Classloading of servlet
+
+4)Instantiation of Servlet
+
+5)Intialisation of Servlet
+
+6)Request processing of Servlet
+
+7)Destroying the servlet
+
+1)Translation of JSP Page is translated to servlet
+
+-This is the first step of JSP life cycle. In translation phase, container validates the syntactic correctness of JSP page and tag files.
+
+-It will be interpreting the tags and using those tags and data inside it. It will be translating the JSP into Servlet.
+
+-While translating and compiling the JSP engine will be translating it and compiling it.
+
+2)Compilation of the JSP page
+
+-After the JSP page file is translated into Servlet file. It need to compile and class file need to be created. The Servlet engine takes care about it and conversion does.
+
+3)Classloading of Servlet file
+
+-Now the servlet engine will be loading the class file and runs the servlet program.
+
+4)Instantiation of Servlet
+
+-Now as the file is created and loaded, not the object will be loaded i.e instance of the class is generated.
+
+-JSP container is built using a servlet container. A JSP container is an extension of servlet container as both the container support JSP and Servlet.
+
+-A JSPPage interfacce which is provided by container provides init() and destroy() and it is invoked once.
+
+There is another interface HttpJSPPPage which serves Http request and it contains service method.
+
+jspinit()- it is invoked only once which instantiation of servlet.
+_jspservice()-it is invoked whenever there is an request coming from the client.
+jspdestroy()-it is invoked only once and it will destroy the servlet.
+
+
+Here _jspservice() method can't be overridden and it is not abstract because when translation is going on the JSPengine and Servletengine should find out which is the service method if we write more than 1 service method then the compiler gets confused and returna a compiler error.
+
+5)Initilization 
+
+-Here _jspinit() method will be called and invoked ony once and servlet starts running. Once the instance gets created, init method will be inoked immediately after that.
+
+6)Request processing or handlers
+
+-Here _jspservice() method will be called and invoked. The reqests from the clients will be called from the _jspservice() as it contains HttpServletRequest req, HttpServletResponse res paramters where request and response will be going on.
+
+7)Destroy()
+
+-Here _jspdestroy() in invoked by the container as soon as the requests are ended the destroy method is invoked and process will be terminated. It is invoked only once.
+
+JSP API
+
+-The JSP API consist of 2 packages:
+
+1)javax.servlet.jsp - containes classes and interfaces of Core JSP 2.0 API.
+
+2)javax.servlet.jsp.tagext- Contains classes and interfaces for JSP Tag Libraries.
+
+3)javax.servlet.jsp.el- Provides the ELResolver classes that define the object resolution rules that must be supported by a JSP container with the new unfied Expression Language.
+
+The life cycle methods are involved in JSP Interface
+
+1)public void jspinit()
+
+2)public void jspdestroy()
+
+3)public void _jspService()- Here _ defines that it can't be overriden.
