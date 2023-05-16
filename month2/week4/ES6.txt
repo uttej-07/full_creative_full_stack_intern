@@ -1,0 +1,1203 @@
+ES6(ECMAScript 6)
+-It is released in the year 2015. It is a version of JavaScript.
+-ECMAScript is a scripting language specification which is standardized by ECMAScript International.
+-ECMAScript is generally used for client-side scripting , and it is used for writing server applications and services by using Node.Js.
+-By using ES6 our code will become more cleanable, modern and, readable.
+-The specification governs some languages for JavaScript, ActionScript and, JScript.
+ES6 features, we write less and do more, so the term 'Write less, do more' suits ES6.
+-ES6 introduce you many great features such as scope variable, arrow functions, template strings, class destructions, modules, etc.
+
+ES6 Spread Operator
+-It is introduced in ES6.
+-The syntax of spread operator is three dots (...).
+-It is an iterable to expand in places where more than zero arguments are expected.
+-We can concatenate arrays using spread operator.
+-We can also copy the instance of an array.
+
+Example:
+let color = ['Red', 'Yellow'];
+let newColors = [...colors, 'Violet', 'Orange', 'Green'];
+console.log(newColors);
+
+Output: [ 'Red', 'Yellow', 'Violet', 'Orange', 'Green' ]
+
+-If we copy the array elements without using the spread operator, then inserting a new element to the copied array will affect the original array.
+
+Example:
+Without using Spread Operator
+
+let colors = ['Red', 'Yellow'];  
+let newColors = colors;  
+newColors.push('Green');  
+console.log(newColors);  
+console.log(colors); 
+
+Output:
+[ 'Red', 'Yellow', 'Green' ]
+[ 'Red', 'Yellow', 'Green' ]
+
+With spread operator
+
+let colors = ['Red', 'Yellow'];  
+let newColors = [...colors];  
+newColors.push('Green');  
+console.log(newColors);  
+console.log(colors);  
+
+Output:
+[ 'Red', 'Yellow', 'Green' ]
+[ 'Red', 'Yellow' ]
+
+Rest Parameters
+-It is same like varargs in Java. We can indefinite number of parameters in javascript using rest parameters.
+-The syntax is function function name(...variablename)
+-There will only one rest parameter and it should be declared at last of the function.
+
+ES6 Variables 'let' and 'const'
+-In ES6 let and const are introducted to overcome the the disadvantage of Var keyword.
+-Var keyword is not a block statement i.e, if we declare a variable outside the block it can be accessed inside and outside the block. Whereas let and const can be used within the block.
+
+let- It is a keyword which is used for declaring a variable and is assigned a Block scope.
+Block Scope- It is a section where the let gets declared.
+
+If any variable is declared using let then it can't be redeclared but can be reassigned within that block.
+
+Const- It is a keyword which is used for declaring a variable and is used to declare a constant. Properties of const:
+
+-The values cannot be changed
+-It is a block scoped.
+-It cannot be reassigned
+-They must be initialized at the time of declaration.
+
+Example:
+
+let x = 100;  
+let x=200;  
+console.log(x);
+
+Output:
+
+SyntaxError: Identifier 'x' has already been declared
+
+const y=100  
+y=200 // It will result in an error  
+Output:
+
+TypeError: Assignment to constant variable.
+
+JavaScript Variable Scope
+
+Global Scope: The variable can be accessed from any part of the JavaScript Code.
+
+Local Scope: The variable can be accessed only within the block where it is declared.
+
+Example:
+
+var $var12 = 200;   
+  
+function example() {    
+    var $var12 = 300;   
+    console.log("Inside example() function = "  
+               + $var12);   
+}   
+console.log("Outside example() function = "   
+               + $var12);  
+example();   
+Output:
+
+Outside example() function = 200
+Inside example() function = 300
+
+ES6 and Variable Hoisting
+
+-Javascript has a feature known as hositing where all the variable declaration are moved to the top of the current script, current function or current scope. It allows to use the variable before its declaration, JS only hoists the variable declaration, not the initilization.
+
+Example:
+
+x=10;  
+console.log(x);  
+var x; 
+
+At the time of compilation
+
+var x; // declaration of the variable will move on top.  
+x=10;  
+console.log(x);  
+
+Output:
+
+10
+
+-When comes to let keyword in hoisting only the declaration goes to the top of the scope but the  initilization does not.
+
+Example:
+
+{
+    console.log(counter);
+    let counter = 10;
+}
+
+Output:
+
+Uncaught ReferenceError: Cannot access 'counter' before initialization
+
+Var keyword can be added to the global object as properties. let variables cannot be added as global object.
+
+for... of loop
+-In ES6 a new statement for...of that iterates over an iterable object such as built in Array, String, Map, Set.
+
+
+for(variable of iterable){
+}
+
+Difference between for... of and for... in
+-When comes to for... of it iterates over the object elements. When comes to for...in it iterates over propertes of the object.
+
+Example:
+
+var fruits = ['Apple', 'Banana', 'Mango', 'Orange'];  
+for(let value of fruits)  
+{  
+  console.log(value);   
+} 
+
+Output:
+
+Apple
+Banana
+Mango
+Orange
+
+Object Literal Syntax
+
+-In ES6 it makes the syntax of object literals more simple, cleaner and flexible.
+-An object literal is a collection of name-value pairs
+
+function createMachine(name, status){
+  return{
+            name: name,
+            status: status
+         };
+    }
+
+ES6 allows to eliminate the duplication when a property of an object is same.
+
+function createMachine(name, status){
+      return{
+           name,
+           status
+      };
+}
+
+console.log(createMachine("uttej","active"));
+
+Output:
+
+{ name: 'uttej', status: 'active' }
+
+We have one more property known as Computed property name
+We use square brackets([]) to enable the computed property names for the properties objects.
+
+ES6 Arrow Function
+-It is introduced in ES6, which provides you a more accurate way to write the functions in JavaScript. This allows us to write a function in less syntax, make it readable and structured.
+-Arrow Functions are anonymous functions . They don't return any value and can declare without the function keyword. Array functions cannot be used as the constructors. They are also called as Lambda function in different languages.
+
+Example:
+
+var myfunc = () =>{
+ console.log("It is an Arrow Function");
+}
+
+myfunc();
+
+Output:
+
+It is an Arrow Function
+
+-In arrow function paranthesis is optional for single parameter, and return statement we can use based on the type of function.
+-We can use rest parameters in arrow function
+-We can have default parameters in arrow function
+
+Example:
+
+var show = (a,b,c) => {  
+    console.log(a + " " + b + " " + c );  
+}  
+show(100,200,300);  
+Output
+
+100 200 300
+
+Example:
+
+var show = (a, b=200) => {
+    console.log(a + " " + b);
+}
+show(100);
+
+Output: 
+
+100  200
+
+Example:
+
+var show = (a, ...args) => {  
+    console.log(a + " " + args);  
+}  
+show(100,200,300,400,500,600,700,800);  
+Output
+
+100 200,300,400,500,600,700,800
+
+Advantages of Arrow Function
+
+1)Reduces Code size
+2)Return statement is optional for single line function
+3)Lexically bind the context
+4)Functional braces are optional for single line statement
+
+-In arrow function this keyword is not used for binding. 
+
+Generators
+-In Javascript generators help the function to pause in midway and then continues from where it paused.
+
+function* function-name{  (This is a generator function)
+ 
+}
+
+Example:
+
+function* generate() {
+    console.log('invoked 1st time');
+    yield 1;
+    console.log('invoked 2nd time');
+    yield 2;
+}
+let gen = generate();
+console.log(gen);
+
+let result = gen.next();
+console.log(result);
+result = gen.next();
+console.log(result);
+result = gen.next();
+console.log(result);
+
+Output:
+
+Object [Generator] {}
+invoked 1st time
+{ value: 1, done: false }
+invoked 2nd time
+{ value: 2, done: false }
+{ value: undefined, done: true }
+
+yield keyword
+
+-It allows us to pause and resume a generator function(function*)
+
+[variable-name] = yield[expression];
+
+Example:
+
+function* foo() { 
+    yield 1;
+    yield 2;
+    yield 3;
+}
+
+let f = foo();
+
+console.log(f.next());
+
+Output:
+
+{ value: 1, done: false }
+
+Example:
+
+function* generate() {
+    let result = yield;
+    console.log(`result is ${result}`);
+}
+
+let g = generate();
+console.log(g.next()); 
+
+console.log(g.next(1000));
+
+Output:
+
+{ value: undefined, done: false }
+result is 1000
+{ value: undefined, done: true }
+
+Array Methods:
+
+In ES6 new array methods are introduced
+
+Array.from()
+Array.of()
+Array.prototype.copyWithin()
+Array.prototype.find()
+Array.prototype.findIndex()
+Array.prototype.entries()
+Array.prototype.keys()
+Array.prototype.values()
+Array.prototype.fill()
+
+Array.of()
+-This method is used for creation of array. It is confusing in past version of creation of array.
+In ES6 Array.of() is introduced to remove that confusion and array creation became more easier.
+
+Example:
+
+Before ES6
+
+let numbers = new Array(2);
+console.log(numbers.length); // 2
+console.log(numbers[0]); // undefined
+
+numbers = new Array("2");
+console.log(numbers.length); // 1
+console.log(numbers[0]); // "2"
+
+After ES6
+
+let numbers = Array.of(3);
+console.log(numbers.length); // 1
+console.log(numbers[0]); // 3
+
+Array.from()
+-This method is used for creation of array. It enables new array creation from any array like object. It converts array-like values and iterable values into arrays.
+
+Example:
+
+function arrayFromArgs() {
+    return Array.from(arguments);
+}
+
+console.log(arrayFromArgs(1, 'A'));
+
+Output:
+
+[ 1, 'A' ]
+
+Array.find()
+
+-This method is used to find the element in an Array. We need to pass few arguments, based on the arguments the element will be found out.
+
+Syntax
+
+find(callback(element[, index[, array]])[, thisArg])
+
+callback-that executes each element of the array. it takes 3 arguments:
+
+element: the current element.
+index: the index of the current element.
+array: the array that the find() was called upon.
+
+thisArg- object used as this inside the call back.
+
+Example:
+
+let numbers = [1, 2, 3, 4, 5];
+
+console.log(numbers.find(e => e % 2 == 0));
+
+Output:
+
+2
+
+findIndex
+
+-It returns the index of the element that satisfies a testing function or -1 if no element passed the test.
+
+findIndex(testFn(element[, index[, array]])[, thisArg])
+
+testFn 
+It is a function to execute on each element in the array until the function returns true, indicating that the element has been found. It takes 3 arguments:
+
+element is the current element in the array.
+index is the index of the current element being processed.
+array is the array that the findIndex() was called upon
+
+thisArg
+The thisArg is an optional object to be used this when executing the callback. If you omit the thisArg argument, the findIndex() function uses undefined
+
+Example:
+
+let ranks = [1, 5, 7, 8, 10, 7];
+
+let index = ranks.findIndex(
+    (rank, index) => rank === 7 && index > 2
+);
+
+console.log(index);
+
+Output:
+
+5
+
+Export, Import modules on Web Browser
+
+-It is same like package. Using the same code in another javascript. It helps in code reusability and memory saving.
+
+Whenever we want to export a js file to another js file. We need to use export and import keyword.
+
+-We can export and import a variable, function and class in JavaScript.
+
+For exporting a js file we need to use export keyword
+
+export variable name
+export function name
+export class name
+
+For importing a js file we need to  use import keyword
+
+import { variable name, function name, class name} from 'javascript file';
+
+We can use alias in export and import function.
+We use aliases to change the name of the variable function class name while exporting and importing we use the keyword "as". 
+
+Example:
+
+// greeting.js
+export let message = 'Hi';
+
+export function setMessage(msg) {
+  message = msg;
+}
+
+// app.js
+import {message, setMessage } from './greeting.js';
+console.log(message); // 'Hi'
+
+setMessage('Hello');
+console.log(message); // 'Hello' 
+
+We can import entire module also.
+
+we need to follow the syntax as
+
+import * as cal from './cal.js';
+
+cal.a;
+cal.b;
+cal.sum();
+
+// math.js  
+function add( a, b ) {
+   return a + b;
+}
+
+export { add as sum };
+
+import { sum } from './math.js';
+
+
+There are few limitations of export and import statements
+
+if( requiredSum ) {
+   export sum;
+}  
+
+function importSum() {
+   import {sum} from './cal.js';
+}
+
+
+We cant use export and import inside any functional or conditional block they need to be done at starting.
+If we do like that then we get Syntax Error.
+
+It’s possible to export bindings that you have imported. This is called re-exporting
+Without binding also we can export a file.
+
+Default exports
+
+A module can have one and only one default export.
+The default export is easier to import.
+The default value can be variable, function, class.
+
+// sort.js
+export default function(arr) {
+  // sorting here
+} 
+
+import sort from sort.js;
+sort([2,1,3]);
+
+Symbols
+-In ES6 there is a new primitive datatype introduced. The name of the datatype is 'symbol'.
+-It is used to create unique values. It doesn't have any literal form.
+-It is a primitive data type.
+-Whatever data we write in symbol it becomes unique.
+
+let a = Symbol('hello');
+let b = Symbol('hello);
+Here a is symbol and the data which is inside it is unique.
+But the data inside b will be declared but it won't be unique.
+The symbol has a global symbol registory inside it which checks whether it is unique or not.
+
+Example:
+
+
+let a = Symbol('hello');
+let b = Symbol('hello');
+
+console.log(a === b);
+
+Output:
+
+false
+
+Why false? Because here we aren't checking whether the data inside is unique or not. We are checking the data inside them are unique in the global symbol registory.
+
+For creating unique keys it became difficult in JS. Due to which in ES6 they introduced symbol.
+
+const k1 = Symbol('k1')
+const k2 = Symbol('k2')
+
+myObj = {}
+myObj[k1] = "Harry"
+myObj[k2] = "Roshan"
+
+console.log(myObj);
+console.log(myObj[k1]);
+console.log(myObj[k2]);
+console.log(typeof myObj);
+console.log(typeof k1);
+console.log(typeof k2);
+
+Symbols are ignored in for..in loops
+Symbols work in for...of loops.
+
+Sharing symbols 
+
+-ES6 provides you a global symbol registry that allows you to share symbols global. If we want to share the symbol then we need to use Symbol.for().
+This method accepts a single parameter that can be used for symbol's description.
+The Symbol.for() method first searches for the symbol with the  ssn key in the global symbol registry. It returns the existing symbol if there is one. Otherwise, the Symbol.for() method creates a new symbol, registers it to the global symbol registry with the specified key, and returns the symbol.
+
+To get a key we use Symbol.keyFor(). If the symbol is registered in the global symbol registory returns the symbol else returns undefined.
+
+Symbol.toPrimitive
+-This method determines what should happen when an object is converted into a primitve value.
+
+The Symbol.toPrimitive method takes a hiint argument which has one of three values: "number", "string" and "default". The hint argument specifies the type of return value.
+
+Symbol.isConcatSpreadable
+
+The Symbol.isConcatSpreadable property is a Boolean value that determines whether an object is added individually to the result of the concat() function.
+
+Example:
+
+let list = {
+    0: 'JavaScript',
+    1: 'Symbol',
+    length: 2,
+    [Symbol.isConcatSpreadable]: true
+};
+let message = ['Learning'].concat(list);
+console.log(message); // ["Learning", "JavaScript", "Symbol"]
+
+Output:
+
+[ 'Learning', 'JavaScript', 'Symbol' ]
+
+Example:
+
+let list = {
+    0: 'JavaScript',
+    1: 'Symbol',
+    length: 2,
+    [Symbol.isConcatSpreadable]: false
+};
+let message = ['Learning'].concat(list);
+console.log(message); // ["Learning", "JavaScript", "Symbol"]
+
+Output:
+
+[
+  'Learning',
+  {
+    '0': 'JavaScript',
+    '1': 'Symbol',
+    length: 2,
+    [Symbol(Symbol.isConcatSpreadable)]: false
+  }
+]
+
+Destructuring
+-Destructing assignment is used to unpack values from an array or properties from objects into distinct variables.
+
+-ES6 provides a new feature called destructing assignment that allows you to destructure properties of an object or elements of an array into individual variables.
+
+Array Destructuring
+-We will unpack the values of array
+
+let a = [10,20,30];
+let [b,c,d] = a;
+
+console.log(b,c,d);
+
+Output:
+
+10,20,30
+
+Example:
+
+function getScores() {
+   return [70, 80];
+}
+
+let [x, y, z] = getScores();
+
+console.log(x); // 70
+console.log(y); // 80
+console.log(z); // undefined
+
+Output:
+70
+80
+undefined
+
+Example:
+
+function getScores() {
+   return [70, 80, 90, 100,110,120];
+}
+
+let [x, y, z,...args] = getScores();
+
+console.log(x); // 70
+console.log(y); // 80
+console.log(z); // 90
+console.log(...args);
+
+Output:
+
+70
+80
+90
+100 110 120
+
+Example:
+
+function getScores() {
+   return [70, 80, 90, 100,110,120];
+}
+
+let [x, , ,...args] = getScores();
+
+console.log(x); // 70
+
+console.log(...args);
+
+Output:
+
+70
+100 110 120
+
+Example:
+
+let a,b;
+[a=1,b=2] = [10];
+console.log(a);
+console.log(b);
+
+Output:
+
+10
+2
+
+Nested Array Destructuring
+
+function getProfile() {
+    return [
+        'Uttej',
+        'Cheedalla,
+        ['B.V.B.P.S, 'J.G.P.S', 'V.J.I.T']
+    ];
+}
+
+let [
+    firstName,
+    lastName,
+    [
+        School,
+        IntermediateCollege,
+        UGCollege
+    ]
+] = getProfile();
+
+console.log(firstName+""+lastName);
+console.log(School,IntermediateCollege,UGCollege); 
+
+Output:
+
+UttejCheedalla
+B.V.B.P.S J.G.P.S V.J.I.T
+
+Applications of Array Destructuring Assignment
+
+1)Swapping variables
+
+We can swap values of variables without using a temporary variable.
+
+let a = 10, 
+    b = 20;
+
+[a, b] = [b, a];
+
+console.log(a); // 20
+console.log(b); // 10
+
+2)Functions that return multiple values
+
+In function it normally returns a single value. By using an array destructuring we can have multiple functions in one function.
+
+Example:
+
+function stat(a, b) {
+    return [
+        a + b,
+        (a + b) / 2,
+        a - b
+    ]
+}
+
+Output:
+
+let [sum, average, difference] = stat(20, 10);
+console.log(sum, average, difference); // 30, 15, 10
+
+Object Destructuring
+
+-Same like array destructuring we can do object destructuring. We will be unpacking the values of the objects.
+
+let person = {
+    firstName: 'uttej',
+    lastName: 'cheedalla'
+};
+
+//Before ES6
+let firstName = person.firstName;
+let lastName = person.lastName; 
+
+let{firstName:fname, lastName:lname} = person //Object destructuring
+
+-The identifier before the colon (:) is the property of the object and the identifier after the colon is the variable.
+
+console.log(fname+lname);
+
+Output:
+uttejcheedalla
+
+Example:
+
+let person = {
+    firstName: 'John',
+    lastName: 'Doe',
+    currentAge: 28
+};
+
+let { firstName, lastName, middleName = '', currentAge: age = 18 } = person;
+
+console.log(firstName);
+console.log(middleName); 
+console.log(lastName);
+console.log(age); 
+
+Output:
+
+John
+Doe
+28
+
+Destructuring a null object
+
+function getPerson() {
+    return null;
+}
+
+let { firstName, lastName } = getPerson();
+
+console.log(firstName, lastName);
+
+Output:
+
+let { firstName, lastName } = getPerson();
+      ^
+
+TypeError: Cannot destructure property 'firstName' of 'getPerson(...)' as it is null.
+
+To overcome this error we need to change the syntax
+
+function getPerson() {
+    return null;
+}
+
+let { firstName, lastName } = getPerson() || {};
+
+console.log(firstName, lastName);
+
+Output:
+
+undefined undefined
+
+Nested Object Destructuring
+
+-There will be object inside another object.
+
+let employee = {
+    id: 1001,
+    name: {
+        firstName: 'John',
+        lastName: 'Doe'
+    }
+};
+
+let {
+    name: {
+        firstName,
+        lastName
+    }
+} = employee;
+
+console.log(employee.id);
+console.log(firstName);
+console.log(lastName); 
+
+Output:
+
+1001
+John
+Doe
+
+Example:
+
+let employee = {
+    id: 1001,
+    name: {
+        firstName: 'Uttej',
+        lastName: 'Cheedalla'
+    }
+};
+
+let {
+    id,
+    name: {
+        firstName,
+        lastName
+    },
+    name
+} = employee;
+
+console.log(id);
+console.log(firstName); 
+console.log(lastName); 
+console.log(name); 
+
+Output:
+
+1001
+Uttej
+Cheedalla
+{ firstName: 'Uttej', lastName: 'Cheedalla' }
+
+Object.assign()
+-This method will copy the properties and values of the object to another object.
+
+-Object.assign() can be used to clone an object or merge objects.
+
+Syntax  
+ variable-type variable-name = Object.assign({what all properties want to copy}, source);
+-We can n-no of sources objects in Object.assign.
+-If the source objects have the same property, the property of the later object overwrites the earlier one.
+
+Example:
+
+let name = {
+    firstName:'uttej',
+    lastName:'Cheedalla'
+};
+
+let emp_name = Object.assign({}, name);
+console.log(emp_name);
+
+Output:
+
+{ firstName: 'uttej', lastName: 'Cheedalla' }
+
+-We can't assign one property of the object. We need to assign all the properties of the object.
+
+Example:
+
+let name = {
+    firstName:'uttej',
+    lastName:''
+};
+
+let name1 = {
+    lastName:'Cheedalla'
+}
+
+let emp_name = Object.assign({}, name, name1);
+console.log(emp_name);
+
+Output:
+
+{ firstName: 'uttej', lastName: 'Cheedalla' }
+
+Object.is()
+-This method behaves same like  === operator with two differences:
+   - -0 and +0
+   - NaN
+
+When we  use  === -0 and +0 are identical values and returns true. But when we use Object.is() then this method returns -0 and +0 as non-identical values and return false.
+
+Example:
+
+let amount = +0,
+    volume = -0;
+console.log(volume === amount);
+
+Output:
+
+true
+
+let amount = +0,
+    volume = -0;
+console.log(Object.is(amount, volume));
+
+Output:
+
+false
+
+NaN
+-The === operator considers NaN and NaN are different values and returns false. When it comes to Object.is() it considers NaN and NaN are same values and returns true.
+
+Example:
+
+let quantity = NaN;
+console.log(quantity === quantity);
+
+Output:
+
+false
+
+Example:
+
+let quantity = NaN;
+
+console.log(Object.is(quantity, quantity));
+
+Output:
+
+true
+
+
+startsWith()
+-This method is used to check if a string starts with a substring.
+-The startsWith() returns true if a string starts with a substring or false otherwise.
+
+Syntax:
+
+string.startsWith(searchString[,position])
+
+Arguments
+
+searchString- It is the characters to be searched for at the start of the string
+
+position- It is the optional argument and we mention from which position to be searched.
+
+Example:
+
+const title = 'Jack and Jill Went Up the Hill';
+
+console.log(title.startsWith('Jack'));
+console.log(title.startsWith('jack'));
+console.log(title.startsWith('Jill', 9));
+
+Output:
+
+true
+false
+true
+
+endsWith()
+-This method is used to check if a string ends with a substring.
+-The endsWith() returns true if a string ends with the characters of a specified string or false otherwise.
+
+Syntax:
+
+String.endsWith(searchString[,length])
+
+Arguments
+
+searchString is the character to be searched for at the end of the string.
+
+length is an optional parameter that determines the length of the string to search. it defaults to the length of the string.
+
+Example:
+
+const title = 'Jack and Jill Went Up the Hill';
+
+console.log(title.endsWith('Hill'));
+console.log(title.endsWith('hill'));
+console.log(title.endsWith('Up', 21));
+
+Output:
+
+true
+false
+true
+
+includes()
+
+-The includes() method determines whether a string contains another string:
+
+string.includes(searchString [,position])
+
+The include() returns true if the searchString found in the String otherwise false.
+
+The optional position parameter specified the position within the string at which to begin searching for the searchString. The position defaults to 0.
+
+The includes() matches string case-sensitively.
+
+Example:
+
+let a = "Hello World"
+console.log(a.includes("World"));
+
+Output:
+
+true
+
+Example:
+
+let a = "Hello World. I am working in Full Creative"
+console.log(a.includes("World",7));
+
+Output:
+
+False
+
+Class in ES6
+-In ES6 syntax has been introduced for declaring a class.
+
+Syntax:
+
+class classname{
+ //body of a class
+ }
+
+To access that class we need to create a object as we do in Object Oriented Programming Languages.
+
+Example:
+
+class person{
+   display(){
+       console.log("Hello World");
+   }
+}
+
+let a1 = new person();
+a1.display();
+
+Output:
+
+Hello World
+
+Classes doesn't have hositing in it as functions have.
+If we try to do then we get an ReferrenceError.
+All the code inside a class automatically executes in strict mode.
+Class methods are non-enumerable.
+We need to use new keyword or else it returns an error.
+
+Example:
+
+class person{
+   display(){
+       console.log("Hello World");
+   }
+}
+
+let a1 =  person();
+a1.display();
+
+Output:
+
+let a1 =  person();
+          ^
+
+TypeError: Class constructor person cannot be invoked without 'new'
+
+Getter and  Setter
+-In classes we can get and set keyword to fetch and set the information in the class.
+
+-Both getter and setter binds the object.
+Getter binds an object property to a method that will be invoked when that property is looked up.
+
+Setter binds an object property to a method that will be invoked when that property is assigned.
+
+get method helps in fetching up the information from the object and display.
+If we try to change the name it doesn't change. It will change only when we use setter method.
+
+-If there is any constructor then getter fetches information from the constructor and when any user calls the get method then it displays the information.
+ 
+Example:
+
+class person{
+    constructor(name){
+        this.name = name;
+        return this.name;
+    }
+    get Name(){
+        //this.name = name;
+        return this.name;
+    }
+}
+
+let a1 = new person('uttej');
+let name  = a1.name
+console.log(name);
+console.log(a1);
+
+Output:
+
+uttej
+person { name: 'uttej' }
+
+Example:
+
+class person{
+    constructor(name){
+        this.name = name;
+        return this.name;
+    }
+    getName(){
+        //this.name = name;
+        return this.name;
+    }
+    setnewName(name1){
+        this.name1 =  name1;
+        return this.name;
+    }
+}
+
+let a1 = new person('uttej');
+let name  = a1.name
+console.log(name);
+console.log(a1);
+a1.newName = 'hero';
+let name1 = a1.newName;
+console.log(a1);
+console.log(name1);
+
+Output:
+
+uttej
+person { name: 'uttej' }
+person { name: 'uttej', newName: 'hero' }
+hero
