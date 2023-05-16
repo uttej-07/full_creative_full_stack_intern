@@ -1,0 +1,152 @@
+                                Http Error
+
+What is an Http Error?
+-These type of errors occur in web-application. They only when there is any fault from client or server side.
+Example:
+Error 503 when a service is unavailable.
+
+These are known as Http Errors.
+
+There are various types of Http Errors
+For every Http Error there is a significant reason for it.
+
+1xx codes: Informational: The server has received the request and is counting the process.
+
+2xx codes: Successful: The request was successful and the browser has received the expected information
+
+3xx codes: Redirection: You have been redirected and the completetion of the request requires furthur action
+
+4xx codes: Client Error: The website or the page could not be reached, either the page is unavailable or the requests contain bad syntax.
+
+5xx codes: Server Error: While the request appears to be valid, the server could not complete the request.
+
+Error Codes:
+
+Error Code 100: Continue
+
+-Initial part of the request has been received by the server and that the client should proceed with the request or ignored the request has already finished.
+
+Error Code 101: Switching protocols
+
+-Server understands the Upgrade header field request and indicates which protocol it is switching to.
+
+Error Code 102: Processing mean
+
+-Server receives the request from the client. but the response has not yet been completed.
+
+Error Code 103: Early Hints
+
+Error Code 200: Ok
+
+-Request was successful, but the meaning success depends on type of request method used:
+Like GET,POST,HEAD,TRACE.
+
+Error Code 201: Created
+
+-Request was successfully fulfilled and resulted in one or more possible resources.
+
+Error Code 202: Accepted
+
+-The request has been succesfully accepted, but the response hasn't yet been answered.
+
+Error Code 203: Non-authorative
+
+-Here the request is received successfully but it isn't accepted because it is been sent from the 3rd party server.
+
+Error code 204: No Content
+
+-Here the request was successfully received and even response is sent successfully but there is no available content for this request.
+
+Error code 205: Reset Content
+
+-User should reset the document that sent this request.
+
+Error Code 207: Multi Status mean
+
+-The response might be in mulitple resources.
+
+Error Code 300: Multiple Choices
+
+-For the given request there might be multiple resources/responses and user should choose one.
+
+Error Code 301: Moved Permanently
+
+-For the given request the response might be in a URL which is moved permanently and in future we need to use the new URLs to access.
+
+Error Code 302: Found
+
+-It is previously known as "Moved Temporarily". For the request the response might be in a URL which is used for temporary purpose.
+
+Error Code 303: See Other
+
+-Response code is sent by the server in order to direct the client to get the requested resource at another URL with a GET request.
+
+Error Code 304: Not Modified
+
+-Response has been sent by the client. But the response might be outdated or older data.
+
+Error Code 305: Use Proxy
+
+-instructs a client that it should connect to a proxy and then repeat the same request there. This response code is deprecated due to security concerns.
+
+Error Code 307: Temporary Redirect
+
+-The response has been set in a temporary URL. The request method, however, must not be changed. The server in order to direct the client to the requested resource at another URL.
+
+Error Code 308: Permanent Redirect
+
+-The response has been permanently moved to another URL. It is same 301 the only difference is in 308 we need to have a type of request(GET or POST).
+
+
+Error Code 400: Bad Request
+
+-When we occur a error code 400 it means it is bad request.The server could not understand the request because of invalid syntax.
+
+Error Code 401: Unauthorization
+
+-It is mainly due to unauthorization. Server requires user authenication.
+
+Error code 403: Forbidden 
+
+-It is mainly due to Forbiddden. The client may be authorized and entered a site. But, the site contais few contents which are unauthorized for clients.
+
+Error code 404 Not Found
+
+-It occurs when we are unable to visit a site. The server did not find a current representation for the requested resource or is trying to hide its existence from an unauthorized client.
+
+Error code 408 Request Time Out
+
+-It occurs due to request time out. The server did not receive a complete request in the time that it prepared to wait.
+
+Error code 410 Gone.
+
+-Same as error code 404. The difference is in code 404 the site might not be available for a limited peroid of time. But, when it comes to error code 410 the site might be deleted.
+The targeted resource has been deleted and the condition seems to be targeted.
+
+Error code 415 Unsupported Media Type
+
+-It occurs when the client send the request in a unsupported media type. The server is rejecting the request because it does not support the media format of the requested data.
+
+Error code 429 Too Many Requests
+
+-In a given time, the user has sent too many requests.
+
+Error code 500 Internal Server Error
+
+-It is mainly due to Internal Server Error. The server has encountered a situation it does not know how to handle.
+
+Error code 501 Not Implemented
+
+-The request can not be handled because it is not supported by the server.
+
+Error code 502 Bad Gateway
+
+-This error response means that the server while working as a gateway to get a response needled to handle the request, got an invalid response.
+
+Error code 503 Service Unavailable
+
+-It is mainly due to Service Unavailable. The server is currently not ready to handle the request. This is a common occurrence when the server is down for maintance or is overloaded.
+
+Error code 505 HTTP Version Not Supported
+
+-The version of HTTP used in the request is not supported by the server.
