@@ -1,0 +1,274 @@
+DataStore
+-Datastore is used to store create, read, write, update and delete data. It is used to store the data.
+
+-Datastore is a NoSql document database built for automatic scaling, high performance and ease of application development.
+
+-We can configure the NoSql by index.yaml file where it consist of indexes, entities.
+
+Entities:
+-In Datastore the data objects are known as Entities. Entities consist of properties and values.
+-Each entity is of particular kind.
+
+-Entities of the same kind do not need to have the same properties, and the entity's values for a given property do not all need to be of the same data type.
+
+Datastore supports a variety of data types for property values. These include, among others:
+
+Integers
+Floating-point numbers
+Strings
+Dates
+Binary data
+
+Ex: Employee is an entity which is of a kind. Which consist properties like Employee ID, Employee Name, Etc.
+
+
+Creating Entities:
+
+For Creating an Entity we need to insert Entity() and DatastoreService object.
+
+Entity employees =  new Entity("Employee(Entity Name)","e21391ie(Employee key");
+
+//Employee key can be set manually by the user, or it can be set by the datastore automatically.
+
+employees.setProperty("EmployeeId(PropertyName)","232132(PropertyValue)");
+
+//.setProperty is used to set the properties of an entity
+
+DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
+
+//DatastoreService provides a synchronous access to a schema less data storage system.
+
+//The DatastoreService can be used transactionally and supports the notion of a "current" transaction.
+
+ds.put(employees)
+
+//This command will be inserting the information in the datastore by specifying the entity and its properties.
+
+Entity student = new Entity("Student","std1");
+student.setProperty("firstName","Uttej");
+student.setPropert("StudentId","12344");
+DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
+ds.put(student);
+
+//We can set the key of an entity automatically or can be done manually.
+
+Retrieving a Entity:
+
+Entity student = datastore.getKey(student.getKey());
+
+//we need to use the command ".getKey()" is used to retrieve the data by key.
+
+Updating an Entity:
+We need to use the same command as creating an entity. It will be overriding the entity  properties.
+
+DatastoreService.put()- This command to used to create/update the data.
+
+Deleting Entities:
+
+datastore.delete(student.getKey());
+
+// If we wanna delete an entity we need to use ".delete" command and we need to specify the key.
+
+Examples:
+
+Entity student = new Entity("Student");
+ArrayList<String> favfruit = new ArrayList<String>();
+favfruit.add("Mango");
+favfruit.add("Banana");
+student.setProperty("favfruit",favfruit);
+
+student = datastore.get(student.getKey());
+@SuppressWarnings("unchecked")
+
+ArrayList<String> retFruits = (ArrayList<String>) student.getProperty("favfruit");
+
+Embedded entities:
+
+-In datastore we can embed one entity properties in another entity. EmbeddedEntity class allows you to create Embedded entities
+
+Example:
+
+Entity student = new Entity("student");
+EmbeddedEntity stdcontactInfo = new EmbededEntity();
+stdcontactInfo.setProperty("FatherName","Narahari");
+stdcontactInfo.setProperty("FatherPhoneNumber","8979624223");
+stdcontactInfo.setProperty("Student-EmailAddress","uttej37@gmail.com");
+
+student.setProperty("studentInfo",stdcontactInfo);
+
+Instead of populating the embedded entity's properties manually, you can use the setPropertiesFrom() method to copy them from an existing entity:
+
+Entity student = new Entity("student");
+Entity stdcontactInfo() = new Entity("stdcontactInfo");
+
+EmbeddedEntity embeddedContactInfo = new EmbeddedEntity();
+
+embeddedContactInfo.setKey(stdcontactInfo.getKey());
+embeddedContactInfo.setPropertiesFrom(stdcontactInfo);
+
+student.setProperty("stdcontactInfo",embeddedContactInfo);
+
+Batchoperations
+-The DatastoreService methods put(), get() and delete() have batch versions that accept an iterable object and use it to operate on multiple entities in a single Datastore object:
+
+Entity student1 = new Entity("student");
+Entity student2 = new Entity("student");
+Entity student3 = new Entity("student");
+
+List<Entity> students = Arrays.asList(student1,student2,student3);
+datastore.put(students);
+
+Generating keys
+-We can generate keys using KeyFactory class.
+-For creating a key in static method is KeyFactory.createKey()
+
+Example:
+
+Key k1 = KeyFactory.createKey("student","Uttej");
+Key k2 = KeyFactory.createKey("student",76859);
+
+-We can also set the path by KeyFactory.Builder method.
+-The addChild method adds a single entity to the path and returns the builder itself.
+
+Key k = new KeyFactory.Builder("Student","Uttej")
+                   .addChild("Student","Uttej#1")
+                   .addChild("Student","Uttej#2")
+                   .addChild("Student","Uttej#3")
+                   .getKey();
+
+We can use keyToString and stringToKey for converting between keys and their string representations which are included in KeyFactory.
+
+Datastore Queries
+
+-In Datastore we can retrieve entites from Cloud Datastore that meet specified set of conditions:
+  - An entity kind to which the query applies.
+  - Operational filters based on the entities property values, keys and ancestors
+  - Optional sort orders to sequence the results
+
+-When executed, a query retrieves all entities of the given kind that satisfy all of the given filters, sorted in the specified order. Queries execute as read-only.
+
+-We can filter queries based on properties, keys, and ancestors of the entities to be retrieved.
+
+Property Filters
+
+A property filter specifies
+  - A property name
+  - A comparasion operator
+  - A property value
+
+Example:
+
+Filter propertyFilter = new FilterPredicate("studentId", FilterOperator.GREATER_THAN_OR_EQUAL, 1232);
+
+Query q = new Query("Student").setFilter(propertyFilter);
+
+//We can use this Filter class to filter the entities. Based on the filters we will be getting the required entities.
+
+The comparison operator can be any of the following:
+
+Operator                                              Meaning
+EQUAL                                                 Equal to
+LESS_THAN                                          Less than
+LESS_THAN_OR_EQUAL                         Less than or equal to
+GREATER_THAN                                    Greater than
+GREATER_THAN_OR_EQUAL                   Greater than or equal to
+NOT_EQUAL                                         Not Equal to
+IN                                                       Member of
+
+
+Key Filters
+
+- To filter on the value of an entity key, we can use the property Entity.KEY_RESERVED_PROPERTY
+
+Example:
+
+Filter keyFilter = new FilterPredicate(Entity.KEY_RESERVED_PROPERTY, FilterOperator.GREATER_THAN, lastSeenKey);
+Query q = new Query("Person").setFilter(keyFilter);
+
+Ancestor Filters
+
+-You can filter your Datastore queries to a specified ancestor, so that the results returned will include only entites descended from the ancestor:
+
+Query q = new Query("Student").setAncestor(ancestorKey);
+
+Kindless Queries
+
+- A query with no kind and no ancestor filter retrieves all of the all entites of an application from Datastore.
+-Kindless queries cannot include filters or sort orders on property values.
+-They can, however, filter on entity keys by specifying Entity.KEY_RESERVED_PROPERTY as the property name:
+
+Example:
+
+Filter keyFilter = new FilterPredicate(Entity.KEY_RESERVED_PROPERTY, FilterOperator.GREATER_THAN, lastSeenKey);
+Query q = new Query().setFilter(keyFilter);
+
+Ancestor queries:
+
+-A query with an ancestor filter limits its results to the specified entity and its descendants:
+
+Kindless ancestor queries:
+
+-A kindless query that includes an ancestor filter will retrieve the specified ancestor and all of its descendants, regardless of kind.
+
+Keys-only queries
+
+-A keys-only query returns just the keys of the result entities instead of the entities themselves, at lower latency and cost than retrieving entire entities:
+
+Example:
+
+Query q = new Query("Student").setKeysOnly();
+
+Sort Orders
+
+A query sort orders specifies
+  - A property name
+  - A sort direction(ascending or descending)
+
+Example:
+
+Query q = new Query("Student").addSort("lastName", SortDirection.ASCENDING);
+
+-If a query includes multiple sort orders, they are applied in the sequence specified. The following example sorts first by ascending last name and then by descending height:
+
+Example:
+
+Query q = new Query("Student").addSort("lastName", SortDirection.ASCENDING)
+.addSort("height", SortDirection.DESCENDING);
+
+Query Interface Example
+
+-The low-level Java Datastore API provides class Query for constructing queries and the PreparedQuery interface for retrieving entites from Datastore:
+
+Example:
+
+DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+
+Filter heightMinFilter =
+    new FilterPredicate("height", FilterOperator.GREATER_THAN_OR_EQUAL, minHeight);
+
+Filter heightMaxFilter =
+    new FilterPredicate("height", FilterOperator.LESS_THAN_OR_EQUAL, maxHeight);
+
+// Use CompositeFilter to combine multiple filters
+CompositeFilter heightRangeFilter =
+    CompositeFilterOperator.and(heightMinFilter, heightMaxFilter);
+
+// Use class Query to assemble a query
+Query q = new Query("Person").setFilter(heightRangeFilter);
+
+// Use PreparedQuery interface to retrieve results
+PreparedQuery pq = datastore.prepare(q);
+
+for (Entity result : pq.asIterable()) {
+  String firstName = (String) result.getProperty("firstName");
+  String lastName = (String) result.getProperty("lastName");
+  Long height = (Long) result.getProperty("height");
+
+  out.println(firstName + " " + lastName + ", " + height + " inches tall");
+}
+
+
+Transactions:
+
+-Datastore supports transactions.
+-A transaction is an operation or set of operations that is atomic-either all of the operations in the transaction occur, or none of them occur. An application can perform multiple operations and calculations in a single transaction.

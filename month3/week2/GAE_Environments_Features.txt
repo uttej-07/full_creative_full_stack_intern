@@ -1,0 +1,181 @@
+App Engine
+
+-Build monolithic server-side rendered webistes.
+
+-GAE is a Paas(Product-as-a-service) that provides web app developers and enterprises with access to Google scable hosting and tier 1 internet service.
+-GAE helps the developers to focus more on coding and less on infrastructure. Infrastructure is managed by GAE.
+-It is serverless platform.
+-Based on the usage prices are alloted.
+-When we are working with GAE all the configuration files will be available in the GAE console itself.
+-It contains APIs, Libraries, Databases, Authorization and its techniques, Security for the applications where few are free of cost.
+
+-GAE can work under Java, Python, Ruby,Go, Php,Node.js.
+
+Why GAE?
+
+-It provides an infrastrusture where the user can easily develop his applications. The GAE itself provides an infrastructure for deploying the applications. It will be autobalancing, traffic would be controlled, add libraries and api's based on usage.
+
+-After creating an account, GAE itself provides an SDK for running the application.
+
+-There is a security available in GAE. So, user no need to worry about there applications while running.
+
+-App Engine is a fully managed, serverless platform for developing and hosting web applications at scale
+
+-Google app engine is very useful for deploy our application. No server configuration need, no server maintenance need. It is a superb tool. We have deploy application and share data between mobile and app engine.
+
+Difference Between GCE and GAE:
+
+GAE stands for Google App Engine and it is Platform as a Service solution that makes deployment easier.
+Whereas,
+GCE stands for Google Cloud Engine and it is a InfraStructure as a Service tool.
+
+-An App Engine is made up of a single application which consist of one or more services. Where each service might contain or work under different version. Each service might contain instances, depending on how much traffic you configured it to handle.
+-Each service can be configured to use different runtimes and to operate with different performance settings.
+
+Components of an Application:
+
+Whenever we are created an application under App Engine it is an known as Application resource. There will be only one application resource in it. It is a top-level container which includes services, versions and instances in it. Where each of it can be configured.
+-Each App Engine application includes at least one service, the default service, which may hold many versions.
+
+
+ Application
+       |
+       v
+  Services
+       |
+       v
+  Versions
+       |
+       v
+ Instances
+
+Services:
+-We will be writing all the logics in the services related files. Not only logical files and also configuration related files. There many be n number of services files which may contain different version files. All these files will be under one component Application.
+-We can edit the configuration and versions at different times based on the usage.
+
+Versions:
+-While we have created an service we will be setting up the versions for it. By having version we can switch easily for rollbacks, testing, or other temporary events.
+- You can route traffic to one or more specific versions of your app by migrating or splitting traffic.
+
+Instances:
+-The versions within your services run on one or more instances. By default, App Engine scales the app to match the load.
+-We will be scaling to provide consistent performance, or scale down to minimize idle instances and reduce costs.
+-Based on the cost, even Memory and CPU Constraints are fixed.
+
+Application requests
+
+http://VERSION-dot-SERVICE-dot-PROJECT_ID.REGION_ID.r.appspot.com
+
+Logging application requests
+We can also handle our application request. We can write down the logging messages to stdout and stderr.
+
+Scailing:
+-There are 3 types of Scailing in GAE:
+1)Automatic
+2)Basic
+3)Manual
+
+Why should we do Scaling?
+-Scaling is used to manage the instances 
+Instances to increase the memory and CPU available to each instance.
+
+Whenever users are increasing to our App Engine, then instances increases which means load on CPU and memory increases. If the developer didn't check on it. Then it the applications will slow down and errors may occur. To manage all these things they have introduced scaling.
+We can view the number of instances in GAE configuration files.
+
+Manual Scaling:
+-When we are using Manual Scaling we will be fixing the number of Instances irrespective of the incoming traffic volume.
+
+-It is used for small scale applications.
+
+We can also change the scaling option if the instances are increasing.
+
+Basic Scaling:
+-Basic scaling provisions a new instance every time we receive a new incoming request and there are no existing instances available to handle it.
+
+-If an instance is idle for a certain amount of time, it is then de-provisioned.
+
+We can configure basic caling by specifying its parameters:
+
+1)Maximum Instances: We will be setting up the limit on the number of instances
+2)Idle timeout: If the client is not sending any request until a particular time then it will timeout.
+
+Automatic Scaling:
+-Smart way to scaling is Automatic Scaling. Where the GAE takes care of the scaling and other configurations.
+
+-Instead of provisioning a new instance for every pending requests, we can specify the performance requirements that we’re looking for, and App Engine will adjust the number of instances to meet them:
+
+1)Latency: The amount of time where the request is processed and response sent back to the client.
+
+2)CPU Utilization: We can specify the CPU threshold as a percentage, beyond which new instances will be provisioneed to handle incoming requests.
+
+We can configure the scaling on the app.yaml file.
+
+In Scaling based on Language versions runtimes are processed:
+
+1)First Gen Runtimes
+Runtimes that use this specification are: Python 2.7, Java 8 and PHP 5.5
+
+F1,F2,F4,F4_1G are automatic scaling type
+B1,B2,B4,B4_1G,B8  are manual, basic scaling type
+
+2)Second Gen Runtimes
+Runtimes that use this specification are Python 3, Java 11, Node.js, PHP 7, Ruby, and Go 1.12.
+
+F1,F2,F4,F4_1G are automatic scaling type
+B1,B2,B4,B4_1G,B8  are manual, basic scaling type
+
+Second Gen Runtimes takes more memory than First Gen Runtimes because of their version.
+
+App Engine Environment
+-In GAE there are 2 environments:
+1)Standard environment
+2)Flexible  environment
+
+-We can run our applications in any of the environment and we can also run the applications in both environments which might benefit the application to use individual features.
+
+App Engine is well suited to applications that are designed using a microservice architecture, especially if you decide to utilize both environments.
+
+Microservices: An Application contains number of services which can have large service files. These large service files are converted to small service files which is known as Microservices.
+
+App Engine Standard Environment
+-It is based on container instances running on Google's Infrastructure. Containers are preconfigured with one of several available runtimes.
+
+-The standard environment makes it easy to build and deploy an application that runs reliably even under heavy load and with large amounts of data.
+
+-Applications run in a secure, sandboxed environment.
+
+-Sandboxes are used to safely execute suspicious code without risking harm to the host device or network.
+
+-Standard environment files work on specific programming language versions.
+
+-Standard environment applications may have sudden spike of traffic which require immediate scaling
+
+-They run for free or very low cost. We need to pay for what we need based on requirements.
+
+-While we are using Standard Environment we might not be able to use few API's and libraries.
+
+App Engine Flexible Environment
+-Application instances run within Docker containers on Compute Engine Virtual Machines(VM).
+
+-In Flexible Environment they will receive consistent trafffic, experience regular traffic fluctuations, scaling up the parameters up and down gradually.
+
+-There is no specific versions to use. Every language any version can be used.
+
+-They run in a docker container that includes a custom run time
+
+
+Difference between Standard and Flexible Environments
+
+- Standard Environment may take few seconds for instance startup while Flexible Environments may take few minutes.
+
+-Max Request timeout: For Standard Environment it depends on the runtime. For Flexible Environments it may take max 60 mins.
+
+-SSH debugging: For Standard Environments there is No SSH Debugging. For Flexible Environments there is SSH Debugging.
+
+-Scaling: In Standard Environment it is Manual, Basic, Automatic. In Flexible Environment it is Manual, Automatic.
+
+-Deployment time: In Standard Environment it takes seconds. In Flexible Environment it may take minutes.
+
+-Pricing: For Standard Environment it is based on instance hours. For Flexible Environment it is based on CPU, memory and persistent disks.
+
+We can migrate from standard environment to the flexible environment.
