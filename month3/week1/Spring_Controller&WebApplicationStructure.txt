@@ -1,0 +1,65 @@
+Spring Controller
+
+-When we are learning about the flow of a request. We are having controller. That is the final place where the request comes. From there the request is processed and the response is returned in ModelAndView to Front-Controller.
+
+-It is mostly used with Spring MVC application.
+
+-A controller is responsible for controlling the way that a user interacts with an MVC application.
+
+-There is a annotations in Spring MVC known as @Controller and using this annotation the beans xml files will check for the controller annotation file and maps the respected request file to the controller where the file will be processed.
+
+-In Spring MVC we will be having the 2 controllers one is front controller known as DispatcherServlet and other is controller where the request is processed.
+
+-When it comes to Controller, the Controller role is to just process the request and send the response back to Front-Controller it doesn't have any knowledge about view and how it is viewed. ViewResolver takes care about it.
+
+Web Application Package Structure
+
+-While we are creating a project under Spring MVC. We will be having a structure.
+-The structure is:
+
+--pom.xml
+|_src
+|    |_main
+|    |    |_java
+|    |    |_resources
+|    |         |_META-INF
+|    |         |_logback-acess.xml
+|    |         |_logback.xml
+|    |_web-app
+|           |_WEB-INF
+|           |      |_classes
+|           |      |_i18n
+|           |      |_layouts
+|           |      |_spring
+|           |      |    |_webmvc.config.xml
+|           |      |_views
+|           |_images, styles, other related files.
+|_site
+|_test
+|   |_java
+|   |_resources
+          |_logback-test.xml 
+
+Production
+
+-src/main/java- These contain files related to Java such as packages and classes
+
+-src/main/resources - These contains files which are Non-Java Resources, such as property files and spring configuration
+
+-src/main/webapp- These contains files for running of the spring such as deployment descriptor, WEB-INF, Jsp views under WEB-INF, static resources.
+
+Test
+
+-src/test/java - These contain test source code files such as packages and classes
+
+-src/test/resources - Non java resources such as property files, and spring configuration files.
+
+Whenever we are writing a program, the recommended place for JSP is under WEB-INF becuase the clients can't access the JSP directly.
+
+Purpose of logback-access.xml
+
+-It is used to specify appenders where the logging requests will be sent.
+
+Purpose of logback.xml
+
+-Logback offers a faster implementation, provides more options for configuration, and more flexibility in archiving old log files.

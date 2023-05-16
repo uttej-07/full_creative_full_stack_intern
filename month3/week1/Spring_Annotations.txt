@@ -1,0 +1,107 @@
+Spring Annotations
+
+What are Spring Annotations?
+-Spring Annotations is a form of metadata that provides data about a program. It provide supplemental information about a program. Annotations doesn't affect or play anything in a program. They are used for mapping, identification, configuration and decrease the usage of XML.
+
+Should we use beans.xml even though we use Annotations?
+-Yes we need to. We don't write everything. But we need to write few things for mapping purpose.
+
+Why Spring Annotations? 
+-Spring Annotations allows us to configure dependencies and implement dependency injection through java programs.
+-To define a bean we use XML files. We need to add dependencies. But for the alternative of XML we will be using Java Based Configuration. 
+-Java Based Configuration allows you to manage bean components programmatically. That's why Spring Annotations are used.
+
+XML configuration vs Java configuration
+-In XML configuration we need to write bean tag for every single bean which might take time. While annotations minimize the XML configurations.
+
+-The biggest disadvantage of XML is indeed its size. Multiple lines are needed for things that you can do in one simple annotation. They are far away from the part in the code where it applies, whereas annotations are just on top of them. So annotations seem a lot more logical and simpler.
+
+-Java Based Configuration is easy to understand.
+
+-Annotations contains attributes in it. 
+
+Annotations in Spring are:
+
+1) @Component- This annotation is used for the creation of Bean.
+
+<bean id = "" class = "">      -     @Component
+</bean>
+
+-@Component("id")- We will be specifying the id of the bean. So, it will be mapped appropriately.
+
+-If we don't specify the name/id then the spring is gonna take java class name as the id/name. Name starts with lowercase.
+
+Ex: <context:component-scan base-package = "">- This is used when the application context  reads the beans xml then the spring will read the package and goes to that particular class from there it is going to see the @Component and gonna do the rest of the process.
+
+For activating the component scan permantenly from Java.
+-Then we need to create a config class.
+
+2)@Configuration- If we want to eliminate xml file permanently then we need to use @Configuration .So whenever springs want to find the class. It will search for @Configuration. In that we will be defining the other annotations. 
+-We need to define this @Configuration annotation in Configuration java class.
+-Used to indicate that a class declares one or more @Bean methods.
+
+-We will be using AnnotationConfigApplicationContext object in which we pass config class.
+
+Ex:
+
+package com.ex;
+
+@Configuration
+@ComponentScan(base-packages= "")
+public class A{
+//java code
+}
+
+3)@ComponentScan- This annotation is used for scanning the base packages. we use the @ComponentScan annotation along with the @Configuration annotation to specify the packages that we want to be scanned. @ComponentScan without arguments tells Spring to scan the current package and all of its sub-packages. This Annotation will be used in Config java file.
+
+4)@Bean- This annotation is used for creating a bean.
+We need to define the @Bean in the Configuration java class.
+
+Ex:
+
+@Configuration
+@ComponentScan(base-package="")
+public class A{
+
+@Bean
+public void B(){
+//body
+}
+}
+
+-We need to define the @Bean before the method
+
+@Bean(name = "")- Whatever the name we define in @Bean then that name will be searched by the spring. We can have multiple names for the bean.
+-If we are using @Bean. Then we also no need to use @ComponentScan in Configuration Java class.
+
+5)@Autowired -   This annotation is used for automatic dependency injection.
+-Spring framework provides autowiring features too where we don’t need to provide bean injection details explicitly. 
+-It is used to auto wire the bean on the setter methods.
+-We can use @Autowired on Constructors.
+-A constructor @Autowired annotation indicates that the constructor should be autowired when creating the bean, even if no <constructor-arg> elements are used while configuring the bean in XML file.
+-@Autowired annotation implies the dependency. We can turn off the behavior by using required=true/false option with @Autowired.
+-It is also used to connect the other classes.
+
+6)@Primary- This annotation is used for priority purpose. While using Interfaces if we implement 2 classes using same interface. Spring might get confused. At that time we can priority to classes by using @Primary.
+
+7)@Qualifier- Same as @Primary. If we don't wanna use @Primary. We can @Qualifier. We need to mention the name of the class which needs to be given priority.
+
+8)@Value- We use this annotation to a value. We need to use annotation before the variable declaration. With this we no need to use setter methods.
+
+Ex:
+
+@Value("uttej")
+String name;
+
+9)@PropertySource- It is used to add source from where the data will be fetched. There is another annotation similar to @PropertySource which @PropertySources.
+
+10)@Required: It is used for fields which need to be processed mandatory. @Required is used for making that field to be used mandatorily.
+
+
+11)@Controller- It is a class-level annotation. It marks a class as a web request handler. It  is ofter used to serve web pages. It returns a string that indicates which route to redirect.
+
+12)@Service- It is a class-level annotation. It tells the Spring that class contains the business logic.
+
+13)@RequestMapping: It is used to map the HTTP requests to handler methods of MVC and REST controllers.
+-In request mappping we can mention the type of request we want to handle
+-Like GET, POST, PUT, DELETE,Patch

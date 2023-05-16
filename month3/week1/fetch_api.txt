@@ -1,0 +1,137 @@
+Fetch API
+
+-JS can be used to send and return information from the network needed
+
+Fetch API
+-It is used to get data over the network.
+
+Syntax:
+
+fetch('url',[options])-if we don't use options then default it takes GET request.
+
+Ex:
+ 
+let p = fetch('url')
+p.then((value1)=>{
+  return value1.json()
+})
+.then((value2)=>{
+console.log(value2)
+})
+
+In Fetch API we need to use 2 stage process:
+
+1)An object of response class containing "status" & "ok" properties
+
+status- The http status code
+ok-boolean, true if the HTTP status code is 200-299
+
+2)After that we need to call another method to access the body in different formats:
+
+response.text()- Read and return the text
+response.json()- Parse the response as JSON
+
+Note: we can only read one body reading type like if we use text then we can't use json again. We need to use only one.
+
+Request Headers
+
+-To set a request headeer in fetch, we can use the headers option.
+
+let res = fetch{ url, {
+ headers: {
+Authenication:''
+}
+})
+
+POST request
+-We need to set the method as POST
+1)method: HTTP-method
+2)body-the request body
+
+Ex:
+let response =  await fetch('url',{
+method:'POST',
+headers:{
+'content-type' : 'application/json'
+},
+body:{
+"name":"uttej"
+});
+
+let result = await response.json()
+
+
+-----------------------------------------------------
+
+let options = {
+method:"POST",
+headers: {
+"Content-type":"application/json"
+},
+body: JSON.stringify({
+title:'foo',
+body:'bar',
+userId:1,
+}),
+}
+
+fetch('url',options)
+.then(response)=>response.json())
+.then(json)=>console.log(json))
+
+What is JSON Stringify for?
+The JSON.stringify() static method converts a JavaScript value to a JSON string
+
+
+PUT request
+-PUT request is used for updating the content.
+-We need to mention PUT keyword in method attribute.
+
+Example:
+
+fetch('url',{
+method: 'PUT',
+body:{
+id:'4',
+name:'king',
+},
+'content-type':'application/json',
+})
+.then((response)=>response.json()),
+.then((data)=>console.log(data));
+
+
+Example:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch-API-PUT</title>
+</head>
+<body>
+    <script>
+       let url = "https://jsonplaceholder.typicode.com/posts/4"
+
+let payload = {
+userId:1,
+id:4,
+title:"Life ",
+body:"Life is full of obstacles and turning"
+}
+
+let options = {
+method:"PUT",
+ body:JSON.stringify(payload),
+ headers: {"Content-type" : "application/json; charset=UTF-8"}
+}
+
+fetch(url,options)
+//.then((res)=>console.log(res.status))
+.then(res=>res.json())
+.then((json)=>console.log(json)); 
+    </script>
+</body>
+</html>

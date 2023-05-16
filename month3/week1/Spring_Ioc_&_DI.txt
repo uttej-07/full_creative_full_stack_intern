@@ -1,0 +1,90 @@
+Ioc Container in Spring
+
+Ioc stands for Inversion of Control. It is responsible for instantiation, confugure and assemble the objects. It is used to fetch the information from the XML file.
+
+-The container will create the objects, wire them together, configure them, and manage their complete life cycle from creation till destruction.
+
+-The container gets its instructions on what objects to instantiate, configure, and assemble by reading the configuration metadata provided.
+
+-The Spring IoC container makes use of Java POJO classes and configuration metadata to produce a fully configured and executable system or application.
+
+There are 2 types of IoC containers:
+1)BeanFactory
+2)ApplicationContext
+
+1)BeanFactory - The XmlBeanFactory is the implementation class for the BeanFactory interface.
+
+-This is the simplest container providing the basic support for DI and is defined by the org.springframework.beans.factory.BeanFactory interface.
+
+Resource res = new ClassPathResource("applicationContext.xml");
+BeanFactory bf = new XmlBeanFactory(resource);
+
+-The constructor of XmlBeanFactory class receives the Resource object so we need to pass the resource object to create the object of BeanFactory.
+
+2)ApplicationContext- The ClassPathXmlApplicationContext class is the implementation class of ApplicationContext interface.
+
+-This container adds more enterprise-specific functionality such as the ability to resolve textual messages from a properties file and the ability to publish application events to interested event listeners.
+
+ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+
+Difference between BeanFactory and ApplicationContext
+
+ApplicationContext is the interface which contains advance features of BeanFactory such as simple integration with Spring's AOP, message resource handling, event propagation, application layer specific context.
+
+-BeanFactory can still be used for lightweight applications like mobile devices or applet-based applications where data volume and speed is significant.
+
+Spring Dependency Injection
+-It lets us make our code loosely coupled. What happens if our code becomes loose couple. It makes our code to test and we can't depend on the objects or types.
+
+-Dependency Injection (DI) is a design pattern that removes the dependency from the programming code so that it can be easy to manage and test the application. Dependency Injection makes our programming code loosely coupled.
+
+Dependency injection can be obatined by constructor and setter methods.
+
+Bean
+-They are the backbone of the application and that are managed by the spring IoC container are called beans. A bean is an object that is instantiated, assembly and configure by the Spring IoC container.
+
+Properties of Bean:
+
+1) class : This attribute is mandatory and specifies the bean class to be used to create the bean.
+
+2) name : This attribute specifies the bean identifier uniquely.
+
+3) scope : This attribute specifies the scope of the objects created from a particular bean definition.
+
+4) constructor-arg : This is used to inject the dependencies
+
+5)properties: This is used to inject the dependencies.
+
+6)initilization method : A callback function which is called when we want to initialize the object.
+
+7)destruction method : A callback function which is called when we want to destroy the method.
+
+ <!-- A simple bean definition -->
+   <bean id = "..." class = "...">
+      <!-- collaborators and configuration for this bean go here -->
+   </bean>
+
+   <!-- A bean definition with lazy init set on -->
+   <bean id = "..." class = "..." lazy-init = "true">
+      <!-- collaborators and configuration for this bean go here -->
+   </bean>
+
+   <!-- A bean definition with initialization method -->
+   <bean id = "..." class = "..." init-method = "...">
+      <!-- collaborators and configuration for this bean go here -->
+   </bean>
+
+   <!-- A bean definition with destruction method -->
+   <bean id = "..." class = "..." destroy-method = "...">
+      <!-- collaborators and configuration for this bean go here -->
+   </bean>
+
+Bean scopes
+
+1)singleton: This scopes that bean definition to a single instance per Spring IoC container.
+
+2)prototype: This scopes a single bean definition to have  any number of object instances.
+
+3)request: This scopes a bean definition to an Http request.
+
+4)session: This scopes a bean definition to an global Http Session.
