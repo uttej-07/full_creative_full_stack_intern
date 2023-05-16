@@ -1,0 +1,34 @@
+Compiling and Running a Java Program
+
+-Java is all about compiling and running a program. While and compiling and running. The program gets converted from java to class file. 
+-So how to compile and run the java program.
+-Initially we need to create a sample java program and save it in one place.
+-When we save a file we get .java file.
+-While compiling, the compiler converts the higj- level language to machine understand language. Compiler works as a Translator which is its primary task. The Secondary task is to check the code whether it is following all the rules of Java.
+
+Compile:
+
+-Go to CMD(Command Line Prompt)
+
+- After that go to destination where the Java file is located. Use 'cd'(change directory) for switching the location and 'ls' command for listing all the file which are located in the particular location.
+
+-When you found your java file then use the command javac filename.java.
+-javac- This command is used to activate the compiler and compile the java file.
+
+-After compiling the java file if it follows all the rules then compiler translates it to byte code or .class file.
+
+-Compiler work is done here.
+
+Running:
+
+-To run a Java file we need to have .class file of that particular Java Program.
+
+-We need to use the command java file-name to run the .class file.
+
+-When we enter this command automatically JIT(Just in time compiler) comes to action and read the .class file and run the program.
+
+Compiling and running of the program is done by Java Virtual Machine(JVM).
+
+This is how we compile and run the java program.
+
+If we bymistakenly delete the .java file no worry we have .class for running that program.

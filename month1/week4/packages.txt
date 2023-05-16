@@ -1,0 +1,187 @@
+Packages
+-What is a package?
+-It is a structure/container/Folder which consist of classes and interfaces which can be used in other programs.
+-Packages are used for conflict of naming collisions, searching and locating and reusability of code, hiding and, security.
+-Package is like folder and subpackage is like sub-folder.
+
+1)Conflict of naming collisions:
+-If there are 2 packages named com.Sample1.A and com.Sample2.A
+Here A is a class which is having same functionality but it is present in 2 different packages.
+
+2)Searching and locating of a package/class
+-After importing any package we will get to know what all classe available in it.
+We no need to import it again.
+
+3)Security
+-As we are using packages classes might have access modifiers. 
+If we use access modifiers then we can have security to  our packages and  classes in it.
+
+4)Hiding
+-As we are using access modifier it hides internal implementation as how we do in Encapsulation.
+
+Package inside the package is called the subpackage. It is created to categorize the package furthur.
+
+
+-There are 2 types of packages:
+1)Pre-Define
+2)User Define
+
+1)Pre-Define Packages
+-These packages are already built by developers and can be used by everyone.
+Few predefined packages in Java are :
+java.lang
+java.sql
+java.util.
+java.awt
+etc
+
+-For every predefine package there is a usage.
+-In every predefined package there are sub-packages, classes and, interfaces which can be used if we import it.
+-We need to use the keyword 'import' for importing a package while importing based on our requirement we need to import.
+
+Example: 
+If we import "java.util.*" then we will be importing all the files which are in java.util package.
+If we import "java.*" then we will be importing all the files which are in java.* package.
+If there are any subpackages we need to mention them or else any the classes and interfaces which are in package will be imported.
+
+User define package
+-We can create our own package for a particular task.
+
+Syntax for creation of a package is 
+package package-name
+Example
+package p1;
+
+If we want to create a package we need to write the code in CMD for creation of that package.
+
+Syntax:
+ javac -d directory javafilename
+Here, '-d' mentions the destination where to put the generated class file.
+"." - represents the location of the package if we want to save in other directory then instead of . we need to use that directory name.
+
+To run the package
+we need to use the Syntax:
+
+java packagename.javafilename
+
+Example:
+
+java Sample.Example
+
+To access a package there are 3 ways:
+
+1)import package.*;
+-This imports all the files which are available in package.*; If there are any subpackages then it will not be imported.
+
+2)import package.classname;
+-This imports all the files which are available in package.classname.
+
+3)fully qualified name.
+-Here we don't use import statement. We directly write packagename.classname in Java file.
+
+Sequence of program must be package then import then class.
+
+package
+    |
+    V
+import
+   |
+   V
+class
+
+Package Class
+-The package class provides methods to get Information about the specification and implementation of a package.
+-It provides methods such as getName(), getImplementationTitle(), getImplementationVendor(), getImplementationVersion(), etc.
+
+Example:
+
+package packagepractice;
+
+public class packageinfo {
+  
+public static void main(String args[]){  
+   
+Package p=Package.getPackage("java.util");  
+  
+System.out.println("package name: "+p.getName());  
+  
+System.out.println("Specification Title: "+p.getSpecificationTitle());  
+System.out.println("Specification Vendor: "+p.getSpecificationVendor());  
+System.out.println("Specification Version: "+p.getSpecificationVersion());  
+  
+System.out.println("Implementaion Title: "+p.getImplementationTitle());  
+System.out.println("Implementation Vendor: "+p.getImplementationVendor());  
+System.out.println("Implementation Version: "+p.getImplementationVersion());  
+System.out.println("Is sealed: "+p.isSealed());  
+  
+ }  
+}  
+
+Output:
+
+package name: java.util
+Specification Title: Java Platform API Specification
+Specification Vendor: Oracle Corporation
+Specification Version: 1.8
+Implementaion Title: Java Runtime Environment
+Implementation Vendor: Oracle Corporation
+Implementation Version: 1.8.0_202
+Is sealed: false
+
+A JAR file contains many java packages. But a package can't have a JAR file.
+A package is a mechanism in Java for organizing classes into namespaces. A jar is a Java ARchive, a file that aggregates multiple Java classes into one
+
+While we are creating any user define packages, if we do the changes the user define package then it automatically gets updated where it is imported.
+
+
+Example:
+
+package packagepractice;
+
+public class Calculator {
+
+	public int add(int a, int b) {
+		return a+b;
+	}
+	
+	public int sub(int a, int b) {
+		return a-b;
+	}
+	
+	public int mul(int a, int b) {
+		return a*b;
+	}
+	
+	public int div(int a, int b) {
+		return a/b;
+	}
+}
+
+
+-The package name is packagepractice and the name of the class is Calculator.
+I have imported this package in another java file.
+
+
+import packagepractice.Calculator;
+
+public class Calculations {
+
+	public static void main(String[] args) {
+
+		Calculator a = new Calculator();
+		System.out.println(a.add(5, 5));
+		System.out.println(a.sub(10, 5));
+		System.out.println(a.mul(5, 5));
+		System.out.println(a.div(10, 2));
+
+	}
+
+}
+
+
+Output:
+
+10
+5
+25
+5
