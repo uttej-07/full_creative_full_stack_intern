@@ -1,0 +1,50 @@
+                                      Map
+-Maps doesn't come under Collections. Their behavior is quite different from Collections.
+-In Maps values are stored in key value pairs.
+-There are two interfaces for implementing Map in java: Map and SortedMap, and three classes: HashMap, LinkedHashMap, and TreeMap.
+-Map doesn't allow duplicate keys, but you can have duplicate values.
+-HashMap and LinkedHashMap allow null keys and values, but TreeMap doesn't allow any null key or value.
+-A Map can't be traversed, so you need to convert it into Set using keySet() or entrySet() method.
+
+Set vs Map
+-Set is used to construct the mathematical Set in Java. Map is used to do mapping in the database.
+-It cannot contain repeated values. It can have the same value for different keys.
+-Set doesn't allow us to add the same elements in it. Each class that implements the Set interface contains only the unique value.	Map contains unique key and repeated values. In Map, one or more keys can have the same values, but two keys cannot be the same.
+-We can easily iterate the Set elements using the keyset() and the entryset() method of it.	Map elements cannot be iterated. We need to convert Map into Set for iterating the elements.
+-Insertion order is not maintained by the Set interface. However, some of its classes, like LinkedHashSet, maintains the insertion order.The insertion order is also not maintained by the Map. However, some of the Map classes like TreeMap and LinkedHashMap does the same.
+
+List vs Set vs Map
+-The elements can be duplicated in the list interface.
+-Duplicate elements are not permitted in a set.
+-Duplicate elements are not allowed on the map.
+
+-The list preserves the order of inclusion.	
+-There is no insertion order maintained by sets.
+-Furthermore, there is no insertion order maintained by the map.
+
+-Any quantity of null values can be added.
+-But there is only really one null value in the set.
+-Null values can be present in any number and up to one null key in the map.
+
+-LinkedList and Array List are classes used for list implementation.
+-The classes used to implement sets include HashSet, LinkedHashSet, and TreeSet.
+-HashMap, HashTable, ConcurrentHashMap, and LinkedHashMap are the different map implementation classes.
+
+-The list has a get() method that allows you to retrieve an entry by index.
+-The elements at a given index cannot be retrieved from a set using the get method.
+-The map provides no get method to retrieve the elements at a certain index.
+
+-If you regularly need to access the elements using the index, you can utilise the list.	
+-Set can be used to build a collection of distinct elements if you wish to.
+-The map can be used to store data in the form of key-value pairs.
+
+-Listlterator method returns the listlterator to iterate through the list's elements.
+-The set elements can be traversed using an iterator.
+-It offers three type of iterators, including value set, and keyset.
+
+Classes in Maps
+1)HashMap()-HashMap is the implementation of Map, but it doesn't maintain any order.
+2)LinkedHashMap()-LinkedHashMap is the implementation of Map. It inherits HashMap class. It maintains insertion order.
+3)TreeMap()-	TreeMap is the implementation of Map and SortedMap. It maintains ascending order.
+
+                               HashMap

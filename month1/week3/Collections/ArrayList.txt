@@ -1,0 +1,195 @@
+                                  ArrayList
+
+-It is the child class of ArrayList.
+-It is resizable and duplicates are allowed.
+-Insertion order is preserved.
+-We can insert Heterogenous objects.
+-Null Insertion is possible.
+
+Constructors in ArrayList:
+- ArrayList al = new ArrayList()
+-Creates an empty Array List object with default initial capacity 10.
+Once ArrayList reaches its map capacity a new ArrayList will be created with New Capacity.
+New capacity = (Current Capacity*3/2)+1
+
+ArrayList al = new ArrayList(int initialcapacity);
+-In this constructor we can create a conctructor with our own type of capacity.
+
+ArrayList al = new ArrayList(Collection c)
+-For any collection object if we wanna create a equivalant set then we can use the above Constructor.
+Example: If we have a LinkedList we want to convert to ArrayList then we can use the above constructor.
+
+-Every collection class already implemented serializable in it.So, every class can be converted from object to stream.
+
+-Every Collection is also Cloneable Interface.
+
+-Arraylist and Vector can only access RandomAccess.
+
+RandomAccess
+-RandomAccessInterface-They(Elements/Classes) can access any random element with the same speed.
+-When we want to retrieve data then we can use RandomAccessInterface.
+-RandomAccessInterface is MarkerInterface.
+-Present in java.util.package;
+-It doesn't contain any methods and it is a Marker Interface.
+ 
+Example:
+package ArrayListPractice;
+
+import java.util.ArrayList;
+
+public class ArrayListExample1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		ArrayList al = new ArrayList();
+		al.add("A");
+		al.add("B");
+		al.add(7);
+		al.add("80");
+		al.add(null);
+		System.out.println(al);
+		al.remove(3);
+		System.out.println(al);
+		al.add(3, "80");
+		System.out.println(al);//System.out.println(al.toString())
+		al.add(true);
+		al.add("A");
+		System.out.println(al);
+		al.clear();
+		System.out.println(al);
+	}
+
+}
+
+Output:
+
+[A, B, 7, null]
+[A, B, 7, 80, null]
+[A, B, 7, 80, null, true, A]
+[]
+
+Example2:
+ package ArrayListPractice;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.RandomAccess;
+
+public class ArrayListExample2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		ArrayList al = new ArrayList();
+		LinkedList l2 = new LinkedList();
+		System.out.println(al instanceof Serializable);
+		System.out.println(l2 instanceof Cloneable);
+		System.out.println(al instanceof RandomAccess);
+		System.out.println(l2 instanceof RandomAccess);
+	}
+
+}
+
+Output:
+
+true
+true
+true
+false
+
+Object clone()- This method returns a shallow copy of this ArrayList. i.e. it clones the entire ArrayList.
+
+Example:
+
+package ArrayListPractice;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class ArrayListExample3 {
+
+		public static void main(String args[]){ 
+			ArrayList al= new ArrayList();
+			Object cloneList; // Creating an object of clone
+			al.add("Edureka");
+			al.add("Java");
+			al.add("Arrays");
+			System.out.println("Contents of ArrayList al:" +al);
+			cloneList= al.clone(); //Clones the entire ArrayList
+			System.out.println("Elements in the cloned list are:");
+			System.out.println(cloneList);
+		}
+		}
+
+Output:
+
+Contents of ArrayList al:[Edureka, Java, Arrays]
+Elements in the cloned list are:
+[Edureka, Java, Arrays]
+
+Object[] to Array()-It is used to return an Array containing all of the elements in the list in correct order.
+
+Differences between Array and ArrayList:
+
+Array can store both primtives and non-primitives.
+ArrayList can store only Objects.
+
+Array is static
+ArrayList is dynamic
+
+Array is faster than ArrayList
+ArrayList is slower than Array
+
+Array doesn't allow duplication
+ArrayList allows duplication
+
+Array can traverse in forward direction
+ArrayList can traverse in forward and backward direction.
+
+ArrayList inside ArrayList
+-Just like Multidimensional Array. We can have multidimensional ArrayList.
+
+Example:
+
+package ArrayListPractice;
+
+import java.util.ArrayList;
+
+public class ArrayListExample5 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		ArrayList<ArrayList<Integer>> allist = new ArrayList<ArrayList<Integer>>();
+		
+		ArrayList<Integer> al = new ArrayList<>();
+		al.add(1);
+		al.add(2);
+		allist.add(al);
+		
+	    ArrayList<Integer> a2 = new ArrayList<Integer>();
+	    a2.add(5);
+	    allist.add(a2);
+	    
+	    ArrayList<Integer> a3 = new ArrayList<Integer>();
+	    a3.add(10);
+	    a3.add(20);
+	    a3.add(30);
+	    allist.add(a3);
+	    for(int i =0;i<allist.size();i++) {
+	    	for(int j=0;j<allist.get(i).size();j++) {
+	    		System.out.print(allist.get(i).get(j)+" ");
+	    	}
+	    	System.out.println();
+	    }
+	}
+
+}
+
+Output:
+
+1 2 
+5 
+10 20 30 

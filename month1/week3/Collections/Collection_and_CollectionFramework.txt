@@ -1,0 +1,123 @@
+                           Collections in Java
+
+What are collections in Java?
+-Collections in Java refer to a group of objects that are represented in a single unit.
+-We can perform various operations using Java Collections like sorting, searching, insertion, manipulation and etc..
+-Collections are one of the most important topic in Java.
+-Some of important Collections in Java are ArrayList, Linkedlist, Sets, Maps.
+-We need to import java.util.Collections package to use all sorting data in java.
+
+What is Collection Framework in Java?
+-It is an architecture to store and manipulate the data on group of objects.
+
+-To represent those objects we use collection framework which defines several classes and interfaces.
+
+Example:
+In a library, when we search for Java course book, there are many books available on Java. All those books come under one. It is a collection example.
+
+-Java collection framework includes the following:
+
+1)Interfaces
+2)Classes
+3)Algorithm
+
+1)Interface-They are pure abstract methods. Interfaces come under OOPs. They allow Java to manipulate independently. We can implement the methods in our own way .
+
+2)Classes: They are used to implement the interfaces. They are used in DataStructures regularly.
+
+3)Algorithm: It is a set of code/methods  which are mainly used in Searching and sorting.
+-They are polymorphic which the functionality can be written in different ways.
+
+Example: Working on Insertion sort or any other sorting methods  in different ways.
+
+Advantages of Collections:
+1)Prepacked code which reduces the lines.
+2)They provide high performance and high quality data.
+3)We can work on new APIs, learn them. No need to work on older ones.
+4)Work on Algorithms and manipulation of data.
+
+We can't declare a huge amount of variables . To overcome them we declare Arrays. But, Arrays are static so while programming it is difficult to arrange the items which might increase or decrease and one problem is Arrays aren't Heterogenous. One more disadvantage while using Arrays are there are no ready made methods.
+
+-Collections are Growable in size. 
+-Collections can hold both homo and heterogenous objects.
+-Collections contain various standard methods.
+
+Why to use Java Collection?
+-Used to learn new APIs.
+-Used to observe the manipulation of data.
+-No need to write the external code as there are already prepacked datastructures.
+-Increase the speed and quality.
+
+Java Collection Framework Hierarchy
+Interfaces : Iterable, Collection, Queue, Deque, List, Set, SortedSet.
+Class : ArrayList, LinkedList, Vector, PriorityQueue, ArrayQueue, HashSet, LinkedHashSet, TreeSet.
+ Vector: Stack
+
+-Iterable is the main Interface in Java.
+-Iterable is been extended by Collection.
+-Collection is been extended by List, Queue, Set.
+-The main classes in List are ArrayList, LinkedList, Vector class.
+-The main classes in Queue are PriorityQueue. Interface in Queue are Deque.
+-The main classes in Set are HashSet, LinkedHashSet and interface are SortedSet.
+
+1)Iterator-Iterator is an interface which is used to iterate the elements in list and do operations on it.
+Iterator contains 3 methods in it:
+
+-public boolean hasNext()- It is of boolean type and returns true if there are elements in the list.
+
+-public object next()- It returns the element and moves the cursor pointer to the next element.
+
+-public void remove()- Removes the last elements returned by the iterator.
+
+2)List-In the name itself we can know what does List mean. A  group items are been in a order one after another.They can be same items and different items in it.
+They are furthur classified:
+1)ArrayList
+2)LinkedList
+3)Vectors
+
+1)ArrayList- The items are stored in ArrayList which is dynamic. The data can be inserted or removed and list size will be increased or decreased.
+There are various methods in ArrayList which are used in ArrayList Manipulation.
+void add()-used to add elements
+void clear()-clear all the elements in the list.
+
+2)LinkedList-Items are stored in Nodes and all nodes are linked to each other which forms a list.
+There are 2 types of LinkedList:
+1)SingleLinkedList
+2)DoublyLinkedList
+
+3)Vectors: Vectors are similar to Array. But, when it comes to Vectors they are dynamic which means size can be grown or shrinked and the difference between Vectors and ArrayList are:
+Vectors are synchronized.
+Vectors contain many legacy methods in it.
+
+2)Queue-Elements are stored in a  Queue.In JAVA it follows FIFO(First In First Out) approach means, what every elements are inserted at first they will be removed first.
+
+3)Sets: Refers to a collection that cannot contain duplicate elements. The various classes are HashSet, LinkedHashSet, TreeSet.
+
+1)HashSet: All the data is stored in HashTable and the elements are unique. It uses the mechanism 'hashing' to store the elements.
+
+2)LinkedHashset:LinkedHashSet class is a Hash table and Linked list implementation of the set interface. It contains optional operations and maintains insertion order.
+
+3)Treeset: It is quite from other 2. It uses set and uses a tree for storage. The objects of this class are stored in ascending order.
+
+Difference between Arrays and Collections
+
+Array can hold primitive and objects.
+Collections can hold only objects.
+
+Array can only hold homogenous
+Collections can hold both homogenous and heterogenous
+
+Arrays are fixed in size.
+Collections are growable in nature.
+
+Array performance is good.
+Collections performance isn't that good.
+
+
+-Collection Interface defines the most common methods which are applicable for any Collection object.
+ 
+Note:There is no concrete class which implements collection interface directly.
+
+Difference between Collection and Collections:
+Collection is a interface.
+Collections is a Class.

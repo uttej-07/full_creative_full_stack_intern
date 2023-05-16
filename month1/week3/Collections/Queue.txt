@@ -1,0 +1,452 @@
+Queue
+-It is an Interface in Collections. It is used to keep the elements that are processed in the First In First Out(FIFO) manner.
+-In Queue if insertion(rear) is at one end , deletion(front) would be at another end.
+-Queue is available in java.util package and extends the Collection interface.
+
+Queue Interface Declaration 
+
+    public interface Queue<E> extends Collection<E>
+
+-Being an interface, the queue requires, for the declaration, a concrete class, and the most common classes are the LinkedList and PriorityQueue in Java. Implementations done by these classes are not thread safe. 
+-If it is required to have a thread safe implementation, PriorityBlockingQueue is an available option.
+-As it also allows Generics from java version 1.5, it is possible to restrict the type of object that can be stored in the Queue.
+-Java Queue supports all the methods of the Collection interface including deletion, insertion, etc.
+-If any null operation is done on the BlockingQueues then NullPointerException is raised.
+-Queues which are present in java.util package are known as Unbounded Queues.
+-Queues which are present in util.concurrent package are known as bounded Queues.
+-Deques support element insertion and deletion at both ends.
+
+Since queue is an interface, we cannot provide the direct implementation of it.
+In order to use the functionalities of Queue, we need to use classes to implement it:
+  1)ArrayDeque
+  2)LinkedList
+  3)PriorityQueue
+
+Why LinkedList implements both queue and list?
+
+A linked list is naturally a queue. In fact, even prior to Java, if you want a queue with no fixed limit on the number of entries, a linked list is often the structure of choice
+
+Except for LinkedList other classes doesn't allow null.
+
+Interfaces that extend Queue are:
+ 1)Deque
+ 2)BlockingQueue
+ 3)BlockingDeque
+
+1)PriorityQueue Class
+
+-It is a class which comes under Queue and the elements which are added in PriorityQueue are inserted on the basis of priority. We might insert in one order but the ouput will be in another order. It follows all the methods of Queue and Collection Interface.
+-We use PriorityQueue if we want to insert elements according to priority.
+
+  PriorityQueue Class Declaration
+ 
+ public class PriorityQueue<E> extends AbstractQueue<E> implements Serializable
+
+-When it comes to priorityqueue it is for retrieving the elements in sorted order.
+-We can use comparator and can change the order
+-The default order is ascending order. By using comparator.reverseorder we can do it in descendingorder.
+
+Example1:
+
+package QueuePractice;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+import java.util.PriorityQueue;;
+public class PriorityQueueExample1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		PriorityQueue<String> pqueue = new PriorityQueue<String>(); 
+		
+		pqueue.add("Uttej");
+		pqueue.add("bhavana");
+		
+		List<String> plist = new ArrayList<String>();
+		plist.add("goutham");
+		plist.add("gowrav");
+		
+		pqueue.addAll(plist);
+		
+		Iterator<String> itr =  pqueue.iterator();
+		
+		
+		
+		pqueue.add("Sujith");
+		pqueue.add("Ramu");
+		pqueue.offer("Shamu");
+		
+		
+	    System.out.println(pqueue.peek());
+		System.out.println(pqueue.element());
+		
+//		while(itr.hasNext()) {
+//			System.out.print(itr.next());
+//			System.out.print(" , ");
+//		}
+		
+		System.out.println("1 :"+pqueue);
+		
+		System.out.println("1.1: "+pqueue.poll());
+		
+		System.out.println("2: "+pqueue);
+		
+		System.out.println("3: "+pqueue.remove("Sujith"));
+		System.out.println("4: "+pqueue);
+		//System.out.println("5: "+pqueue.removeAll(pqueue));
+		//System.out.println("6: "+pqueue);
+		
+		System.out.println("7: "+pqueue.contains("uttej"));
+		
+		System.out.println("8: "+pqueue.size());
+		
+		System.out.println("9: "+pqueue.toArray());
+		
+		System.out.println("10: "+pqueue.toString());
+		
+		System.out.println("11: "+pqueue.hashCode());
+		
+		System.out.println("12: "+pqueue.isEmpty());
+		
+		PriorityQueue<Integer> pqueueint = new PriorityQueue<Integer>(new CustomComparator());
+		
+		pqueueint.add(58);
+		pqueueint.add(98);
+		pqueueint.add(12);
+		pqueueint.add(29);
+		System.out.println("PriorityQueue of Integers: "+pqueueint);
+		
+		System.out.println(pqueueint.poll());
+		
+		
+    }
+}
+class CustomComparator implements Comparator<Integer>{
+
+	@Override
+	public int compare(Integer arg0, Integer arg1) {
+		// TODO Auto-generated method stub
+		int value = arg0.compareTo(arg1);
+		if(value>0){
+			return -1;
+		}else if(value<0) {
+			return 0;
+		}else {
+		return 0;
+	    }
+       }
+	  }
+
+Output:
+
+Ramu
+Ramu
+1 :[Ramu, Uttej, Shamu, gowrav, bhavana, goutham, Sujith]
+1.1: Ramu
+2: [Shamu, Uttej, Sujith, gowrav, bhavana, goutham]
+3: true
+4: [Shamu, Uttej, goutham, gowrav, bhavana]
+7: false
+8: 5
+9: [Ljava.lang.Object;@15db9742
+10: [Shamu, Uttej, goutham, gowrav, bhavana]
+11: 1829164700
+12: false
+PriorityQueue of Integers: [98, 58, 12, 29]
+98
+
+Example2:
+
+package QueuePractice;
+
+import java.util.*;
+
+class Book implements Comparable<Book>{
+	int id;
+	String name, author, publisher;
+	int quantity;
+	
+	public Book(int id, String name, String author, String publisher, int quantity) {
+		this.id = id;
+		this.name = name;
+		this.author = author;
+		this.publisher = publisher;
+		this.quantity = quantity;
+	}
+	
+	public int compareTo(Book b) {
+		if(id>b.id) {
+			return 1;
+		}else if(id<b.id) {
+			return -1;
+		}else {
+			return 0;
+		}
+	}
+}
+public class PriorityQueueExample2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		Queue<Book> b1 = new PriorityQueue<Book>();
+		
+		Book b11 = new Book(121,"Let us C","Yashwant Kanetkar","BPB",8);
+		
+		Book b12 = new Book(233,"Operating System","Galvin","Wiley",6);
+		
+		Book b13 = new Book(101,"Data Communications & Networking","Forouzan","Mc Graw Hill",4);
+		
+		b1.add(b11);
+		b1.add(b12);
+		b1.add(b13);
+		
+		for(Book b: b1) {
+			System.out.println(b.id+" "+b.name+" "+b.author+" "+b.publisher+" "+b.quantity);
+		}
+		System.out.println(b1.remove());
+		
+		System.out.println("After removing one record:");
+		
+		for(Book b:b1) {
+			System.out.println(b.id+" "+b.name+" "+b.author+" "+b.publisher+" "+b.quantity);
+		}
+	}
+}
+
+
+Output:
+
+101 Data Communications & Networking Forouzan Mc Graw Hill 4
+233 Operating System Galvin Wiley 6
+121 Let us C Yashwant Kanetkar BPB 8
+QueuePractice.Book@15db9742
+After removing one record:
+121 Let us C Yashwant Kanetkar BPB 8
+233 Operating System Galvin Wiley 6
+
+Java Dequeue Interface
+-It is an interface which is present in java.util package. It is the subtype of the interface queue. 
+-The Deque supports the addition and removal of elements at both the ends. Therefore deque can be used as both stack or a queue. Deque is prefered than Stack class for working a stack. 
+-Deque is an acronym for "double ended queue".
+
+Interface Declaration
+
+public Deque<E> extends Queue<E>
+
+Java ArrayDeque Class
+-ArrayDeque is a class which comes under Deque Interface.
+-It grows and shrinks as per usage. It also inherits the AbstractCollection Class.
+-Null elements are not allowed in ArrayDeque.
+-ArrayDeque is not thread safe, in the absence of external synchronization.
+-ArrayDeque has no capacity restrictions.
+-ArrayDeque is faster than LinkedList and Stack.
+
+ArrayDeque class declaration
+
+public class ArrayDeque<E> extends AbstractCollection<E> implements Deque<E>, Cloneable, Serializable
+
+Example:
+
+package QueuePractice;
+
+import java.util.ArrayDeque;
+import java.util.Deque;
+public class ArrayDequeExample1 {
+
+	public static void main(String[] args) {
+		Deque<String> deque = new ArrayDeque<String>();
+		deque.add("Ravi");
+		deque.add("Vijay");
+		deque.add("Ajay");
+		
+		for(String str: deque) {
+			System.out.print(str+" ");
+		}
+		
+		System.out.println();
+		
+		System.out.println(deque.contains("Ravi"));
+		
+		deque.offerFirst("Ramu");
+		deque.offerLast("Shyamu");
+		
+		System.out.println(deque);
+		
+		System.out.println(deque.peek());
+		System.out.println(deque.element());
+		System.out.println(deque.peekFirst());
+		System.out.println(deque.peekLast());
+		System.out.println(deque.pollFirst());
+		System.out.println(deque.pollLast());
+	}
+}
+
+Output:
+
+Ravi Vijay Ajay 
+true
+[Ramu, Ravi, Vijay, Ajay, Shyamu]
+Ramu
+Ramu
+Ramu
+Shyamu
+Ramu
+Shyamu
+
+
+PriorityBlockingQueue
+
+Example:
+
+package QueuePractice;
+
+import java.util.concurrent.PriorityBlockingQueue;
+import java.util.Queue;
+public class PriorityBlockingQueueExample1 {
+
+	public static void main(String[] args) {
+		Queue<Integer> pbq = new PriorityBlockingQueue<Integer>();
+		
+		
+		pbq.add(10);
+		pbq.add(20);
+		pbq.offer(30);
+	
+		System.out.println(pbq.isEmpty());
+		
+		System.out.println(pbq.peek());
+		
+		System.out.println(pbq.contains(20));
+		
+		System.out.println(pbq.remove(10));
+		
+		System.out.println(pbq);
+		
+		pbq.offer(40);
+		
+		for(Integer i:pbq) {
+			System.out.println(i+" ");
+		}
+		
+		System.out.println(pbq.element());
+	}
+}
+
+
+Output:
+
+false
+10
+true
+true
+[20, 30]
+20 
+30 
+40 
+20
+
+
+Java BlockingQueue
+-BlockingQueue interface of the Java Collections Framework extends the Queue interface. It allows any operation to wait until it can be successfully performed.
+Example:
+We have implemented a BlockingQueue directly we have used remove() even though the queue is empty. So, blockingqueue will let remove() be in a queue until elements are inserted in a blockingqueue. After insertion of elements in blockingqueue() then remove() method will run.
+
+Why BlockingQueue?
+-BlockingQueue is considered as the thread-safe collection. It is because it can be helpful in multi-threading operations.
+
+Example:
+We are having a blockingqueue and there are 2 threads in which 1st thread adds the element and 2nd thread deletes the element. So, if 1st thread is slower then the blockingqueue will let 2nd thread to wait until the 1st thread is completed.
+
+-We must import java.util.concurrent.BlockingQueue package in order to use BlockingQueue.
+
+Methods in BlockingQueue are divided into 3 categorises:
+1)Methods that throw an exception
+2)Methods that return an value
+3)Methods that blocks that operation.
+
+Classes that implement BlockingQueue are:
+1)ArrayBlockingQueue
+2)LinkedBlocking Queue
+
+Methods that throw an exception:
+1)add() 2)element() 3)remove()
+
+Methods that return an value
+1)offer() 2)peek() 3)poll()
+
+Methods that block the operation
+1)put() 2)take()
+
+ArrayBlockingQueue
+-The ArrayBlockingQueue implements the Java BlockingQueue Interface.
+-It internals uses Arrays.
+-We need to import java.util.concurrent.ArrayBlockingQueue package for using ArrayBlockingQueue.
+-It follows all the methods of BlockingQueue.
+While we are declaring an ArrayBlockingQueue we need to mandatorily mention the type and size of an ArrayBlockingQueue.
+-ArrayBlockingQueue is considered as thread-safe collection. It is generally used in multi-threading applications.
+
+Example:
+
+package QueuePractice;
+
+import java.util.Iterator;
+import java.util.Queue;
+import java.util.concurrent.ArrayBlockingQueue;
+
+public class ArrayBlockingQueueExample1 {
+
+	public static void main(String[] args) {
+		
+		Queue<Integer> abq = new ArrayBlockingQueue<Integer>(5);
+	
+		abq.add(10);
+		abq.add(20);
+		abq.add(30);
+		abq.add(40);
+		abq.offer(50);
+		/* If the queue is full then we ghet Illegal State Exception
+		abq.add(60);
+		*/
+		
+		//System.out.println(abq);
+		
+		System.out.println(abq.isEmpty());
+		
+		System.out.println(abq.peek());
+		
+		Iterator<Integer> itr = abq.iterator();
+		
+		while(itr.hasNext()) {
+			System.out.println(itr.next());
+		}
+		
+		abq.clear();
+		
+		System.out.println(abq);
+		
+	}
+}
+
+Output:
+
+false
+10
+10
+20
+30
+40
+50
+[]
+
+LinkedBlockingQueue
+-The LinkedBlockingQueue implements the Java BlockingQueue Interface.
+-It internally uses LinkedList.
+-We need to import java.util.concurrent.LinkedBlockingQueue package for using LinkedBlockingQueue.
+-It follows all the methods of BlockingQueue.
+-It is not mandatory to initial the size of LinkedBlockingQueue. It has a default size is (2^31)-1.
+-It is considered as thread safe collection. It is generally used in multi-threading applications.

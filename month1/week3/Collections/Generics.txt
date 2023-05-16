@@ -1,0 +1,537 @@
+Generics
+
+What is Generics?
+-Generics means parameterized types.
+-Generics are used in Java. It is a feature that allow you to write code independent of the data type.
+-It is introduces in J2SE 5 to deal with type-safety. It helps in detecting the bugs at compile time.
+-Generics can be used in classes, methods and variables.
+-If we are using Generics then we use Objects only. We can't use primitive data-types.
+
+Syntax for using Generics are: "<>"
+
+Why Generics?
+-The Object is the superclass of all other classes, and Object reference can refer to any object. Theese features lack type safety. Generics add that type of safety feature.
+-Generics are similar to templates in C++.
+
+Advantages of Generics:
+
+1)Type-Safety: We can hold only a single type of objects in generics.
+
+2)Type Casting is not required: There is no need to typecast the object.
+
+3)Compile Time Checking: It will be checked at compile time so problem will not occur at run-time.
+
+4)Used with Collections: Generics can be used in Collections which helps in Programming.
+
+Types of Java Generics:
+
+1)Generic Classes
+2)Generic Method
+
+Generic Class
+-A class that can refer to any subtype is known as a generic class. The type safety is checked by the compiler.
+-There can be more than one type of parameter, separated by a comma. The classes, which accept one or more parameters, are known as parameterized classes.
+
+Example:
+
+package GenericsPractice;
+
+import java.util.*;
+
+public class GenericsExample1 {
+
+	public static void main(String args[]) {
+		ArrayList<String> list = new ArrayList<String>();
+		list.add("uttej");
+		list.add("bhavana");
+
+		//list.add(11); //Compile Time Error Because list can store String datatype values only.
+
+		String s = list.get(1);
+		System.out.println("element is: " + s);
+
+		Iterator<String> itr = list.iterator();
+		while (itr.hasNext()) {
+			System.out.println(itr.next());
+		}
+	}
+}
+
+Output:
+
+element is: bhavana
+uttej
+bhavana
+
+Example:
+
+package GenericsPractice;
+import java.util.*;
+
+public class GenericsExample2 {
+
+	public static void main(String[] args) {
+		Map<Integer, String> map = new HashMap<Integer,String>();
+		map.put(1, "uttej");
+		map.put(2, "bhavana");
+		map.put(3, "gowrav");
+		
+		Set<Map.Entry<Integer, String>> set = map.entrySet();
+		
+		Iterator<Map.Entry<Integer, String>> itr = set.iterator();
+		
+		while(itr.hasNext()) {
+			Map.Entry<Integer, String> e = itr.next();
+			System.out.println(e.getKey()+" "+e.getValue());
+		}
+	}
+}
+
+
+Output:
+
+1 uttej
+2 bhavana
+3 gowrav
+
+Example:
+
+package GenericsPractice;
+
+class Generic<T>{
+	 T obj;
+	Generic(T obj) {
+		 this.obj = obj;
+	 }
+	void add(T obj) {
+		this.obj = obj;
+	}
+	public T get() {
+		 return obj;
+	 }
+}
+public class GenericExample3{
+ public static void main(String[] args) {
+	 Generic<Integer> a = new Generic<Integer>(5);
+	 //a.add(10);
+	 System.out.println(a.get());
+ }
+}
+
+Output:
+
+5
+
+Example:
+
+package GenericsPractice;
+
+import java.util.*;
+
+class Generic4<U,B>{
+	U obj1;
+	B obj2;
+	
+	//Constructor
+	Generic4(U obj1, B obj2){
+		this.obj1 = obj1;
+		this.obj2 = obj2;
+	}
+	
+	//Print the values of U and B
+	public void print() {
+		System.out.println(obj1);
+		System.out.println(obj2);
+	}
+}
+
+public class GenericExample4 {
+
+	public static void main(String[] args) {
+		Generic4 <String,String> g4 = new Generic4<String,String>("Uttej", "5D0");
+		g4.print();
+	}
+	
+}
+
+Output:
+
+Uttej
+5D0
+
+Generic Method
+-Any method which can be declared via any type is known as Generic Method.
+-The scope of arguments is limited to the method where it is declared.
+-It allows static as well as non-static methods.
+
+Example:
+
+package GenericsPractice;
+
+public class GenericExample5 {
+	public static <E> void printArray(E[] elements) {
+		for(E element:elements) {
+			System.out.println(element);
+		}
+		System.out.println();
+	}
+
+	public static void main(String[] args) {
+		Integer[] intArray = {1,2,3,4,5};
+		String[] strArray = {"Hello", "World","My", "Name","Is","Uttej"};
+		
+		System.out.println("Printing Integer Array");
+		printArray(intArray);
+		
+		System.out.println("Printing String Array");
+		printArray(strArray);
+	}
+}
+
+Output:
+
+Printing Integer Array
+1
+2
+3
+4
+5
+
+Printing String Array
+Hello
+World
+My
+Name
+Is
+Uttej
+
+Example:
+
+package GenericsPractice;
+
+public class GenericExample6 {
+
+	static <T> void genericDisplay(T element) {
+		System.out.println(element.getClass().getName()+" = "+element);
+	}
+	
+	public static void main(String[] args) {
+		
+		//Calling generic method with Integer Argument
+		genericDisplay(10);
+		
+		//Calling generic method with String Argument
+		genericDisplay("Uttej");
+		
+		//Calling generic method with Double Argument
+		genericDisplay(14.3);
+		
+		//Calling generic method with Boolean Argument
+		genericDisplay(true);
+	}
+}
+
+Output:
+java.lang.Integer = 10
+java.lang.String = Uttej
+java.lang.Double = 14.3
+java.lang.Boolean = true
+
+Type Parameters
+-To learn generics we need to learn the type paramter conventions.
+The common type parameterss are as follows:
+
+1) T - Type
+2) E - Element
+3) K - Key
+4) N - Number
+5) V - Value
+
+-The above are standard type parameters we can use other alphabets in place of them also.
+
+-The T type indicates that it can refer to any type. The type you specify for the class will be used to store and retrieve the data.
+
+WildCard in Java Generics
+
+-The "?"(question mark) represents wild card in Java. It means any type. There will be a difference while using T and ?. Wildcard can be used for bounding. Without bounding there will be no difference between T and ?.
+-Type parameters can have multiple bounding classes; the wildcard cannot
+-The wild  card can have lower bounds; type params cannot.
+-Type parameter will allow only generic type and doesn't restrict
+-While ? will allow any unknown type which comes in generic and allows in restriction.
+
+-We can use a wildcard as a type of a parameter, field, return type, or local variable. However, it is not allowed to use a wildcard as a type argument for a generic method invocation, a generic class instance creation, or a supertype.
+
+
+
+Example:
+
+package GenericsPractice;
+
+import java.util.*;
+
+abstract class Shape{
+	abstract void draw();
+}
+
+class Rectangle extends Shape{
+	void draw() {
+		System.out.println("drawing a Rectangle");
+	}
+}
+
+class Circle extends Shape{
+	void draw() {
+		System.out.println("drawing a circle");
+	}
+}
+
+//WildCard 
+public class GenericExample7 {
+
+	public static void drawShapes(List<? extends Shape> lists) {
+		
+		for(Shape s :lists) {
+			s.draw();
+		}
+	}
+	
+	public static void main(String[] args) {
+		
+		List<Rectangle> list1 = new ArrayList<Rectangle>();
+		list1.add(new Rectangle());
+		
+		List<Circle> list2 =  new ArrayList<Circle>();
+		list2.add(new Circle());
+		
+		drawShapes(list1);
+		drawShapes(list2);
+	}
+}
+
+Output:
+
+drawing a Rectangle
+drawing a circle
+
+Upper Bound Wildcards
+
+-Wild cards is to decrease the restrictions on a variable. It restricts the unknown type to be a specific type or a subtype of that type.
+
+<? extends Number>
+-Here ? is wild card
+-extends is a keyword
+-Number is a class present in java.lang.package.
+
+-<? extends Number> is suitable for a list of type Number or any of its subclasses(Integer, Float, Double) whereas List<Number> works with the list of type Number only.
+List<? extends Number> is less restrictive than List<Number>.
+
+Example:
+
+package GenericsPractice;
+
+import java.util.ArrayList;
+
+public class GenericExample10 {
+	
+	private static Double add(ArrayList<? extends Number> num) {
+		
+		double sum = 0.0;
+		
+		for(Number n:num) {
+			sum = sum+n.doubleValue();
+		}
+		return sum;
+	}
+	
+	public static void main(String[] args) {
+		ArrayList<Integer> l1 = new ArrayList<Integer>();
+		l1.add(10);
+		l1.add(20);
+		System.out.println("displaying the sum = "+add(l1));
+		
+		ArrayList<Double> l2 = new ArrayList<Double>();
+		l2.add(30.0);
+		l2.add(40.0);
+		System.out.println("displaying the sum = "+ add(l2));
+	}
+}
+
+
+Output:
+
+displaying the sum = 30.0
+displaying the sum = 70.0
+
+Example:
+
+package GenericsPractice;
+
+//Type with UpperBound
+
+class Bound <T extends A>
+{
+	private T objRef;
+	
+	public Bound(T obj) {
+		this.objRef = obj;
+	}
+	
+	public void doRunTest() {
+		this.objRef.displayClass();
+	}
+}
+
+class A{
+	
+	public void displayClass() {
+		System.out.println("Inside super class A");
+	}
+}
+
+class B extends A{
+	
+	public void displayClass() {
+		System.out.println("Inside super class B");
+	}
+}
+
+class C extends A{
+	
+	public void displayClass() {
+		System.out.println("Inside super class C");
+	}
+}
+public class GenericExample8 {
+
+	public static void main(String[] args) {
+		//Creating object of subclass C and
+		//passing to to Bound as a type parameter.
+		Bound<C> bec = new Bound<C>(new C());
+		bec.doRunTest();
+		
+		//Creating object of subclass B and
+		//passing to to Bound as a type parameter.
+		Bound<B> beb = new Bound<B>(new B());
+		beb.doRunTest();
+		
+		//Creating object of subclass A and
+		//passing to to Bound as a type parameter.
+		Bound<A> bea = new Bound<A>(new A());
+		bea.doRunTest();
+		
+	}
+}
+
+Output:
+
+Inside super class C
+Inside super class B
+Inside super class A
+
+Example:
+
+package GenericsPractice;
+
+class Bound1 <T extends A1 & B1>{
+	private T objRef;
+	
+	public Bound1(T obj) {
+		this.objRef = obj;
+	}
+	
+	public void doRunTest() {
+		this.objRef.displayClass();
+	}
+}
+
+interface B1{
+	public void displayClass();
+}
+
+class A1 implements B1{
+	
+	public void displayClass() {
+		System.out.println("Inside super class A");
+	}
+}
+
+public class GenericExample9 {
+
+	public static void main(String[] args) {
+		
+		Bound1<A1> bea = new Bound1<A1>(new A1());
+		bea.doRunTest();
+		
+	}
+}
+
+
+Output:
+
+Inside super class A
+
+Unbounded WildCard
+-It will be represented as List<?>. When the generic class contains the methods that don't depend on the type parameter.
+
+Lower Bounded
+-It will be represented as List<? super Integer>.
+-The purpose of lower bounded wildcards is to restrict the unknown type to be a specific type or a supertype of that type.
+
+<? super Integer>
+
+? is a wildcard character.
+
+super it is a keyword
+
+Integer is a wrapper class.
+
+<? super Integer>- If we write this statement then it works for Integer and its super type(Number, Object). If we write List<Integer> then it works for Integer only.
+
+List<? super Integer> is less restrictive than List<Integer>.
+
+Example:
+
+package GenericsPractice;
+
+import java.util.Arrays;
+import java.util.List;
+
+//WildCard with Lower Bound
+public class GenericExample11 {
+
+	public static void addNumbers(List<? super Integer> list) {
+		
+		for(Object n:list) {
+			System.out.println(n);
+		}
+	}
+	public static void main(String[] args) {
+		
+		List<Integer> l1 = Arrays.asList(1,2,3);
+		System.out.println("displaying the Integer values");
+		addNumbers(l1);
+		
+		List<Number> l2 = Arrays.asList(1.0,2.0,3.0);
+		System.out.print("displaying the Number values");
+		addNumbers(l2);
+		
+		//List<Double> l3 = Arrays.asList(2.3,5.3);
+		//System.out.println("displaying the Double values");
+		
+		//Compile time error
+		//The method addNumbers(List<? super Integer>) in the type
+		//GenericExample11 is not applicable for the arguments 
+		//(List<Double>)
+		//addNumbers(l3);
+	}
+}
+
+Output:
+
+displaying the Integer values
+1
+2
+3
+displaying the Number values1.0
+2.0
+3.0

@@ -1,0 +1,221 @@
+                                   Strings
+What is a String?
+-It is a non-primitive data types. It is an object.
+When comes to string it represents sequence of char values.
+-Java are immutable.
+
+-The java.lang.String class implements Serializable, Comparable and CharSequence interfaces.
+
+We can declare Java in 2 ways:
+1) By String literal
+2) By new keyword
+
+1)String literal:
+-It is used to create string using double quotes. Each time you create a string literal, the JVM checks the "string constant pool". If the string already exists in the pool, a reference to the pooled instance is returned. If the string doesn't exist in the pool, a new string instance is created and placed in the pool.
+
+-String objects are stored in a special memory area known as the "string constant pool".
+
+Why Java uses the concept of String literal?
+
+- To make Java more memory efficient.
+
+2)By new keyword
+
+-While creating String object they will not be placed in pool they will be placed in heap memory.
+
+What does mean immutable String in java?
+
+-Immutable means unmodifiable or unchanged.
+
+-We can create a new string object but older one can't be modified.
+
+1)Heap space
+2)Security
+3)Thread safe-we don't have to take care of the synchronization that is required while sharing an object across multiple threads.
+4)ClassLoader - A ClassLoader in Java uses a String object as an argument. Consider, if the String object is modifiable, the value might be changed and the class that is supposed to be loaded might be different.
+
+Example: 
+ Example1:
+  package Strings_Practice;
+
+public class Strings1 {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+       String s = "uttej";
+       String k = "uttej"; // It doesn't creates a new instance
+       System.out.println(s);
+	}
+}
+  
+Output:
+
+uttej
+
+Example2:
+  package Strings_Practice;
+
+public class Strings2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        String s = new String("uttej");
+        
+        System.out.println(s);
+	}
+}
+
+Output:
+
+uttej
+
+Example3:
+ package Strings_Practice;
+
+public class Strings3 {
+
+	public static void main(String[] args) {
+		char[] c = {'u','t','t','e','j'};
+		
+		String s = new String(c);
+		
+		System.out.println(s);
+	}
+}
+
+Output:
+
+uttej
+
+Example4:
+
+ package Strings_Practice;
+
+public class Strings4 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	   String s = "uttej";
+	   
+	   s.concat("cheedalla");
+	   
+	   System.out.println(s);
+	   
+	   s=s.concat("cheedalla");
+	   
+	   System.out.println(s);
+	}
+
+}
+
+Output:
+
+uttej
+uttejcheedalla
+
+String vs char
+-String is a non primitive data type and class. It is immutable.
+-Char is a primitive data type.
+-String needs to be declare under double quotes whereas char is declared in single quotes.
+
+-The Java platform provides the String class to create and manipulate strings.
+
+Java string compare:
+
+In java string can be compared on basis of content and reference.
+
+1)using equals() method we can authenicate the string
+2)using compareTo() method we can sort the string
+3)using == operator we can do reference matching.
+
+1)equals()- It is used to compare the strings and return boolean value
+
+In equals method we have 2 types of equals method
+1)s.equals(Object another)-it compares the string
+2)s.equalsIgnoreCase(string another)-it also works same as equals method and ignorning case. Means, it doesn't check whether it is lower or upper case.
+
+Example:
+
+  package Strings_Practice;
+
+public class Strings5 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+       String s = "uttej";
+       String t = "UTTEJ";
+       String u = "UtTEj";
+       
+       System.out.println(s.equals(t));
+       System.out.println(s.equals(u));
+       System.out.println(s.equalsIgnoreCase(t));
+       System.out.println(s.equalsIgnoreCase(u));
+       
+	}
+
+}
+
+Output:
+
+false
+false
+true
+true
+
+2) ==  operator 
+-This operator doesn't compare but check whether both are under same reference or not.
+
+Example:
+
+package Strings_Practice;
+
+public class String6 {
+
+	public static void main(String[] args) {
+		String s = "uttej";
+		String t = "uttej";
+		String u = new String("uttej");
+		System.out.println(s == t);
+		System.out.println(s == u);
+	}
+}
+
+Output:
+
+true
+false
+
+3)compareTo()- It is used to compare values lexicographically and returns an integer
+
+There are 3 scenarios in it:
+
+Suppose s1 and s2 are two String objects. If:
+
+s1 == s2 : The method returns 0.
+s1 > s2 : The method returns a positive value.
+s1 < s2 : The method returns a negative value.
+
+Example:
+
+package Strings_Practice;
+
+public class Strings7 {
+
+	public static void main(String[] args) {
+		
+		String s = "uttej";
+		String t = "UTTEJ";
+		
+		String u = "uttej";
+		
+		System.out.println(s.compareTo(t));
+		
+		System.out.println(s.compareTo(u));
+	}
+}
+
+Output:
+
+32
+0
+
